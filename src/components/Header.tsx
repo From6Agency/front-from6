@@ -21,19 +21,106 @@ export function Header() {
   const { t, language, setLanguage } = useLanguage();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => setOpen(false), [pathname]);
 
-  return (
-    <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-3 pt-3 sm:px-4 sm:pt-4">
-      <div className="w-full max-w-3xl">
-        {/* Capsule flottante : nav fixe, centrée, fond translucide + flou. */}
-        <div className="flex items-center justify-between gap-2 rounded-full border border-border/70 bg-background/70 py-2 pl-3 pr-2 shadow-lg shadow-black/[0.04] backdrop-blur-xl sm:gap-4 sm:pl-4">
-          <Link href="/" aria-label="FROM 6 AGENCY" className="flex shrink-0 items-center gap-2">
-            <Image src="/brand/logo-f6a.png" alt="" width={28} height={28} className="rounded-md" priority />
-          </Link>
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-          <nav className="hidden items-center gap-0.5 text-sm text-muted-foreground lg:flex">
+  // Seule la home a un hero sombre en fond de header : tant qu'on n'a pas
+  // scrollé sur cette page-là, le texte doit être clair pour rester lisible
+  // sur ce fond, contrairement aux autres pages (fond clair dès le haut).
+  const onDarkHero = pathname === "/" && !scrolled;
+
+  return (
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
+        scrolled ? "border-b border-border bg-background/90 backdrop-blur-md" : "border-b border-transparent bg-transparent",
+      )}
+    >
+      {/* Trois zones type Aubier : logo à gauche, nav centrée, CTA à droite,
+          plein largeur (pas de capsule flottante). */}
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+        <Link href="/" aria-label="FROM 6 AGENCY" className="flex shrink-0 items-center gap-2.5">
+          <Image
+            src="/brand/logo-f6a.png"
+            alt=""
+            width={30}
+            height={30}
+            className={cn("rounded-md transition-[filter] duration-300", onDarkHero && "invert")}
+            priority
+          />
+          <span className={cn("text-sm font-medium tracking-tight transition-colors duration-300", onDarkHero && "text-hero-fg")}>
+            FROM 6
+          </span>
+        </Link>
+
+        <nav
+          className={cn(
+            "absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 text-sm transition-colors duration-300 lg:flex",
+            onDarkHero ? "text-hero-fg/75" : "text-muted-foreground",
+          )}
+        >
+          {ITEMS.map((item) => {
+            const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
+            return (
+              <Link
+                key={item.key}
+                href={item.href}
+                className={cn(
+                  "rounded-full px-4 py-2 transition-colors duration-200",
+                  onDarkHero ? "hover:bg-hero-fg/10 hover:text-hero-fg" : "hover:bg-accent hover:text-foreground",
+                  active && (onDarkHero ? "bg-hero-fg/10 text-hero-fg" : "bg-accent text-foreground"),
+                )}
+              >
+                {t(`nav.${item.key}`)}
+              </Link>
+            );
+          })}
+        </nav>
+
+        <div className="flex items-center gap-1.5">
+          <button
+            type="button"
+            onClick={() => setLanguage(language === "en" ? "fr" : "en")}
+            className={cn(
+              "hidden items-center gap-1.5 rounded-full px-2.5 py-2 text-xs font-medium transition-colors duration-300 sm:flex",
+              onDarkHero ? "text-hero-fg/75 hover:bg-hero-fg/10 hover:text-hero-fg" : "text-muted-foreground hover:bg-accent hover:text-foreground",
+            )}
+            aria-label="Switch language"
+          >
+            <Globe className="h-3.5 w-3.5" />
+            {language.toUpperCase()}
+          </button>
+
+          <BookCallButton variant={onDarkHero ? "inverted" : "default"} className="!h-9 !px-3 !text-xs sm:!px-4 sm:!text-sm">
+            {language === "en" ? "Book a call" : "Réserver un appel"}
+          </BookCallButton>
+
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className={cn(
+              "flex items-center justify-center rounded-full p-2.5 transition-colors duration-300 lg:hidden",
+              onDarkHero ? "text-hero-fg hover:bg-hero-fg/10" : "text-foreground hover:bg-accent",
+            )}
+            aria-label="Menu"
+            aria-expanded={open}
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
+      </div>
+
+      {open && (
+        <div className="border-t border-border bg-background/98 backdrop-blur-md lg:hidden">
+          <nav className="mx-auto flex max-w-7xl flex-col gap-0.5 px-6 py-3">
             {ITEMS.map((item) => {
               const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
               return (
@@ -41,8 +128,8 @@ export function Header() {
                   key={item.key}
                   href={item.href}
                   className={cn(
-                    "rounded-full px-3 py-1.5 transition-colors duration-200 hover:bg-accent hover:text-foreground",
-                    active && "bg-accent text-foreground",
+                    "rounded-xl px-4 py-3 text-base transition-colors hover:bg-accent",
+                    active ? "bg-accent font-medium text-foreground" : "text-foreground/85",
                   )}
                 >
                   {t(`nav.${item.key}`)}
@@ -50,66 +137,18 @@ export function Header() {
               );
             })}
           </nav>
-
-          <div className="flex items-center gap-1">
+          <div className="mx-auto flex max-w-7xl items-center border-t border-border px-6 py-3">
             <button
               type="button"
               onClick={() => setLanguage(language === "en" ? "fr" : "en")}
-              className="hidden items-center gap-1.5 rounded-full px-2.5 py-2 text-xs font-medium text-muted-foreground hover:bg-accent hover:text-foreground sm:flex"
-              aria-label="Switch language"
+              className="flex items-center gap-1.5 rounded-full px-3 py-2 text-xs font-medium text-muted-foreground hover:bg-accent"
             >
               <Globe className="h-3.5 w-3.5" />
               {language.toUpperCase()}
             </button>
-
-            <BookCallButton className="!h-9 !px-3 !text-xs sm:!px-4 sm:!text-sm">
-              {language === "en" ? "Book a call" : "Réserver un appel"}
-            </BookCallButton>
-
-            <button
-              type="button"
-              onClick={() => setOpen((v) => !v)}
-              className="flex items-center justify-center rounded-full p-2.5 text-foreground hover:bg-accent lg:hidden"
-              aria-label="Menu"
-              aria-expanded={open}
-            >
-              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
           </div>
         </div>
-
-        {open && (
-          <div className="mt-2 overflow-hidden rounded-3xl border border-border/70 bg-background/95 p-2 shadow-lg shadow-black/[0.06] backdrop-blur-xl lg:hidden">
-            <nav className="flex flex-col gap-0.5">
-              {ITEMS.map((item) => {
-                const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
-                return (
-                  <Link
-                    key={item.key}
-                    href={item.href}
-                    className={cn(
-                      "rounded-2xl px-4 py-3 text-base transition-colors hover:bg-accent",
-                      active ? "bg-accent font-medium text-foreground" : "text-foreground/85",
-                    )}
-                  >
-                    {t(`nav.${item.key}`)}
-                  </Link>
-                );
-              })}
-            </nav>
-            <div className="mt-1 flex items-center border-t border-border/70 px-2 pt-3">
-              <button
-                type="button"
-                onClick={() => setLanguage(language === "en" ? "fr" : "en")}
-                className="flex items-center gap-1.5 rounded-full px-3 py-2 text-xs font-medium text-muted-foreground hover:bg-accent"
-              >
-                <Globe className="h-3.5 w-3.5" />
-                {language.toUpperCase()}
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
+      )}
     </header>
   );
 }

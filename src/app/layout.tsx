@@ -124,7 +124,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CalEmbed />
         <LanguageProvider>
           <Header />
-          <main className="min-h-screen pt-20 sm:pt-24">{children}</main>
+          <main className="min-h-screen">{children}</main>
           <Footer />
         </LanguageProvider>
       </body>

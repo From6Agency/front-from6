@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, TrendingUp, Search, Layers, Sparkles } from "lucide-react";
+import { ArrowRight, TrendingUp, Search, Layers, Sparkles, Handshake, Headphones, Linkedin } from "lucide-react";
 import { getAdvisoryServices, getSiteContent } from "@/lib/content";
 import { ServiceCard } from "@/components/ServiceCard";
 import { BookCallButton } from "@/components/BookCallButton";
@@ -10,6 +10,12 @@ import { FloatingOrbs } from "@/components/FloatingOrbs";
 
 const ICONS = [TrendingUp, Search, Layers, Sparkles];
 
+const PROOF = [
+  { icon: Handshake, en: "Salesforce-native Lead-to-Cash, 10+ years", fr: "Lead-to-Cash Salesforce-native, 10+ ans" },
+  { icon: Headphones, en: "Featured on Engrenages & CRM Dojo", fr: "Invité sur Engrenages & CRM Dojo" },
+  { icon: Linkedin, en: "6WAY & Darix, co-founded and operated", fr: "6WAY & Darix, co-fondées et opérées" },
+];
+
 export const revalidate = 60;
 
 export default async function Home() {
@@ -17,13 +23,15 @@ export default async function Home() {
 
   return (
     <div>
-      <section className="hero-section relative isolate flex min-h-[92vh] items-center overflow-hidden">
+      <section className="hero-section relative isolate overflow-hidden pt-36 pb-20 md:pt-44 md:pb-24">
         <FloatingOrbs tone="dark" />
-        <div className="relative mx-auto max-w-5xl px-6 text-center">
-          <h1 className="text-balance mb-8 text-5xl font-medium leading-[1.08] tracking-tight md:text-6xl lg:text-[5.25rem]">
-            A strategic partner for your transformation, from investment to field advisory
+        <div className="relative mx-auto max-w-4xl px-6 text-center">
+          <h1 className="text-balance mb-8 text-4xl font-medium leading-[1.12] tracking-tight md:text-6xl">
+            A strategic partner for your transformation.
+            <br />
+            <span className="text-hero-fg/60">From investment to field advisory.</span>
           </h1>
-          <p className="mx-auto mb-12 max-w-2xl text-lg text-hero-fg/75 md:text-xl">
+          <p className="mx-auto mb-10 max-w-2xl text-lg text-hero-fg/75 md:text-xl">
             {hero.subtitle ? (
               <T en={hero.subtitle.en} fr={hero.subtitle.fr} />
             ) : (
@@ -43,6 +51,19 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
+      {/* Preuve concrète juste sous le hero, dans le flux normal (façon
+          Aubier : des faits vérifiables tout de suite après l'accroche). */}
+      <div className="border-y border-border bg-muted/40">
+        <div className="mx-auto grid max-w-5xl grid-cols-1 divide-y divide-border sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+          {PROOF.map((item) => (
+            <div key={item.en} className="flex items-center justify-center gap-2.5 px-6 py-5 text-center text-sm text-muted-foreground">
+              <item.icon className="h-4 w-4 shrink-0" />
+              <T en={item.en} fr={item.fr} />
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* Un seul fond continu du hero jusqu'à la FAQ : les formes qui dérivent
           en arrière-plan créent la respiration visuelle entre sections,
