@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/legal-notice" },
 };
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export default async function LegalNoticePage() {
   const content = await getSiteContent("legal");

@@ -23,7 +23,7 @@ const PERSON_JSON_LD = {
   knowsAbout: ["Revenue Operations", "Salesforce CPQ", "Lead-to-Cash", "B2B SaaS", "Billing Systems"],
 };
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export default async function AboutPage() {
   const about = await getSiteContent("about");
