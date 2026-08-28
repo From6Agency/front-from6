@@ -15,7 +15,7 @@ export default async function PrivacyPolicyPage() {
   return (
     <div className="section-padding">
       <div className="mx-auto max-w-3xl">
-        <h1 className="mb-10 text-4xl font-semibold">
+        <h1 className="mb-10 text-4xl font-medium">
           <T en="Privacy Policy" fr="Politique de confidentialité" />
         </h1>
         <div className="space-y-4 whitespace-pre-line leading-relaxed text-muted-foreground">

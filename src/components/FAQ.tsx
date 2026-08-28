@@ -45,23 +45,27 @@ export function FAQ() {
   };
 
   return (
-    <section className="section-padding bg-muted/40">
-      <div className="mx-auto max-w-3xl">
-        <div className="mb-10 text-center">
-          <p className="mb-3 text-sm uppercase tracking-wide text-muted-foreground">FAQ</p>
-          <h2 className="text-3xl font-semibold md:text-4xl">
+    <section className="section-pad bg-background">
+      <div className="mx-auto max-w-3xl px-6">
+        <div className="mb-14 text-center">
+          <p className="kicker mb-3 text-muted-foreground">FAQ</p>
+          <h2 className="text-3xl font-medium md:text-4xl">
             <T en="Frequently asked questions" fr="Questions fréquentes" />
           </h2>
         </div>
 
-        <div className="space-y-3">
+        <div className="divide-y divide-border border-y border-border">
           {FAQS.map((f) => (
-            <details key={f.q_en} className="group rounded-2xl border border-border bg-card p-6 card-shadow">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-medium">
-                <T en={f.q_en} fr={f.q_fr} />
-                <span className="shrink-0 text-muted-foreground transition-transform group-open:rotate-45">+</span>
+            <details key={f.q_en} className="group py-6">
+              <summary className="flex cursor-pointer list-none items-start justify-between gap-6">
+                <span className="text-lg font-medium">
+                  <T en={f.q_en} fr={f.q_fr} />
+                </span>
+                <span className="mt-1 shrink-0 font-mono text-xl leading-none text-muted-foreground transition-transform duration-300 group-open:rotate-45">
+                  +
+                </span>
               </summary>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
+              <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">
                 <T en={f.a_en} fr={f.a_fr} />
               </p>
             </details>

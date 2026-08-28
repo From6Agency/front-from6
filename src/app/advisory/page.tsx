@@ -41,8 +41,8 @@ export default async function AdvisoryPage() {
   return (
     <div className="section-padding">
       <div className="mx-auto max-w-4xl">
-        <p className="mb-3 text-sm uppercase tracking-wide text-muted-foreground">Expertise</p>
-        <h1 className="mb-6 text-4xl font-semibold md:text-5xl">Advisory</h1>
+        <p className="mb-3 kicker text-muted-foreground">Expertise</p>
+        <h1 className="mb-6 text-4xl font-medium md:text-5xl">Advisory</h1>
         <p className="mb-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
           <T
             en="Strategic advisory for B2B SaaS companies on revenue operations and business architecture. We help you see clearly where your revenue engine leaks, then rebuild it to scale."
@@ -74,8 +74,8 @@ export default async function AdvisoryPage() {
 
         <div className="mt-24">
           <div className="mb-12 text-center">
-            <p className="mb-3 text-sm uppercase tracking-wide text-muted-foreground">Process</p>
-            <h2 className="text-3xl font-semibold">
+            <p className="mb-3 kicker text-muted-foreground">Process</p>
+            <h2 className="text-3xl font-medium">
               <T en="How we work" fr="Comment nous travaillons" />
             </h2>
           </div>
@@ -100,7 +100,7 @@ export default async function AdvisoryPage() {
         </div>
 
         <div className="mt-24 rounded-2xl bg-muted/50 p-10 text-center md:p-14">
-          <h2 className="mb-4 text-2xl font-semibold md:text-3xl">
+          <h2 className="mb-4 text-2xl font-medium md:text-3xl">
             <T en="Not sure where the revenue leaks are?" fr="Vous ne savez pas où sont les fuites de revenue ?" />
           </h2>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground">

@@ -13,8 +13,8 @@ export default function ContactPage() {
     <div className="section-padding">
       <div className="mx-auto max-w-xl">
         <div className="mb-12 text-center">
-          <p className="mb-3 text-sm uppercase tracking-wide text-muted-foreground">Contact</p>
-          <h1 className="mb-6 text-4xl font-semibold md:text-5xl">
+          <p className="mb-3 kicker text-muted-foreground">Contact</p>
+          <h1 className="mb-6 text-4xl font-medium md:text-5xl">
             <T en="Get in Touch" fr="Prenez contact" />
           </h1>
           <p className="text-lg leading-relaxed text-muted-foreground">

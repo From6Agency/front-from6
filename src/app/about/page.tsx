@@ -41,10 +41,10 @@ export default async function AboutPage() {
           </div>
 
           <div className="md:col-span-2">
-            <p className="mb-3 text-sm uppercase tracking-wide text-muted-foreground">
+            <p className="mb-3 kicker text-muted-foreground">
               <T en="About us" fr="À propos" />
             </p>
-            <h1 className="mb-8 text-4xl font-semibold md:text-5xl">FROM 6 AGENCY</h1>
+            <h1 className="mb-8 text-4xl font-medium md:text-5xl">FROM 6 AGENCY</h1>
             <div className="max-w-none">
               {bioEn.split("\n\n").map((para, i) => (
                 <p key={i} className="mb-6 text-lg leading-relaxed text-muted-foreground">

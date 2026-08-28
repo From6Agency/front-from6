@@ -1,25 +1,34 @@
 import Link from "next/link";
-import { ArrowRight, TrendingUp, Search, Layers, Sparkles } from "lucide-react";
+import { ArrowRight, TrendingUp, Search, Layers, Sparkles, Headphones, Linkedin, Handshake } from "lucide-react";
 import { getAdvisoryServices, getSiteContent } from "@/lib/content";
 import { ServiceCard } from "@/components/ServiceCard";
 import { BookCallButton } from "@/components/BookCallButton";
 import { FAQ } from "@/components/FAQ";
 import { T } from "@/components/Bilingual";
+import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 
 const ICONS = [TrendingUp, Search, Layers, Sparkles];
+
+const PROOF = [
+  { icon: Handshake, en: "Salesforce-native Lead-to-Cash, 10+ years", fr: "Lead-to-Cash Salesforce-native, 10+ ans" },
+  { icon: Headphones, en: "Featured on Engrenages & CRM Dojo", fr: "Invité sur Engrenages & CRM Dojo" },
+  { icon: Linkedin, en: "6WAY & Darix, co-founded and operated", fr: "6WAY & Darix, co-fondées et opérées" },
+];
 
 export default async function Home() {
   const [services, hero] = await Promise.all([getAdvisoryServices(4), getSiteContent("hero")]);
 
   return (
     <div>
-      <section className="hero-section flex items-center justify-center py-24 md:py-32">
-        <div className="mx-auto max-w-5xl px-6 text-center">
-          <p className="mb-6 text-sm uppercase tracking-wide text-hero-fg/70 md:text-base">Advisory · Investments · Intelligence</p>
-          <h1 className="mb-8 text-5xl font-semibold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl">
-            A strategic partner for B2B SaaS revenue, from advice to investment
+      <section className="hero-section relative flex min-h-[92vh] items-center overflow-hidden">
+        <div className="blueprint-grid absolute inset-0" />
+        <div className="hero-glow absolute inset-0" />
+        <div className="relative mx-auto max-w-5xl px-6 text-center">
+          <p className="kicker mb-8 text-hero-fg/60">Advisory · Investments · Intelligence</p>
+          <h1 className="text-balance mb-8 text-5xl font-medium leading-[1.08] tracking-tight md:text-6xl lg:text-[5.25rem]">
+            A strategic partner for <em className="italic text-primary">B2B SaaS revenue</em>, from advice to investment
           </h1>
-          <p className="mx-auto mb-12 max-w-3xl text-xl font-light text-hero-fg/80 md:text-2xl">
+          <p className="mx-auto mb-12 max-w-2xl text-lg text-hero-fg/75 md:text-xl">
             {hero.subtitle ? (
               <T en={hero.subtitle.en} fr={hero.subtitle.fr} />
             ) : (
@@ -32,36 +41,44 @@ export default async function Home() {
             </BookCallButton>
             <Link
               href="/advisory"
-              className="inline-flex h-12 items-center justify-center rounded-full border border-hero-fg/30 px-7 text-base font-medium hover:bg-hero-fg/10"
+              className="inline-flex h-12 items-center justify-center rounded-full border border-hero-fg/25 px-7 text-base font-medium transition-colors hover:bg-hero-fg/10"
             >
               <T en="See what we do" fr="Voir ce que nous faisons" />
             </Link>
           </div>
         </div>
+
+        <div className="absolute bottom-0 left-0 right-0 border-t border-hero-fg/10 bg-hero-bg/60 backdrop-blur">
+          <div className="mx-auto grid max-w-5xl grid-cols-1 divide-y divide-hero-fg/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+            {PROOF.map((item) => (
+              <div key={item.en} className="flex items-center justify-center gap-2.5 px-6 py-4 text-sm text-hero-fg/70">
+                <item.icon className="h-3.5 w-3.5 shrink-0 text-primary" />
+                <T en={item.en} fr={item.fr} />
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
-      <section className="section-padding bg-background">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-16 text-center">
-            <p className="mb-3 text-sm uppercase tracking-wide text-muted-foreground">Expertise</p>
-            <h2 className="mb-4 text-3xl font-semibold md:text-4xl">Advisory</h2>
+      <section className="section-pad bg-background">
+        <div className="mx-auto max-w-6xl px-6">
+          <Reveal className="mb-16 text-center">
+            <p className="kicker mb-3 text-muted-foreground">Expertise</p>
+            <h2 className="mb-4 text-3xl font-medium md:text-4xl">Advisory</h2>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
               <T
                 en="Diagnose, fix, and future-proof your revenue engine. From platform and process audits to RevOps strategy, data migrations, and GTM engineering, we work inside your stack, not just on a slide."
                 fr="Diagnostiquer, corriger et pérenniser votre moteur revenue. Des audits plateforme et processus à la stratégie RevOps, aux migrations de données et à l'ingénierie GTM, nous travaillons dans votre stack, pas seulement sur un slide."
               />
             </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          </Reveal>
+          <RevealGroup className="grid gap-5 md:grid-cols-2">
             {services.map((service, i) => (
-              <ServiceCard
-                key={service.id}
-                icon={ICONS[i] ?? Sparkles}
-                title={service.title}
-                description={service.description}
-              />
+              <RevealItem key={service.id}>
+                <ServiceCard icon={ICONS[i] ?? Sparkles} title={service.title} description={service.description} />
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
           <div className="mt-12 text-center">
             <Link
               href="/advisory"
@@ -73,10 +90,10 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="section-padding bg-muted/50">
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="mb-3 text-sm uppercase tracking-wide text-muted-foreground">Portfolio</p>
-          <h2 className="mb-6 text-3xl font-semibold md:text-4xl">
+      <section className="section-pad bg-muted/40">
+        <Reveal className="mx-auto max-w-4xl px-6 text-center">
+          <p className="kicker mb-3 text-muted-foreground">Portfolio</p>
+          <h2 className="mb-6 text-3xl font-medium md:text-4xl">
             <T en="Our Projects" fr="Nos Projets" />
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
@@ -93,13 +110,13 @@ export default async function Home() {
               <T en="See the projects" fr="Voir les projets" /> <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
-        </div>
+        </Reveal>
       </section>
 
-      <section className="section-padding bg-background">
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="mb-3 text-sm uppercase tracking-wide text-muted-foreground">Insights</p>
-          <h2 className="mb-6 text-3xl font-semibold md:text-4xl">
+      <section className="section-pad bg-background">
+        <Reveal className="mx-auto max-w-4xl px-6 text-center">
+          <p className="kicker mb-3 text-muted-foreground">Insights</p>
+          <h2 className="mb-6 text-3xl font-medium md:text-4xl">
             <T en="Media & Speaking" fr="Media & Conférences" />
           </h2>
           <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground">
@@ -114,17 +131,18 @@ export default async function Home() {
           >
             <T en="View media" fr="Voir le media" /> <ArrowRight className="h-4 w-4" />
           </Link>
-        </div>
+        </Reveal>
       </section>
 
       <FAQ />
 
-      <section className="section-padding bg-background">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="mb-6 text-3xl font-semibold md:text-4xl">
+      <section className="section-pad relative overflow-hidden bg-hero-bg text-hero-fg">
+        <div className="blueprint-grid absolute inset-0 opacity-60" />
+        <Reveal className="relative mx-auto max-w-3xl px-6 text-center">
+          <h2 className="mb-6 text-3xl font-medium md:text-4xl">
             <T en="Let's fix the way your revenue runs" fr="Réparons la façon dont votre revenue fonctionne" />
           </h2>
-          <p className="mb-10 text-lg leading-relaxed text-muted-foreground">
+          <p className="mb-10 text-lg leading-relaxed text-hero-fg/75">
             <T
               en="Whether you need an advisor, an operator, or a partner who invests, the starting point is the same: a clear look at how your revenue engine works today."
               fr="Que vous cherchiez un conseiller, un opérateur ou un partenaire qui investit, le point de départ est le même : un regard clair sur votre moteur revenue aujourd'hui."
@@ -133,7 +151,7 @@ export default async function Home() {
           <BookCallButton size="lg">
             <T en="Book a 30-min call" fr="Réserver un appel de 30 min" />
           </BookCallButton>
-        </div>
+        </Reveal>
       </section>
     </div>
   );

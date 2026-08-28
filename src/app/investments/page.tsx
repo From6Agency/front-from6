@@ -38,10 +38,10 @@ export default async function InvestmentsPage() {
     <div className="section-padding">
       <div className="mx-auto max-w-6xl">
         <div className="mb-20 max-w-4xl">
-          <p className="mb-3 text-sm uppercase tracking-wide text-muted-foreground">
+          <p className="mb-3 kicker text-muted-foreground">
             <T en="Our Projects" fr="Nos Projets" />
           </p>
-          <h1 className="mb-6 text-4xl font-semibold md:text-5xl">
+          <h1 className="mb-6 text-4xl font-medium md:text-5xl">
             <T en="We back the builders we'd want to work alongside" fr="Nous soutenons les fondateurs avec qui nous voulons travailler" />
           </h1>
           <p className="text-lg leading-relaxed text-muted-foreground">

@@ -50,8 +50,8 @@ export default async function MediaPage() {
     <div className="section-padding">
       <div className="mx-auto max-w-5xl">
         <div className="mb-16 text-center">
-          <p className="mb-3 text-sm uppercase tracking-wide text-muted-foreground">Media</p>
-          <h1 className="mb-6 text-4xl font-semibold md:text-5xl">
+          <p className="mb-3 kicker text-muted-foreground">Media</p>
+          <h1 className="mb-6 text-4xl font-medium md:text-5xl">
             <T en="Media & Speaking" fr="Media & Conférences" />
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
@@ -188,7 +188,7 @@ export default async function MediaPage() {
         )}
 
         <div className="rounded-xl border border-border bg-card p-8 text-center card-shadow md:p-10">
-          <h2 className="mb-4 text-2xl font-semibold">
+          <h2 className="mb-4 text-2xl font-medium">
             <T en="Want us on your show or stage?" fr="Vous nous voulez sur votre podcast ou votre scène ?" />
           </h2>
           <p className="mx-auto mb-6 max-w-2xl text-lg text-muted-foreground">
