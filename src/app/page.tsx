@@ -24,7 +24,6 @@ export default async function Home() {
         <div className="blueprint-grid absolute inset-0" />
         <div className="hero-glow absolute inset-0" />
         <div className="relative mx-auto max-w-5xl px-6 text-center">
-          <p className="kicker mb-8 text-hero-fg/60">Advisory · Investments · Intelligence</p>
           <h1 className="text-balance mb-8 text-5xl font-medium leading-[1.08] tracking-tight md:text-6xl lg:text-[5.25rem]">
             A strategic partner for <em className="not-italic underline decoration-1 underline-offset-4">B2B SaaS revenue</em>, from advice to investment
           </h1>
