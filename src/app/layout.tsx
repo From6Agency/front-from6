@@ -28,7 +28,7 @@ const geistMono = Geist_Mono({
 const SITE_URL = "https://from6agency.com";
 const TITLE = "FROM 6 AGENCY | Advisory, Investments & Intelligence for B2B SaaS";
 const DESCRIPTION =
-  "FROM 6 partners with B2B SaaS teams on revenue, business architecture, and AI-powered workflows — from advisory to investment.";
+  "FROM 6 partners with B2B SaaS teams on revenue, business architecture, and AI-powered workflows, from advisory to investment.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

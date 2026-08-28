@@ -5,7 +5,7 @@ import { BookCallButton } from "@/components/BookCallButton";
 import { T } from "@/components/Bilingual";
 
 export const metadata: Metadata = {
-  title: "Advisory — Revenue & Business Architecture",
+  title: "Advisory | Revenue & Business Architecture",
   description:
     "Senior advisory for B2B SaaS revenue: diagnosis, design, and architecture of CRM, CPQ, billing, and AI-powered workflows.",
   alternates: { canonical: "/advisory" },

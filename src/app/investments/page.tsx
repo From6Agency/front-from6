@@ -6,7 +6,7 @@ import { getPortfolioCompanies } from "@/lib/content";
 import { T } from "@/components/Bilingual";
 
 export const metadata: Metadata = {
-  title: "Our Projects — Portfolio",
+  title: "Our Projects | Portfolio",
   description: "The projects FROM 6 backs and builds alongside founders: RevOps tools, AI-powered workflows, and vertical SaaS.",
   alternates: { canonical: "/investments" },
 };
