@@ -62,11 +62,9 @@ export function Header() {
               {language.toUpperCase()}
             </button>
 
-            <div className="hidden lg:block">
-              <BookCallButton className="!h-9 !px-4 !text-sm">
-                {language === "en" ? "Book a call" : "Réserver un appel"}
-              </BookCallButton>
-            </div>
+            <BookCallButton className="!h-9 !px-3 !text-xs sm:!px-4 sm:!text-sm">
+              {language === "en" ? "Book a call" : "Réserver un appel"}
+            </BookCallButton>
 
             <button
               type="button"
@@ -99,7 +97,7 @@ export function Header() {
                 );
               })}
             </nav>
-            <div className="mt-1 flex items-center justify-between gap-2 border-t border-border/70 px-2 pt-3">
+            <div className="mt-1 flex items-center border-t border-border/70 px-2 pt-3">
               <button
                 type="button"
                 onClick={() => setLanguage(language === "en" ? "fr" : "en")}
@@ -108,7 +106,6 @@ export function Header() {
                 <Globe className="h-3.5 w-3.5" />
                 {language.toUpperCase()}
               </button>
-              <BookCallButton className="!h-10 !px-5 !text-sm" />
             </div>
           </div>
         )}

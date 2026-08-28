@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, TrendingUp, Search, Layers, Sparkles, Headphones, Linkedin, Handshake } from "lucide-react";
+import { ArrowRight, TrendingUp, Search, Layers, Sparkles } from "lucide-react";
 import { getAdvisoryServices, getSiteContent } from "@/lib/content";
 import { ServiceCard } from "@/components/ServiceCard";
 import { BookCallButton } from "@/components/BookCallButton";
@@ -9,12 +9,6 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { FloatingOrbs } from "@/components/FloatingOrbs";
 
 const ICONS = [TrendingUp, Search, Layers, Sparkles];
-
-const PROOF = [
-  { icon: Handshake, en: "Salesforce-native Lead-to-Cash, 10+ years", fr: "Lead-to-Cash Salesforce-native, 10+ ans" },
-  { icon: Headphones, en: "Featured on Engrenages & CRM Dojo", fr: "Invité sur Engrenages & CRM Dojo" },
-  { icon: Linkedin, en: "6WAY & Darix, co-founded and operated", fr: "6WAY & Darix, co-fondées et opérées" },
-];
 
 export default async function Home() {
   const [services, hero] = await Promise.all([getAdvisoryServices(4), getSiteContent("hero")]);
@@ -44,17 +38,6 @@ export default async function Home() {
             >
               <T en="See what we do" fr="Voir ce que nous faisons" />
             </Link>
-          </div>
-        </div>
-
-        <div className="absolute bottom-0 left-0 right-0 border-t border-hero-fg/10 bg-hero-bg/60 backdrop-blur">
-          <div className="mx-auto grid max-w-5xl grid-cols-1 divide-y divide-hero-fg/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-            {PROOF.map((item) => (
-              <div key={item.en} className="flex items-center justify-center gap-2.5 px-6 py-4 text-sm text-hero-fg/70">
-                <item.icon className="h-3.5 w-3.5 shrink-0 text-hero-fg" />
-                <T en={item.en} fr={item.fr} />
-              </div>
-            ))}
           </div>
         </div>
       </section>
