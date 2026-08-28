@@ -45,7 +45,7 @@ export function FAQ() {
   };
 
   return (
-    <section className="section-pad bg-background">
+    <section className="section-pad relative">
       <div className="mx-auto max-w-3xl px-6">
         <div className="mb-14 text-center">
           <p className="kicker mb-3 text-muted-foreground">FAQ</p>

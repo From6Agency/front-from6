@@ -21,7 +21,7 @@ export default async function Home() {
 
   return (
     <div>
-      <section className="hero-section relative flex min-h-[92vh] items-center overflow-hidden">
+      <section className="hero-section relative isolate flex min-h-[92vh] items-center overflow-hidden">
         <FloatingOrbs tone="dark" />
         <div className="relative mx-auto max-w-5xl px-6 text-center">
           <h1 className="text-balance mb-8 text-5xl font-medium leading-[1.08] tracking-tight md:text-6xl lg:text-[5.25rem]">
@@ -62,7 +62,7 @@ export default async function Home() {
       {/* Un seul fond continu du hero jusqu'à la FAQ : les formes qui dérivent
           en arrière-plan créent la respiration visuelle entre sections,
           plutôt que des blocs de couleur alternés ou un quadrillage. */}
-      <div className="relative overflow-hidden bg-background">
+      <div className="relative isolate overflow-hidden bg-background">
         <FloatingOrbs tone="light" />
 
         <section className="section-pad relative">
@@ -142,7 +142,7 @@ export default async function Home() {
         <FAQ />
       </div>
 
-      <section className="section-pad relative overflow-hidden bg-hero-bg text-hero-fg">
+      <section className="section-pad relative isolate overflow-hidden bg-hero-bg text-hero-fg">
         <FloatingOrbs tone="dark" />
         <Reveal className="relative mx-auto max-w-3xl px-6 text-center">
           <h2 className="mb-6 text-3xl font-medium md:text-4xl">

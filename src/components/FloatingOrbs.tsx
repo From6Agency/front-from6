@@ -8,27 +8,30 @@ import { motion } from "motion/react";
 // Sonho (aubier-expertise, grille.fr) où le fond respire d'une section à
 // l'autre plutôt que de se découper.
 export function FloatingOrbs({ tone = "light" }: { tone?: "light" | "dark" }) {
-  const base = tone === "dark" ? "hsl(var(--hero-fg))" : "hsl(var(--foreground))";
+  // En clair : gris moyen (le foreground quasi-noir à faible opacité restait
+  // imperceptible sur fond blanc). En sombre : blanc.
+  const base = tone === "dark" ? "#ffffff" : "hsl(0 0% 45%)";
+  const op = tone === "dark" ? [0.22, 0.16, 0.13] : [0.16, 0.12, 0.1];
 
   return (
     <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
       <motion.div
-        className="absolute -left-32 top-0 h-[560px] w-[560px] rounded-full blur-[110px]"
-        style={{ background: base, opacity: tone === "dark" ? 0.07 : 0.045 }}
-        animate={{ y: [0, 40, 0], x: [0, 20, 0] }}
-        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -left-32 top-0 h-[560px] w-[560px] rounded-full blur-[90px]"
+        style={{ background: base, opacity: op[0] }}
+        animate={{ y: [0, 50, 0], x: [0, 30, 0] }}
+        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute right-[-10%] top-[30%] h-[480px] w-[480px] rounded-full blur-[100px]"
-        style={{ background: base, opacity: tone === "dark" ? 0.06 : 0.035 }}
-        animate={{ y: [0, -50, 0], x: [0, -25, 0] }}
-        transition={{ duration: 26, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className="absolute right-[-12%] top-[25%] h-[480px] w-[480px] rounded-full blur-[85px]"
+        style={{ background: base, opacity: op[1] }}
+        animate={{ y: [0, -60, 0], x: [0, -35, 0] }}
+        transition={{ duration: 21, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
       />
       <motion.div
-        className="absolute left-[20%] bottom-[-10%] h-[420px] w-[420px] rounded-full blur-[100px]"
-        style={{ background: base, opacity: tone === "dark" ? 0.055 : 0.03 }}
-        animate={{ y: [0, 30, 0] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+        className="absolute left-[15%] bottom-[-12%] h-[420px] w-[420px] rounded-full blur-[85px]"
+        style={{ background: base, opacity: op[2] }}
+        animate={{ y: [0, 40, 0], x: [0, -15, 0] }}
+        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut", delay: 3 }}
       />
     </div>
   );
