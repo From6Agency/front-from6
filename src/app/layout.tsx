@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -107,7 +106,7 @@ const JSON_LD = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geist.variable} ${geistMono.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
       <body className="antialiased">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }} />
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-WCGGK530BM" strategy="afterInteractive" />
@@ -115,13 +114,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-WCGGK530BM');`}
         </Script>
         <CalEmbed />
-        <ThemeProvider>
-          <LanguageProvider>
-            <Header />
-            <main className="min-h-screen pt-20 sm:pt-24">{children}</main>
-            <Footer />
-          </LanguageProvider>
-        </ThemeProvider>
+        <LanguageProvider>
+          <Header />
+          <main className="min-h-screen pt-20 sm:pt-24">{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

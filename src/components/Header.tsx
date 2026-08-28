@@ -4,8 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
-import { Menu, X, Sun, Moon, Globe } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { BookCallButton } from "@/components/BookCallButton";
 import { cn } from "@/lib/utils";
@@ -20,12 +19,9 @@ const ITEMS = [
 
 export function Header() {
   const { t, language, setLanguage } = useLanguage();
-  const { theme, setTheme } = useTheme();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => setMounted(true), []);
   useEffect(() => setOpen(false), [pathname]);
 
   return (
@@ -34,7 +30,7 @@ export function Header() {
         {/* Capsule flottante : nav fixe, centrée, fond translucide + flou. */}
         <div className="flex items-center justify-between gap-2 rounded-full border border-border/70 bg-background/70 py-2 pl-3 pr-2 shadow-lg shadow-black/[0.04] backdrop-blur-xl sm:gap-4 sm:pl-4">
           <Link href="/" aria-label="FROM 6 AGENCY" className="flex shrink-0 items-center gap-2">
-            <Image src="/brand/logo-f6a.png" alt="" width={28} height={28} className="rounded-md dark:invert" priority />
+            <Image src="/brand/logo-f6a.png" alt="" width={28} height={28} className="rounded-md" priority />
           </Link>
 
           <nav className="hidden items-center gap-0.5 text-sm text-muted-foreground lg:flex">
@@ -65,17 +61,6 @@ export function Header() {
               <Globe className="h-3.5 w-3.5" />
               {language.toUpperCase()}
             </button>
-
-            {mounted && (
-              <button
-                type="button"
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="hidden rounded-full p-2 text-muted-foreground hover:bg-accent hover:text-foreground sm:flex"
-                aria-label="Toggle theme"
-              >
-                {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-              </button>
-            )}
 
             <div className="hidden lg:block">
               <BookCallButton className="!h-9 !px-4 !text-sm">
@@ -115,26 +100,14 @@ export function Header() {
               })}
             </nav>
             <div className="mt-1 flex items-center justify-between gap-2 border-t border-border/70 px-2 pt-3">
-              <div className="flex items-center gap-1">
-                <button
-                  type="button"
-                  onClick={() => setLanguage(language === "en" ? "fr" : "en")}
-                  className="flex items-center gap-1.5 rounded-full px-3 py-2 text-xs font-medium text-muted-foreground hover:bg-accent"
-                >
-                  <Globe className="h-3.5 w-3.5" />
-                  {language.toUpperCase()}
-                </button>
-                {mounted && (
-                  <button
-                    type="button"
-                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                    className="rounded-full p-2.5 text-muted-foreground hover:bg-accent"
-                    aria-label="Toggle theme"
-                  >
-                    {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-                  </button>
-                )}
-              </div>
+              <button
+                type="button"
+                onClick={() => setLanguage(language === "en" ? "fr" : "en")}
+                className="flex items-center gap-1.5 rounded-full px-3 py-2 text-xs font-medium text-muted-foreground hover:bg-accent"
+              >
+                <Globe className="h-3.5 w-3.5" />
+                {language.toUpperCase()}
+              </button>
               <BookCallButton className="!h-10 !px-5 !text-sm" />
             </div>
           </div>

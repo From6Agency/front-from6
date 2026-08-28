@@ -12,7 +12,7 @@ export function Footer() {
     <footer className="border-t border-border bg-muted/30">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 md:flex-row md:items-center md:justify-between md:py-12">
         <div className="flex items-center gap-3">
-          <Image src="/brand/logo-f6a.png" alt="FROM 6 AGENCY" width={24} height={24} className="rounded dark:invert" />
+          <Image src="/brand/logo-f6a.png" alt="FROM 6 AGENCY" width={24} height={24} className="rounded" />
           <p className="text-sm text-muted-foreground">{t("footer.copyright")}</p>
         </div>
 
