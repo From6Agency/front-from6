@@ -35,6 +35,8 @@ const STEPS = [
   },
 ];
 
+export const dynamic = "force-dynamic";
+
 export default async function AdvisoryPage() {
   const services = await getAdvisoryServices();
 

@@ -10,6 +10,8 @@ import { FloatingOrbs } from "@/components/FloatingOrbs";
 
 const ICONS = [TrendingUp, Search, Layers, Sparkles];
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const [services, hero] = await Promise.all([getAdvisoryServices(4), getSiteContent("hero")]);
 

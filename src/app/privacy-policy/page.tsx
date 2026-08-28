@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacy-policy" },
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function PrivacyPolicyPage() {
   const content = await getSiteContent("privacy");
   const body = content.content ?? { en: "", fr: "" };

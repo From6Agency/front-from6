@@ -66,6 +66,8 @@ const ADDITIONAL = [
   { en: "Hands-on business systems architecture", fr: "Architecture des systèmes business, de façon concrète" },
 ];
 
+export const dynamic = "force-dynamic";
+
 export default async function InvestmentsPage() {
   const companies = await getPortfolioCompanies();
 

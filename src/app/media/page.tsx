@@ -43,6 +43,8 @@ function extractYouTubeId(url: string) {
   return match ? match[1] : null;
 }
 
+export const dynamic = "force-dynamic";
+
 export default async function MediaPage() {
   const [videos, opportunities] = await Promise.all([getFeaturedVideos(), getMediaOpportunities()]);
 
