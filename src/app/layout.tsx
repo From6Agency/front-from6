@@ -118,7 +118,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider>
           <LanguageProvider>
             <Header />
-            <main className="min-h-screen pt-16">{children}</main>
+            <main className="min-h-screen pt-20 sm:pt-24">{children}</main>
             <Footer />
           </LanguageProvider>
         </ThemeProvider>

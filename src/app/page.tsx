@@ -40,7 +40,7 @@ export default async function Home() {
             </BookCallButton>
             <Link
               href="/advisory"
-              className="inline-flex h-12 items-center justify-center rounded-full border border-hero-fg/25 px-7 text-base font-medium transition-colors hover:bg-hero-fg/10"
+              className="inline-flex h-12 items-center justify-center rounded-full border border-hero-fg/40 bg-hero-fg/[0.06] px-7 text-base font-medium transition-colors hover:border-hero-fg/60 hover:bg-hero-fg/10"
             >
               <T en="See what we do" fr="Voir ce que nous faisons" />
             </Link>
