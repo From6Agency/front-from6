@@ -1,14 +1,19 @@
 import type { LucideIcon } from "lucide-react";
+import { T } from "@/components/Bilingual";
 
 export function ServiceCard({
   icon: Icon,
   title,
+  titleFr,
   description,
+  descriptionFr,
   index,
 }: {
   icon: LucideIcon;
   title: string;
+  titleFr?: string;
   description: string;
+  descriptionFr?: string;
   index?: number;
 }) {
   return (
@@ -21,8 +26,12 @@ export function ServiceCard({
           <span className="font-mono text-xs text-muted-foreground">{String(index + 1).padStart(2, "0")}</span>
         )}
       </div>
-      <h3 className="mb-2 text-xl font-medium">{title}</h3>
-      <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
+      <h3 className="mb-2 text-xl font-medium">
+        <T en={title} fr={titleFr || title} />
+      </h3>
+      <p className="text-sm leading-relaxed text-muted-foreground">
+        <T en={description} fr={descriptionFr || description} />
+      </p>
     </div>
   );
 }

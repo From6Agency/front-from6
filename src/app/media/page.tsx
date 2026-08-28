@@ -20,7 +20,7 @@ const MEDIA_TYPES = [
     title_en: "Podcasts",
     title_fr: "Podcasts",
     desc_en: "Guest appearances on B2B SaaS operations, revenue, and the systems behind scale.",
-    desc_fr: "Apparitions sur les opérations B2B SaaS, le revenue et les systèmes qui soutiennent la croissance.",
+    desc_fr: "Interventions sur les opérations B2B SaaS, les revenus et les systèmes qui soutiennent la croissance.",
   },
   {
     icon: Users,
@@ -46,8 +46,38 @@ function extractYouTubeId(url: string) {
 export default async function MediaPage() {
   const [videos, opportunities] = await Promise.all([getFeaturedVideos(), getMediaOpportunities()]);
 
+  const mediaJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "PodcastEpisode",
+        name: "Episode 29 — Inside Salesforce & CPQ: the RevOps decoder",
+        url: EPISODE_URL,
+        partOfSeries: { "@type": "PodcastSeries", name: "Engrenages" },
+        description:
+          "Franck Berthelot opens the hood on Salesforce and CPQ: why a Quote-to-Cash project is never just technical, where no-code stops, and how the RevOps hybrid profile becomes the real engine of transformation.",
+        actor: { "@type": "Person", name: "Franck Berthelot" },
+      },
+      ...videos
+        .map((video) => {
+          const videoId = extractYouTubeId(video.youtube_url);
+          if (!videoId) return null;
+          return {
+            "@type": "VideoObject",
+            name: video.title,
+            description: video.description,
+            thumbnailUrl: `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`,
+            embedUrl: `https://www.youtube.com/embed/${videoId}`,
+            uploadDate: video.created_at,
+          };
+        })
+        .filter(Boolean),
+    ],
+  };
+
   return (
     <div className="section-padding">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(mediaJsonLd) }} />
       <div className="mx-auto max-w-5xl">
         <div className="mb-16 text-center">
           <p className="mb-3 kicker text-muted-foreground">Media</p>
@@ -57,7 +87,7 @@ export default async function MediaPage() {
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             <T
               en="Available for podcasts, interviews, and speaking engagements on B2B SaaS, RevOps, Lead-to-Cash, and business architecture."
-              fr="Disponible pour podcasts, interviews et conférences sur B2B SaaS, RevOps et architecture business."
+              fr="Disponible pour des podcasts, interviews et conférences sur le B2B SaaS, le RevOps, le Lead-to-Cash et l'architecture business."
             />
           </p>
         </div>
@@ -152,8 +182,12 @@ export default async function MediaPage() {
                           />
                         </div>
                         <div className="space-y-3">
-                          <h3 className="text-xl font-medium text-foreground">{video.title}</h3>
-                          <p className="text-sm leading-7 text-muted-foreground">{video.description}</p>
+                          <h3 className="text-xl font-medium text-foreground">
+                            <T en={video.title} fr={video.title_fr || video.title} />
+                          </h3>
+                          <p className="text-sm leading-7 text-muted-foreground">
+                            <T en={video.description} fr={video.description_fr || video.description} />
+                          </p>
                         </div>
                       </article>
                     );
@@ -177,8 +211,12 @@ export default async function MediaPage() {
                       <Mic className="h-4 w-4" />
                     </div>
                     <div className="flex-grow">
-                      <h3 className="mb-1 font-medium">{opp.title}</h3>
-                      <p className="text-sm text-muted-foreground">{opp.description}</p>
+                      <h3 className="mb-1 font-medium">
+                        <T en={opp.title} fr={opp.title_fr || opp.title} />
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        <T en={opp.description} fr={opp.description_fr || opp.description} />
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -194,7 +232,7 @@ export default async function MediaPage() {
           <p className="mx-auto mb-6 max-w-2xl text-lg text-muted-foreground">
             <T
               en="We're happy to share practical, no-fluff takes on revenue systems and how B2B SaaS companies actually scale."
-              fr="Nous sommes ravis de partager des analyses pratiques et sans détour sur les systèmes revenue et la façon dont les entreprises B2B SaaS scalent vraiment."
+              fr="Nous partageons volontiers des analyses concrètes et sans détour sur les systèmes de revenus et la manière dont les entreprises B2B SaaS scalent vraiment."
             />
           </p>
           <BookCallButton size="lg">

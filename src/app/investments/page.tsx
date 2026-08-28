@@ -12,23 +12,58 @@ export const metadata: Metadata = {
 };
 
 const THESIS = [
-  { title: "Revenue infrastructure & RevOps tools", desc: "Products that make go-to-market teams faster and cleaner." },
-  { title: "AI-powered workflows", desc: "Automation that compounds, not features that demo well." },
-  { title: "Vertical SaaS", desc: "Focused platforms owning a specific industry's lead-to-cash." },
+  {
+    title_en: "Revenue infrastructure & RevOps tools",
+    title_fr: "Infrastructure de revenus & outils RevOps",
+    desc_en: "Products that make go-to-market teams faster and cleaner.",
+    desc_fr: "Des produits qui rendent les équipes go-to-market plus rapides et plus efficaces.",
+  },
+  {
+    title_en: "AI-powered workflows",
+    title_fr: "Workflows augmentés par l'IA",
+    desc_en: "Automation that compounds, not features that demo well.",
+    desc_fr: "Une automatisation qui s'accumule dans le temps, pas des fonctionnalités qui brillent en démo.",
+  },
+  {
+    title_en: "Vertical SaaS",
+    title_fr: "SaaS vertical",
+    desc_en: "Focused platforms owning a specific industry's lead-to-cash.",
+    desc_fr: "Des plateformes focalisées qui maîtrisent le lead-to-cash d'un secteur précis.",
+  },
 ];
 
 const PARTNERSHIP = [
-  { title: "Go-to-Market strategy & execution", desc: "Building efficient sales engines and scalable GTM motions." },
-  { title: "Revenue platform architecture", desc: "Designing revenue infrastructure right, from day one." },
-  { title: "Product positioning & roadmap", desc: "Aligning product strategy with real market needs." },
-  { title: "Revenue Operations setup", desc: "CRM foundations, quote-to-cash, finance systems, and analytics." },
+  {
+    title_en: "Go-to-Market strategy & execution",
+    title_fr: "Stratégie et exécution Go-to-Market",
+    desc_en: "Building efficient sales engines and scalable GTM motions.",
+    desc_fr: "Construire des moteurs commerciaux efficaces et des dispositifs GTM scalables.",
+  },
+  {
+    title_en: "Revenue platform architecture",
+    title_fr: "Architecture des plateformes de revenus",
+    desc_en: "Designing revenue infrastructure right, from day one.",
+    desc_fr: "Concevoir la bonne infrastructure de revenus dès le premier jour.",
+  },
+  {
+    title_en: "Product positioning & roadmap",
+    title_fr: "Positionnement produit & roadmap",
+    desc_en: "Aligning product strategy with real market needs.",
+    desc_fr: "Aligner la stratégie produit sur les besoins réels du marché.",
+  },
+  {
+    title_en: "Revenue Operations setup",
+    title_fr: "Mise en place des Revenue Operations",
+    desc_en: "CRM foundations, quote-to-cash, finance systems, and analytics.",
+    desc_fr: "Fondations CRM, quote-to-cash, systèmes financiers et analytics.",
+  },
 ];
 
 const ADDITIONAL = [
-  "Strategic hiring (Sales, RevOps, Product)",
-  "Investor & customer introductions",
-  "Governance & board advisory",
-  "Hands-on business systems architecture",
+  { en: "Strategic hiring (Sales, RevOps, Product)", fr: "Recrutement stratégique (Sales, RevOps, Produit)" },
+  { en: "Investor & customer introductions", fr: "Mises en relation avec investisseurs et clients" },
+  { en: "Governance & board advisory", fr: "Gouvernance et advisory board" },
+  { en: "Hands-on business systems architecture", fr: "Architecture des systèmes business, de façon concrète" },
 ];
 
 export default async function InvestmentsPage() {
@@ -47,26 +82,30 @@ export default async function InvestmentsPage() {
           <p className="text-lg leading-relaxed text-muted-foreground">
             <T
               en="FROM 6 invests in early-stage B2B SaaS founders solving hard revenue problems, and we roll up our sleeves. Beyond capital, you get a team of operators who have built the revenue infrastructure you're about to scale: RevOps, lead-to-cash, GTM systems, and AI-powered workflows."
-              fr="FROM 6 investit dans des fondateurs B2B SaaS early-stage qui résolvent des problèmes de revenue difficiles, et nous mettons la main à la pâte. Au-delà du capital, vous avez une équipe d'opérateurs qui ont construit l'infrastructure revenue que vous vous apprêtez à scaler : RevOps, lead-to-cash, systèmes GTM et workflows IA."
+              fr="FROM 6 investit dans des fondateurs B2B SaaS early-stage qui résolvent des problèmes de revenus complexes, et nous mettons la main à la pâte. Au-delà du capital, vous bénéficiez d'une équipe d'opérateurs qui a construit l'infrastructure de revenus que vous vous apprêtez à scaler : RevOps, lead-to-cash, systèmes GTM et workflows augmentés par l'IA."
             />
           </p>
         </div>
 
         <div className="mb-20 max-w-4xl">
           <h2 className="mb-4 text-2xl font-medium">
-            <T en="What we invest in" fr="Ce que nous investissons" />
+            <T en="What we invest in" fr="Nos domaines d'investissement" />
           </h2>
           <p className="mb-8 text-lg leading-relaxed text-muted-foreground">
             <T
               en="We look for early-stage B2B SaaS companies where our operating experience moves the needle, not just the cap table. The strongest fit:"
-              fr="Nous cherchons des entreprises B2B SaaS early-stage où notre expérience opérationnelle fait vraiment la différence, pas seulement au cap table. Le meilleur fit :"
+              fr="Nous recherchons des entreprises B2B SaaS early-stage où notre expérience opérationnelle fait vraiment la différence, pas seulement au cap table. Le profil que nous recherchons :"
             />
           </p>
           <div className="mb-6 grid gap-5 md:grid-cols-3">
             {THESIS.map((item) => (
-              <div key={item.title} className="rounded-2xl border border-border bg-card p-6 card-shadow hover-lift">
-                <h3 className="mb-2 font-medium">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.desc}</p>
+              <div key={item.title_en} className="rounded-2xl border border-border bg-card p-6 card-shadow hover-lift">
+                <h3 className="mb-2 font-medium">
+                  <T en={item.title_en} fr={item.title_fr} />
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  <T en={item.desc_en} fr={item.desc_fr} />
+                </p>
               </div>
             ))}
           </div>
@@ -83,13 +122,17 @@ export default async function InvestmentsPage() {
             <T en="More than a check" fr="Plus qu'un chèque" />
           </h2>
           <p className="mb-8 text-lg leading-relaxed text-muted-foreground">
-            <T en="We work hands-on with the founders we back. Where it counts:" fr="Nous travaillons hands-on avec les fondateurs que nous soutenons. Là où ça compte :" />
+            <T en="We work hands-on with the founders we back. Where it counts:" fr="Nous nous impliquons concrètement aux côtés des fondateurs que nous soutenons, là où ça compte :" />
           </p>
           <div className="mb-10 grid gap-5 md:grid-cols-2">
             {PARTNERSHIP.map((item) => (
-              <div key={item.title} className="rounded-2xl border border-border bg-card p-6 card-shadow hover-lift">
-                <h3 className="mb-2 font-medium">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.desc}</p>
+              <div key={item.title_en} className="rounded-2xl border border-border bg-card p-6 card-shadow hover-lift">
+                <h3 className="mb-2 font-medium">
+                  <T en={item.title_en} fr={item.title_fr} />
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  <T en={item.desc_en} fr={item.desc_fr} />
+                </p>
               </div>
             ))}
           </div>
@@ -100,9 +143,11 @@ export default async function InvestmentsPage() {
           <div className="rounded-2xl bg-muted/50 p-8">
             <ul className="grid gap-4 sm:grid-cols-2">
               {ADDITIONAL.map((item) => (
-                <li key={item} className="flex items-start gap-3">
+                <li key={item.en} className="flex items-start gap-3">
                   <div className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground" />
-                  <span className="text-muted-foreground">{item}</span>
+                  <span className="text-muted-foreground">
+                    <T en={item.en} fr={item.fr} />
+                  </span>
                 </li>
               ))}
             </ul>
@@ -138,7 +183,9 @@ export default async function InvestmentsPage() {
                     )}
                   </div>
 
-                  <p className="mb-4 text-sm text-muted-foreground">{company.description}</p>
+                  <p className="mb-4 text-sm text-muted-foreground">
+                    <T en={company.description} fr={company.description_fr || company.description} />
+                  </p>
 
                   {company.tags && company.tags.length > 0 && (
                     <div className="mb-4 flex flex-wrap gap-1.5">
@@ -203,12 +250,12 @@ export default async function InvestmentsPage() {
 
         <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card p-8 text-center card-shadow">
           <h2 className="mb-3 text-2xl font-medium">
-            <T en="Building something in this space?" fr="Vous construisez quelque chose dans cet espace ?" />
+            <T en="Building something in this space?" fr="Vous construisez dans ce domaine ?" />
           </h2>
           <p className="mb-6 text-muted-foreground">
             <T
               en="If you're an early-stage B2B SaaS founder working on revenue infrastructure, RevOps, or AI-driven GTM, we'd like to hear from you."
-              fr="Si vous êtes fondateur B2B SaaS early-stage sur l'infrastructure revenue, le RevOps ou le GTM piloté par l'IA, nous voulons vous entendre."
+              fr="Si vous êtes fondateur B2B SaaS early-stage et que vous travaillez sur l'infrastructure de revenus, le RevOps ou un GTM piloté par l'IA, nous serions ravis d'échanger avec vous."
             />
           </p>
           <Link

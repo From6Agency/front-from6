@@ -25,7 +25,7 @@ export default async function Home() {
         <FloatingOrbs tone="dark" />
         <div className="relative mx-auto max-w-5xl px-6 text-center">
           <h1 className="text-balance mb-8 text-5xl font-medium leading-[1.08] tracking-tight md:text-6xl lg:text-[5.25rem]">
-            A strategic partner for <em className="not-italic underline decoration-1 underline-offset-4">your transformation</em>, from investment to field advisory
+            A strategic partner for your transformation, from investment to field advisory
           </h1>
           <p className="mx-auto mb-12 max-w-2xl text-lg text-hero-fg/75 md:text-xl">
             {hero.subtitle ? (
@@ -73,14 +73,20 @@ export default async function Home() {
               <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
                 <T
                   en="Diagnose, fix, and future-proof your revenue engine. From platform and process audits to RevOps strategy, data migrations, and GTM engineering, we work inside your stack, not just on a slide."
-                  fr="Diagnostiquer, corriger et pérenniser votre moteur revenue. Des audits plateforme et processus à la stratégie RevOps, aux migrations de données et à l'ingénierie GTM, nous travaillons dans votre stack, pas seulement sur un slide."
+                  fr="Diagnostiquer, corriger et pérenniser votre moteur de revenus. Des audits plateforme et processus à la stratégie RevOps, en passant par les migrations de données et l'ingénierie GTM, nous intervenons directement dans votre stack, pas seulement sur une présentation."
                 />
               </p>
             </Reveal>
             <RevealGroup className="grid gap-5 md:grid-cols-2">
               {services.map((service, i) => (
                 <RevealItem key={service.id}>
-                  <ServiceCard icon={ICONS[i] ?? Sparkles} title={service.title} description={service.description} />
+                  <ServiceCard
+                    icon={ICONS[i] ?? Sparkles}
+                    title={service.title}
+                    titleFr={service.title_fr}
+                    description={service.description}
+                    descriptionFr={service.description_fr}
+                  />
                 </RevealItem>
               ))}
             </RevealGroup>
@@ -104,7 +110,7 @@ export default async function Home() {
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
               <T
                 en="Early-stage B2B SaaS investments and ventures we've co-founded, all centered on revenue infrastructure, RevOps, and AI-powered workflows."
-                fr="Investissements early-stage et ventures B2B SaaS co-fondées, centrés sur l'infrastructure revenue, le RevOps et les workflows IA."
+                fr="Investissements early-stage et ventures B2B SaaS que nous avons co-fondées, tous centrés sur les infrastructures de revenus, le RevOps et les workflows augmentés par l'IA."
               />
             </p>
             <div className="mt-10">
@@ -127,7 +133,7 @@ export default async function Home() {
             <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground">
               <T
                 en="Podcasts, interviews, and talks on Lead-to-Cash, RevOps, and scaling B2B SaaS."
-                fr="Podcasts, interviews et conférences sur le Lead-to-Cash, le RevOps et la croissance des B2B SaaS."
+                fr="Podcasts, interviews et conférences sur le Lead-to-Cash, le RevOps et la croissance des SaaS B2B."
               />
             </p>
             <Link
@@ -146,12 +152,12 @@ export default async function Home() {
         <FloatingOrbs tone="dark" />
         <Reveal className="relative mx-auto max-w-3xl px-6 text-center">
           <h2 className="mb-6 text-3xl font-medium md:text-4xl">
-            <T en="Let's fix the way your revenue runs" fr="Réparons la façon dont votre revenue fonctionne" />
+            <T en="Let's fix the way your revenue runs" fr="Remettons vos revenus sur les rails" />
           </h2>
           <p className="mb-10 text-lg leading-relaxed text-hero-fg/75">
             <T
               en="Whether you need an advisor, an operator, or a partner who invests, the starting point is the same: a clear look at how your revenue engine works today."
-              fr="Que vous cherchiez un conseiller, un opérateur ou un partenaire qui investit, le point de départ est le même : un regard clair sur votre moteur revenue aujourd'hui."
+              fr="Que vous ayez besoin d'un conseiller, d'un opérateur ou d'un partenaire qui investit, le point de départ reste le même : un diagnostic clair du fonctionnement actuel de votre moteur de revenus."
             />
           </p>
           <BookCallButton size="lg" variant="inverted">

@@ -5,7 +5,7 @@ const FAQS: Array<{ q_en: string; q_fr: string; a_en: string; a_fr: string }> = 
     q_en: "What is a Lead-to-Cash architect?",
     q_fr: "Qu'est-ce qu'un architecte Lead-to-Cash ?",
     a_en: "A Lead-to-Cash architect designs and connects the systems that turn a lead into recognized revenue: CRM, CPQ, contracts, billing, and the integrations between them. Franck Berthelot, founder of FROM 6, has spent 10+ years building this expertise on Salesforce-centered revenue platforms.",
-    a_fr: "Un architecte Lead-to-Cash conçoit et connecte les systèmes qui transforment un lead en revenue reconnu : CRM, CPQ, contrats, facturation, et les intégrations entre eux. Franck Berthelot, fondateur de FROM 6, a construit cette expertise sur plus de 10 ans autour des plateformes revenue Salesforce.",
+    a_fr: "Un architecte Lead-to-Cash conçoit et connecte les systèmes qui transforment un lead en revenus reconnus : CRM, CPQ, contrats, facturation, et les intégrations entre eux. Franck Berthelot, fondateur de FROM 6, a construit cette expertise sur plus de 10 ans autour des plateformes de revenus Salesforce.",
   },
   {
     q_en: "Who does FROM 6 AGENCY work with?",
@@ -17,7 +17,7 @@ const FAQS: Array<{ q_en: string; q_fr: string; a_en: string; a_fr: string }> = 
     q_en: "What does a Platform Audit include?",
     q_fr: "Que comprend un Platform Audit ?",
     a_en: "A diagnostic of your Marketing, CRM (Salesforce), CPQ, and billing setup and integrations, resulting in a clear map of your stack and where it's costing you revenue.",
-    a_fr: "Un diagnostic de votre setup Marketing, CRM (Salesforce), CPQ, facturation et intégrations, qui aboutit à une cartographie claire de votre stack et des endroits où elle vous coûte du revenue.",
+    a_fr: "Un diagnostic de votre setup Marketing, CRM (Salesforce), CPQ, facturation et intégrations, qui aboutit à une cartographie claire de votre stack et des endroits où elle vous coûte des revenus.",
   },
   {
     q_en: "Does FROM 6 AGENCY also invest, not just advise?",
@@ -29,7 +29,7 @@ const FAQS: Array<{ q_en: string; q_fr: string; a_en: string; a_fr: string }> = 
     q_en: "How do I start working with FROM 6 AGENCY?",
     q_fr: "Comment démarrer une collaboration avec FROM 6 AGENCY ?",
     a_en: "Book a 30-minute call to walk through where your revenue engine stands today. Most engagements start with a focused Platform or Process Audit before moving into advisory or hands-on execution.",
-    a_fr: "Réservez un appel de 30 minutes pour faire le point sur l'état actuel de votre moteur revenue. La plupart des collaborations démarrent par un Platform ou Process Audit ciblé, avant de passer à l'advisory ou à l'exécution opérationnelle.",
+    a_fr: "Réservez un appel de 30 minutes pour faire le point sur l'état actuel de votre moteur de revenus. La plupart des collaborations démarrent par un Platform ou Process Audit ciblé, avant de passer à l'advisory ou à l'exécution opérationnelle.",
   },
 ];
 

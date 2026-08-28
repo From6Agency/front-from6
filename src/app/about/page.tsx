@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about" },
 };
 
+const PERSON_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Franck Berthelot",
+  jobTitle: "Lead-to-Cash Architect",
+  url: "https://from6agency.com/about",
+  sameAs: ["https://www.linkedin.com/in/franckberthelot"],
+  worksFor: { "@type": "Organization", name: "FROM 6 AGENCY", url: "https://from6agency.com" },
+  knowsAbout: ["Revenue Operations", "Salesforce CPQ", "Lead-to-Cash", "B2B SaaS", "Billing Systems"],
+};
+
 export default async function AboutPage() {
   const about = await getSiteContent("about");
   const bioEn = about.bio?.en ?? "";
@@ -20,6 +31,7 @@ export default async function AboutPage() {
 
   return (
     <div className="section-padding">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_JSON_LD) }} />
       <div className="mx-auto max-w-4xl">
         <div className="mb-16 grid gap-12 md:grid-cols-3">
           <div className="md:col-span-1">

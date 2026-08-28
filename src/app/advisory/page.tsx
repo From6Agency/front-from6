@@ -46,13 +46,13 @@ export default async function AdvisoryPage() {
         <p className="mb-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
           <T
             en="Strategic advisory for B2B SaaS companies on revenue operations and business architecture. We help you see clearly where your revenue engine leaks, then rebuild it to scale."
-            fr="Advisory stratégique pour entreprises B2B SaaS sur les opérations revenue et l'architecture business. Nous vous aidons à voir clairement où votre moteur revenue fuit, puis à le reconstruire pour scaler."
+            fr="Advisory stratégique pour les entreprises B2B SaaS sur les revenue operations et l'architecture business. Nous vous aidons à identifier clairement où votre moteur de revenus fuit, puis à le reconstruire pour scaler."
           />
         </p>
         <p className="mb-16 max-w-2xl text-base leading-relaxed text-muted-foreground">
           <T
             en="Most revenue problems aren't sales problems, they're systems problems. Disconnected tools, broken lead-to-cash workflows, data you can't trust. We bring 10+ years of Lead-to-Cash and Salesforce architecture to diagnose what's actually slowing you down, and the operator experience to fix it with your team."
-            fr="La plupart des problèmes de revenue ne sont pas des problèmes de vente, ce sont des problèmes de systèmes. Outils déconnectés, workflows lead-to-cash cassés, données peu fiables. Nous apportons 10+ ans d'architecture Lead-to-Cash et Salesforce pour diagnostiquer ce qui vous ralentit vraiment, et l'expérience opérationnelle pour le corriger avec votre équipe."
+            fr="La plupart des problèmes de revenus ne sont pas des problèmes commerciaux, ce sont des problèmes de systèmes : outils déconnectés, workflows lead-to-cash défaillants, données peu fiables. Nous apportons plus de 10 ans d'architecture Lead-to-Cash et Salesforce pour diagnostiquer ce qui vous ralentit réellement, et l'expérience terrain pour le corriger avec votre équipe."
           />
         </p>
 
@@ -64,8 +64,12 @@ export default async function AdvisoryPage() {
                   {String(i + 1).padStart(2, "0")}
                 </div>
                 <div>
-                  <h3 className="mb-2 text-xl font-medium">{service.title}</h3>
-                  <p className="leading-relaxed text-muted-foreground">{service.description}</p>
+                  <h3 className="mb-2 text-xl font-medium">
+                    <T en={service.title} fr={service.title_fr || service.title} />
+                  </h3>
+                  <p className="leading-relaxed text-muted-foreground">
+                    <T en={service.description} fr={service.description_fr || service.description} />
+                  </p>
                 </div>
               </div>
             </div>
@@ -101,12 +105,12 @@ export default async function AdvisoryPage() {
 
         <div className="mt-24 rounded-2xl bg-muted/50 p-10 text-center md:p-14">
           <h2 className="mb-4 text-2xl font-medium md:text-3xl">
-            <T en="Not sure where the revenue leaks are?" fr="Vous ne savez pas où sont les fuites de revenue ?" />
+            <T en="Not sure where the revenue leaks are?" fr="Vous ne savez pas où se situent les fuites de revenus ?" />
           </h2>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground">
             <T
               en="Start with an audit. In a focused engagement, we'll map your revenue stack and hand you a prioritized plan."
-              fr="Commencez par un audit. Dans une mission focalisée, nous cartographions votre stack revenue et vous remettons un plan priorisé."
+              fr="Commencez par un audit. Dans le cadre d'une mission ciblée, nous cartographions votre stack et vous remettons un plan priorisé."
             />
           </p>
           <BookCallButton size="lg">
