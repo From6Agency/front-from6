@@ -26,7 +26,7 @@ export default async function Home() {
         <div className="relative mx-auto max-w-5xl px-6 text-center">
           <p className="kicker mb-8 text-hero-fg/60">Advisory · Investments · Intelligence</p>
           <h1 className="text-balance mb-8 text-5xl font-medium leading-[1.08] tracking-tight md:text-6xl lg:text-[5.25rem]">
-            A strategic partner for <em className="italic text-primary">B2B SaaS revenue</em>, from advice to investment
+            A strategic partner for <em className="not-italic underline decoration-1 underline-offset-4">B2B SaaS revenue</em>, from advice to investment
           </h1>
           <p className="mx-auto mb-12 max-w-2xl text-lg text-hero-fg/75 md:text-xl">
             {hero.subtitle ? (
@@ -36,7 +36,7 @@ export default async function Home() {
             )}
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <BookCallButton size="lg">
+            <BookCallButton size="lg" variant="inverted">
               <T en="Book a call" fr="Réserver un appel" />
             </BookCallButton>
             <Link
@@ -52,7 +52,7 @@ export default async function Home() {
           <div className="mx-auto grid max-w-5xl grid-cols-1 divide-y divide-hero-fg/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
             {PROOF.map((item) => (
               <div key={item.en} className="flex items-center justify-center gap-2.5 px-6 py-4 text-sm text-hero-fg/70">
-                <item.icon className="h-3.5 w-3.5 shrink-0 text-primary" />
+                <item.icon className="h-3.5 w-3.5 shrink-0 text-hero-fg" />
                 <T en={item.en} fr={item.fr} />
               </div>
             ))}
@@ -148,7 +148,7 @@ export default async function Home() {
               fr="Que vous cherchiez un conseiller, un opérateur ou un partenaire qui investit, le point de départ est le même : un regard clair sur votre moteur revenue aujourd'hui."
             />
           </p>
-          <BookCallButton size="lg">
+          <BookCallButton size="lg" variant="inverted">
             <T en="Book a 30-min call" fr="Réserver un appel de 30 min" />
           </BookCallButton>
         </Reveal>
