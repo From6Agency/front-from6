@@ -7,6 +7,7 @@ import { FAQ } from "@/components/FAQ";
 import { T } from "@/components/Bilingual";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { FloatingOrbs } from "@/components/FloatingOrbs";
+import { HeroGrowthChart } from "@/components/HeroGrowthChart";
 
 const ICONS = [TrendingUp, Search, Layers, Sparkles];
 
@@ -46,11 +47,8 @@ export default async function Home() {
               </div>
             </div>
 
-            {/* Droite : simple pour l'instant, motion design à revoir plus tard */}
-            <div className="flex flex-col items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] p-8 text-center md:p-10">
-              <span className="text-4xl font-medium text-hero-fg md:text-5xl">FROM 6</span>
-              <span className="mt-3 text-xs font-medium uppercase tracking-[0.35em] text-hero-fg/60 md:text-sm">Agency</span>
-            </div>
+            {/* Droite : courbe de croissance animée */}
+            <HeroGrowthChart />
           </div>
         </div>
       </section>
