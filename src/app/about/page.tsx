@@ -27,7 +27,7 @@ export default async function AboutPage() {
   const about = await getSiteContent("about");
   const bioEn = about.bio?.en ?? "";
   const bioFr = about.bio?.fr ?? "";
-  const photoUrl = about.photo?.en || "/brand/franck-profile.jpeg";
+  const photoUrl = about.photo?.en || "/brand/franck-profile.png";
 
   return (
     <div className="section-padding">
