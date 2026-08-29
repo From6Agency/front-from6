@@ -1,24 +1,20 @@
 import { supabase } from "@/lib/supabase";
 
-// Pages statiques (ISR, revalidate 60s, voir chaque page.tsx) : le fetch a
+// Pages statiques (ISR, voir `revalidate` dans chaque page.tsx) : le fetch a
 // lieu au build et à chaque régénération en arrière-plan, jamais pendant une
-// vraie visite. `withRetry` encaisse les blips passagers (le genre d'incident
-// Supabase vécu le 28/08 : DNS/latence intermittents) ; si tout échoue quand
-// même, on rend un contenu vide plutôt que de faire planter le build, mais on
-// logge fort pour que ça reste visible dans les logs Vercel au lieu de
-// silencieusement livrer une page incomplète sans trace.
-async function withRetry<T>(label: string, fn: () => Promise<T>, fallback: T, attempts = 3): Promise<T> {
-  let lastError: unknown;
-  for (let i = 0; i < attempts; i++) {
-    try {
-      return await fn();
-    } catch (err) {
-      lastError = err;
-      if (i < attempts - 1) await new Promise((r) => setTimeout(r, 500 * (i + 1)));
-    }
+// vraie visite. Un seul essai, pas de retry : pendant une panne réelle
+// (DNS cassé côté fournisseur, pas un blip réseau d'une fraction de seconde),
+// retenter dans la même seconde n'aide jamais et ne fait que multiplier les
+// requêtes échouées dans les logs d'erreur du projet Supabase. Si l'appel
+// échoue, on rend un contenu vide plutôt que de faire planter le build, avec
+// un log clair côté Vercel pour garder une trace.
+async function withRetry<T>(label: string, fn: () => Promise<T>, fallback: T): Promise<T> {
+  try {
+    return await fn();
+  } catch (err) {
+    console.error(`[content] ${label} failed, rendering empty:`, err);
+    return fallback;
   }
-  console.error(`[content] ${label} failed after ${attempts} attempts, rendering empty:`, lastError);
-  return fallback;
 }
 
 export async function getSiteContent(section: string): Promise<Record<string, { en: string; fr: string }>> {

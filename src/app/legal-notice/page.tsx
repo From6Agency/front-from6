@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/legal-notice" },
 };
 
-export const revalidate = 60;
+export const revalidate = 900;
 
 export default async function LegalNoticePage() {
   const content = await getSiteContent("legal");
