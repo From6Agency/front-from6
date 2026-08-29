@@ -57,7 +57,7 @@ export function Header() {
             priority
           />
           <span className={cn("text-sm font-medium tracking-tight transition-colors duration-300", onDarkHero && "text-hero-fg")}>
-            FROM 6
+            FROM 6 AGENCY
           </span>
         </Link>
 

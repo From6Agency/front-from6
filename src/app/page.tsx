@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, TrendingUp, Search, Layers, Sparkles, Handshake, Headphones, Linkedin } from "lucide-react";
+import { ArrowRight, TrendingUp, Search, Layers, Sparkles } from "lucide-react";
 import { getAdvisoryServices, getSiteContent } from "@/lib/content";
 import { ServiceCard } from "@/components/ServiceCard";
 import { BookCallButton } from "@/components/BookCallButton";
@@ -7,15 +7,8 @@ import { FAQ } from "@/components/FAQ";
 import { T } from "@/components/Bilingual";
 import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
 import { FloatingOrbs } from "@/components/FloatingOrbs";
-import { HeroLogoMark } from "@/components/HeroLogoMark";
 
 const ICONS = [TrendingUp, Search, Layers, Sparkles];
-
-const PROOF = [
-  { icon: Handshake, en: "Salesforce-native Lead-to-Cash, 10+ years", fr: "Lead-to-Cash Salesforce-native, 10+ ans" },
-  { icon: Headphones, en: "Featured on Engrenages & CRM Dojo", fr: "Invité sur Engrenages & CRM Dojo" },
-  { icon: Linkedin, en: "6WAY & Darix, co-founded and operated", fr: "6WAY & Darix, co-fondées et opérées" },
-];
 
 export default async function Home() {
   const [services, hero] = await Promise.all([getAdvisoryServices(4), getSiteContent("hero")]);
@@ -53,24 +46,14 @@ export default async function Home() {
               </div>
             </div>
 
-            {/* Droite : le monogramme F6 qui se dessine */}
-            <HeroLogoMark />
+            {/* Droite : simple pour l'instant, motion design à revoir plus tard */}
+            <div className="flex flex-col items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] p-8 text-center md:p-10">
+              <span className="text-4xl font-medium text-hero-fg md:text-5xl">FROM 6</span>
+              <span className="mt-3 text-xs font-medium uppercase tracking-[0.35em] text-hero-fg/60 md:text-sm">Agency</span>
+            </div>
           </div>
         </div>
       </section>
-
-      {/* Preuve concrète juste sous le hero, dans le flux normal (façon
-          Aubier : des faits vérifiables tout de suite après l'accroche). */}
-      <div className="border-y border-border bg-muted/40">
-        <div className="mx-auto grid max-w-5xl grid-cols-1 divide-y divide-border sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-          {PROOF.map((item) => (
-            <div key={item.en} className="flex items-center justify-center gap-2.5 px-6 py-5 text-center text-sm text-muted-foreground">
-              <item.icon className="h-4 w-4 shrink-0" />
-              <T en={item.en} fr={item.fr} />
-            </div>
-          ))}
-        </div>
-      </div>
 
       {/* Un seul fond continu du hero jusqu'à la FAQ : les formes qui dérivent
           en arrière-plan créent la respiration visuelle entre sections,
