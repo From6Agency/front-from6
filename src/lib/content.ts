@@ -2,13 +2,12 @@ import { supabase } from "@/lib/supabase";
 
 // Pages statiques (ISR, voir `revalidate` dans chaque page.tsx) : le fetch a
 // lieu au build et à chaque régénération en arrière-plan, jamais pendant une
-// vraie visite. Un seul essai, pas de retry : pendant une panne réelle
-// (DNS cassé côté fournisseur, pas un blip réseau d'une fraction de seconde),
-// retenter dans la même seconde n'aide jamais et ne fait que multiplier les
-// requêtes échouées dans les logs d'erreur du projet Supabase. Si l'appel
-// échoue, on rend un contenu vide plutôt que de faire planter le build, avec
-// un log clair côté Vercel pour garder une trace.
-async function withRetry<T>(label: string, fn: () => Promise<T>, fallback: T): Promise<T> {
+// vraie visite. Un seul essai, aucun retry automatique : une panne Supabase
+// se corrige manuellement (redeploy déclenché à la main une fois le service
+// revenu), pas en tapant dessus depuis le code pendant que c'est cassé. Si
+// l'appel échoue, on rend un contenu vide plutôt que de faire planter le
+// build, avec un log clair côté Vercel pour garder une trace.
+async function safeFetch<T>(label: string, fn: () => Promise<T>, fallback: T): Promise<T> {
   try {
     return await fn();
   } catch (err) {
@@ -18,7 +17,7 @@ async function withRetry<T>(label: string, fn: () => Promise<T>, fallback: T): P
 }
 
 export async function getSiteContent(section: string): Promise<Record<string, { en: string; fr: string }>> {
-  return withRetry(
+  return safeFetch(
     `getSiteContent(${section})`,
     async () => {
       const { data, error } = await supabase.from("site_content").select("*").eq("section", section).eq("published", true);
@@ -32,7 +31,7 @@ export async function getSiteContent(section: string): Promise<Record<string, { 
 }
 
 export async function getAdvisoryServices(limit?: number) {
-  return withRetry(
+  return safeFetch(
     "getAdvisoryServices",
     async () => {
       let query = supabase.from("advisory_services").select("*").eq("published", true).order("display_order", { ascending: true });
@@ -46,7 +45,7 @@ export async function getAdvisoryServices(limit?: number) {
 }
 
 export async function getPortfolioCompanies() {
-  return withRetry(
+  return safeFetch(
     "getPortfolioCompanies",
     async () => {
       const { data, error } = await supabase
@@ -62,7 +61,7 @@ export async function getPortfolioCompanies() {
 }
 
 export async function getMediaOpportunities() {
-  return withRetry(
+  return safeFetch(
     "getMediaOpportunities",
     async () => {
       const { data, error } = await supabase
@@ -78,7 +77,7 @@ export async function getMediaOpportunities() {
 }
 
 export async function getFeaturedVideos() {
-  return withRetry(
+  return safeFetch(
     "getFeaturedVideos",
     async () => {
       const { data, error } = await supabase
