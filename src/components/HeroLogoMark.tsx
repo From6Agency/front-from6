@@ -2,92 +2,64 @@
 
 import { motion } from "motion/react";
 
-// Monogramme "F6A" resserré et imbriqué (comme le vrai logo, où le F et le 6
-// partagent le même espace vertical) plutôt que trois lettres espacées façon
-// écriture manuscrite. Trait fin continu, façon plume, qui se dessine lettre
-// par lettre.
-const DRAW = { duration: 0.85, ease: [0.65, 0, 0.35, 1] as const };
-const STROKE = 6;
+// Révélation du vrai logo (public/brand/logo-f6a.png), pas une
+// interprétation dessinée à main levée : un masque en forme de trait de
+// feutre balaie l'image en 2-3 passages fluides et dévoile les pixels
+// réels du monogramme au fur et à mesure. Le rendu final est donc
+// pixel pour pixel la marque officielle — seule la révélation est animée.
+const SWEEP = { ease: [0.45, 0, 0.2, 1] as const };
 
 export function HeroLogoMark() {
   return (
     <div className="relative flex h-full min-h-[320px] items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-white/[0.03] p-10">
-      <svg viewBox="0 0 520 460" className="h-auto w-full max-w-[280px]">
-        {/* F : hampe verticale + barre haute + barre médiane, resserrée */}
-        <motion.path
-          d="M 46,430 C 42,300 40,168 48,32 C 96,26 128,24 168,26"
-          fill="none"
-          stroke="#ffffff"
-          strokeOpacity={0.92}
-          strokeWidth={STROKE}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{ ...DRAW, delay: 0 }}
-        />
-        <motion.path
-          d="M 50,225 C 84,219 110,217 138,219"
-          fill="none"
-          stroke="#ffffff"
-          strokeOpacity={0.92}
-          strokeWidth={STROKE}
-          strokeLinecap="round"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{ ...DRAW, duration: 0.45, delay: 0.65 }}
-        />
+      <svg viewBox="0 0 1024 1024" className="h-auto w-full max-w-[420px]">
+        <defs>
+          <mask id="f6a-reveal" maskUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="1024" height="1024" fill="black" />
+            <motion.path
+              d="M 300,260 C 340,340 360,430 365,520 C 368,570 370,600 372,585"
+              stroke="#ffffff"
+              strokeWidth={170}
+              strokeLinecap="round"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ ...SWEEP, duration: 1.1, delay: 0 }}
+            />
+            <motion.path
+              d="M 300,300 C 420,270 520,268 610,300"
+              stroke="#ffffff"
+              strokeWidth={150}
+              strokeLinecap="round"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ ...SWEEP, duration: 0.7, delay: 1.0 }}
+            />
+            <motion.path
+              d="M 560,270 C 500,360 460,440 448,520 C 440,580 470,625 525,622 C 585,618 615,565 605,505 C 596,452 545,420 495,435"
+              stroke="#ffffff"
+              strokeWidth={175}
+              strokeLinecap="round"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ ...SWEEP, duration: 1.3, delay: 1.75 }}
+            />
+            <motion.circle
+              cx={700}
+              cy={585}
+              r={70}
+              fill="#ffffff"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.35, delay: 3.15 }}
+              style={{ transformOrigin: "700px 585px" }}
+            />
+          </mask>
+        </defs>
 
-        {/* 6 : la hampe plonge juste derrière la barre du F, la boucle vient
-            chevaucher la jambe gauche du A */}
-        <motion.path
-          d="M 268,40 C 210,120 176,215 172,290 C 168,352 202,388 250,382 C 300,376 326,336 320,286 C 314,238 276,208 230,216 C 198,222 176,244 170,276"
-          fill="none"
-          stroke="#ffffff"
-          strokeOpacity={0.92}
-          strokeWidth={STROKE}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{ ...DRAW, duration: 1.25, delay: 1.05 }}
-        />
-
-        {/* A : la jambe gauche traverse la boucle du 6, resserrée contre lui */}
-        <motion.path
-          d="M 258,432 C 310,300 360,168 404,30 C 424,168 442,300 462,432"
-          fill="none"
-          stroke="#ffffff"
-          strokeOpacity={0.92}
-          strokeWidth={STROKE}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{ ...DRAW, duration: 1.05, delay: 2.25 }}
-        />
-        <motion.path
-          d="M 300,288 C 340,282 380,282 424,288"
-          fill="none"
-          stroke="#ffffff"
-          strokeOpacity={0.92}
-          strokeWidth={STROKE}
-          strokeLinecap="round"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{ ...DRAW, duration: 0.45, delay: 3.2 }}
-        />
-
-        {/* point, sous le A, à la toute fin */}
-        <motion.circle
-          cx={480}
-          cy={432}
-          r={14}
-          fill="#ffffff"
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3, delay: 3.7 }}
-        />
+        <image href="/brand/logo-f6a.png" x="0" y="0" width="1024" height="1024" mask="url(#f6a-reveal)" />
       </svg>
     </div>
   );
