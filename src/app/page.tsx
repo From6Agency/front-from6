@@ -19,36 +19,40 @@ export default async function Home() {
       <section className="hero-section relative isolate overflow-hidden pt-28 pb-16 md:pt-36 md:pb-20">
         <FloatingOrbs tone="dark" />
         <div className="relative mx-auto max-w-6xl px-6">
-          <div className="grid items-stretch gap-6 lg:grid-cols-2">
-            {/* Gauche : la promesse et le slogan */}
-            <div className="flex flex-col justify-center rounded-lg border border-white/10 bg-white/[0.03] p-8 md:p-10">
-              <h1 className="text-balance mb-6 text-4xl font-medium leading-[1.12] tracking-tight md:text-5xl">
-                A strategic partner for your transformation.
-                <br />
-                <span className="text-hero-fg/60">From investment to field advisory.</span>
-              </h1>
-              <p className="mb-8 max-w-lg text-lg text-hero-fg/75">
-                {hero.subtitle ? (
-                  <T en={hero.subtitle.en} fr={hero.subtitle.fr} />
-                ) : (
-                  "FROM 6 is the boutique of Franck Berthelot, a Lead-to-Cash architect."
-                )}
-              </p>
-              <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-                <BookCallButton size="lg" variant="inverted">
-                  <T en="Book a call" fr="Réserver un appel" />
-                </BookCallButton>
-                <Link
-                  href="/advisory"
-                  className="inline-flex h-12 items-center justify-center rounded-full border border-hero-fg/40 bg-hero-fg/[0.06] px-7 text-base font-medium transition-colors hover:border-hero-fg/60 hover:bg-hero-fg/10"
-                >
-                  <T en="See what we do" fr="Voir ce que nous faisons" />
-                </Link>
+          {/* Un seul bloc partagé : texte et courbe vivent dans la même
+              carte, plutôt que deux boîtes séparées côte à côte. */}
+          <div className="overflow-hidden rounded-lg border border-white/10 bg-white/[0.03] p-8 md:p-10">
+            <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+              <div>
+                <h1 className="text-balance mb-6 text-4xl font-medium leading-[1.12] tracking-tight md:text-5xl">
+                  A strategic partner for your transformation.
+                  <br />
+                  <span className="text-hero-fg/60">From investment to field advisory.</span>
+                </h1>
+                <p className="mb-8 max-w-lg text-lg text-hero-fg/75">
+                  {hero.subtitle ? (
+                    <T en={hero.subtitle.en} fr={hero.subtitle.fr} />
+                  ) : (
+                    "FROM 6 is the boutique of Franck Berthelot, a Lead-to-Cash architect."
+                  )}
+                </p>
+                <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+                  <BookCallButton size="lg" variant="inverted">
+                    <T en="Book a call" fr="Réserver un appel" />
+                  </BookCallButton>
+                  <Link
+                    href="/advisory"
+                    className="inline-flex h-12 items-center justify-center rounded-full border border-hero-fg/40 bg-hero-fg/[0.06] px-7 text-base font-medium transition-colors hover:border-hero-fg/60 hover:bg-hero-fg/10"
+                  >
+                    <T en="See what we do" fr="Voir ce que nous faisons" />
+                  </Link>
+                </div>
+              </div>
+
+              <div className="h-56 md:h-72 lg:h-full">
+                <HeroGrowthChart />
               </div>
             </div>
-
-            {/* Droite : courbe de croissance animée */}
-            <HeroGrowthChart />
           </div>
         </div>
       </section>
