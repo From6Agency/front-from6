@@ -16,8 +16,6 @@ const PROOF = [
   { icon: Linkedin, en: "6WAY & Darix, co-founded and operated", fr: "6WAY & Darix, co-fondées et opérées" },
 ];
 
-export const revalidate = 900;
-
 export default async function Home() {
   const [services, hero] = await Promise.all([getAdvisoryServices(4), getSiteContent("hero")]);
 

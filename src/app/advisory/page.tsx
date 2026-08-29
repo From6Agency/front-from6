@@ -35,8 +35,6 @@ const STEPS = [
   },
 ];
 
-export const revalidate = 900;
-
 export default async function AdvisoryPage() {
   const services = await getAdvisoryServices();
 

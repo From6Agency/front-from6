@@ -66,8 +66,6 @@ const ADDITIONAL = [
   { en: "Hands-on business systems architecture", fr: "Architecture des systèmes business, de façon concrète" },
 ];
 
-export const revalidate = 900;
-
 export default async function InvestmentsPage() {
   const companies = await getPortfolioCompanies();
 

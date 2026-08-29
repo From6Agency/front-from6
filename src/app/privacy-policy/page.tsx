@@ -8,8 +8,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacy-policy" },
 };
 
-export const revalidate = 900;
-
 export default async function PrivacyPolicyPage() {
   const content = await getSiteContent("privacy");
   const body = content.content ?? { en: "", fr: "" };

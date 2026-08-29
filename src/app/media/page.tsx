@@ -43,8 +43,6 @@ function extractYouTubeId(url: string) {
   return match ? match[1] : null;
 }
 
-export const revalidate = 900;
-
 export default async function MediaPage() {
   const [videos, opportunities] = await Promise.all([getFeaturedVideos(), getMediaOpportunities()]);
 
