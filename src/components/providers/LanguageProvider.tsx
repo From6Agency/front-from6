@@ -7,8 +7,10 @@ export type Language = "en" | "fr";
 const UI = {
   en: {
     "nav.home": "Home",
-    "nav.advisory": "Advisory",
-    "nav.investments": "Our Projects",
+    "nav.advisory": "Companies",
+    "nav.investments": "Founders",
+    "nav.portfolio": "Projects",
+    "nav.resources": "Resources",
     "nav.media": "Media",
     "nav.about": "About",
     "nav.contact": "Contact",
@@ -18,8 +20,10 @@ const UI = {
   },
   fr: {
     "nav.home": "Accueil",
-    "nav.advisory": "Advisory",
-    "nav.investments": "Nos Projets",
+    "nav.advisory": "Entreprises",
+    "nav.investments": "Fondateurs",
+    "nav.portfolio": "Projets",
+    "nav.resources": "Ressources",
     "nav.media": "Media",
     "nav.about": "À propos",
     "nav.contact": "Contact",

@@ -75,9 +75,9 @@ export function ContactForm() {
       });
       if (error) throw error;
 
-      await supabase.functions.invoke("send-contact-notification", {
-        body: { ...parsed.data, documentUrl: documentUrl || undefined },
-      });
+      supabase.functions
+        .invoke("send-contact-notification", { body: { ...parsed.data, documentUrl: documentUrl || undefined } })
+        .catch(() => {});
 
       incrementSubmissionCount();
       setStatus("sent");

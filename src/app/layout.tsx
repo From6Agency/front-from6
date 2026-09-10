@@ -27,9 +27,9 @@ const geistMono = Geist_Mono({
 // throwaway *.vercel.app, sans quoi Google/les crawlers IA indexeraient la
 // mauvaise adresse. À ajuster si le nom de domaine final diffère.
 const SITE_URL = "https://from6agency.com";
-const TITLE = "FROM 6 AGENCY | Advisory, Investments & Intelligence for B2B SaaS";
+const TITLE = "FROM 6 AGENCY | Franck Berthelot, entrepreneur and investor";
 const DESCRIPTION =
-  "FROM 6 partners with B2B SaaS teams on revenue, business architecture, and AI-powered workflows, from advisory to investment.";
+  "From 6 connects companies to Darix's revenue expertise and supports founders through advisory and investment.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -84,7 +84,7 @@ const JSON_LD = {
       url: SITE_URL,
       logo: `${SITE_URL}/brand/logo-f6a.png`,
       description: DESCRIPTION,
-      founder: { "@type": "Person", name: "Franck Berthelot", jobTitle: "Lead-to-Cash Architect" },
+      founder: { "@type": "Person", name: "Franck Berthelot", jobTitle: "Entrepreneur & Investor" },
       address: {
         "@type": "PostalAddress",
         streetAddress: "25 rue du Clos",
@@ -106,7 +106,7 @@ const JSON_LD = {
       "@type": "ProfessionalService",
       "@id": `${SITE_URL}/#service`,
       name: "FROM 6 AGENCY",
-      description: "Strategic advisory for B2B SaaS revenue operations, business architecture, and AI-powered workflows.",
+      description: "Advisory and investment for B2B SaaS founders, connecting revenue systems needs to Darix's operational team.",
       areaServed: "Worldwide",
       provider: { "@id": `${SITE_URL}/#org` },
     },

@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Search, PencilRuler, Hammer } from "lucide-react";
+import Link from "next/link";
+import { Search, PencilRuler, Hammer, ArrowRight } from "lucide-react";
 import { getAdvisoryServices } from "@/lib/content";
-import { BookCallButton } from "@/components/BookCallButton";
 import { T } from "@/components/Bilingual";
+import { ClosingCTA } from "@/components/ClosingCTA";
 
 export const metadata: Metadata = {
-  title: "Advisory | Revenue & Business Architecture",
+  title: "Salesforce and revenue operations with Darix",
   description:
-    "Senior advisory for B2B SaaS revenue: diagnosis, design, and architecture of CRM, CPQ, billing, and AI-powered workflows.",
+    "Structure your revenue operations: sales rules, CPQ, billing, integrations, and data, framed with From 6 and executed with Darix.",
   alternates: { canonical: "/advisory" },
 };
 
@@ -41,18 +42,22 @@ export default async function AdvisoryPage() {
   return (
     <div className="section-padding">
       <div className="mx-auto max-w-4xl">
-        <p className="mb-3 kicker text-muted-foreground">Expertise</p>
-        <h1 className="mb-6 text-4xl font-medium md:text-5xl">Advisory</h1>
+        <p className="mb-3 kicker text-muted-foreground">
+          <T en="For companies" fr="Pour les entreprises" />
+        </p>
+        <h1 className="mb-6 text-4xl font-medium md:text-5xl">
+          <T en="Structure your revenue operations with Darix" fr="Structurer vos opérations revenue avec Darix" />
+        </h1>
         <p className="mb-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
           <T
-            en="Strategic advisory for B2B SaaS companies on revenue operations and business architecture. We help you see clearly where your revenue engine leaks, then rebuild it to scale."
-            fr="Advisory stratégique pour les entreprises B2B SaaS sur les revenue operations et l'architecture business. Nous vous aidons à identifier clairement où votre moteur de revenus fuit, puis à le reconstruire pour scaler."
+            en="Complex quotes, billing that's hard to keep reliable, double data entry, disconnected systems, data no one fully trusts: these are the symptoms we hear first, before any tool is discussed."
+            fr="Devis complexes, facturation difficile à fiabiliser, doubles saisies, systèmes déconnectés, données peu exploitables : ce sont les symptômes qu'on entend en premier, avant même de parler d'outils."
           />
         </p>
         <p className="mb-16 max-w-2xl text-base leading-relaxed text-muted-foreground">
           <T
-            en="Most revenue problems aren't sales problems, they're systems problems. Disconnected tools, broken lead-to-cash workflows, data you can't trust. We bring 10+ years of Lead-to-Cash and Salesforce architecture to diagnose what's actually slowing you down, and the operator experience to fix it with your team."
-            fr="La plupart des problèmes de revenus ne sont pas des problèmes commerciaux, ce sont des problèmes de systèmes : outils déconnectés, workflows lead-to-cash défaillants, données peu fiables. Nous apportons plus de 10 ans d'architecture Lead-to-Cash et Salesforce pour diagnostiquer ce qui vous ralentit réellement, et l'expérience terrain pour le corriger avec votre équipe."
+            en="From 6 frames the need with you: understand the situation, identify the teams and decisions involved, clarify priorities. The execution, CRM, CPQ, billing, integrations, data, or AI, is carried by Darix, the operational team Franck Berthelot co-founded."
+            fr="From 6 cadre le besoin avec vous : comprendre la situation, identifier les équipes et décisions concernées, préciser les priorités. L'exécution (CRM, CPQ, facturation, intégrations, data ou IA) est portée par Darix, l'équipe opérationnelle cofondée par Franck Berthelot."
           />
         </p>
 
@@ -78,9 +83,11 @@ export default async function AdvisoryPage() {
 
         <div className="mt-24">
           <div className="mb-12 text-center">
-            <p className="mb-3 kicker text-muted-foreground">Process</p>
+            <p className="mb-3 kicker text-muted-foreground">
+              <T en="How a request moves forward" fr="Comment se déroule une demande" />
+            </p>
             <h2 className="text-3xl font-medium">
-              <T en="How we work" fr="Comment nous travaillons" />
+              <T en="From framing to execution with Darix" fr="Du cadrage à l'exécution avec Darix" />
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -109,14 +116,28 @@ export default async function AdvisoryPage() {
           </h2>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground">
             <T
-              en="Start with an audit. In a focused engagement, we'll map your revenue stack and hand you a prioritized plan."
-              fr="Commencez par un audit. Dans le cadre d'une mission ciblée, nous cartographions votre stack et vous remettons un plan priorisé."
+              en="Start with the diagnostic: a few questions on your priorities and context, then a first direction before any call."
+              fr="Commencez par le diagnostic : quelques questions sur vos priorités et votre contexte, puis une première orientation avant tout appel."
             />
           </p>
-          <BookCallButton size="lg">
-            <T en="Book a call" fr="Réserver un appel" />
-          </BookCallButton>
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              href="/diagnostic"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-7 text-base font-medium text-primary-foreground hover:bg-primary-hover"
+            >
+              <T en="Assess my need" fr="Évaluer mon besoin" />
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="/darix"
+              className="inline-flex h-12 items-center justify-center rounded-full border border-border px-7 text-base font-medium hover:bg-accent"
+            >
+              <T en="Understand From 6 and Darix" fr="Comprendre le lien entre From 6 et Darix" />
+            </Link>
+          </div>
         </div>
+
+        <ClosingCTA />
       </div>
     </div>
   );

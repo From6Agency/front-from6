@@ -34,16 +34,33 @@ Refonte du site vitrine (from6agency.com), migrée hors de Lovable. Next.js
 
 ## Données : Supabase réel, pas de duplication
 
-Ce site lit le **même Supabase que l'admin Lovable** (`from6agencywesbite`,
-ref `bsvyanoktklymwhhapec`, org non accessible depuis ce compte — pas
-d'accès CLI/Management API en écriture depuis cette session). Tables :
-`advisory_services`, `portfolio_companies`, `media_opportunities`,
-`featured_videos`, `site_content`, `contact_submissions`.
+Ce site lit le **même Supabase que l'admin Lovable** (`from6agency`, ref
+`qaxeszpfjpjzxlxhwmaq`, org `franckfrom6's Org`, compte
+franck.berthelot@from6agency.com). Tables : `advisory_services`,
+`portfolio_companies`, `media_opportunities`, `featured_videos`,
+`site_content`, `contact_submissions`, `articles`, `site_secrets`,
+`user_roles`.
+
+⚠️ **Projet gratuit, pause automatique après 7 jours d'inactivité.** Le
+projet précédent (ref `bsvyanoktklymwhhapec`, nom `from6agencywesbite`) a
+été mis en pause puis **supprimé définitivement** début septembre 2026 sans
+que personne ne s'en aperçoive (le site continuait à tourner sur le
+snapshot `fallback-data.json`, ce qui a masqué le problème jusqu'à ce que
+les formulaires échouent en prod). Schéma et données ont été reconstruits
+le 09/09/2026 via `supabase/migrations/20260909000000_restore_schema_and_content.sql`.
+Si les formulaires échouent à nouveau en prod : vérifier d'abord la
+résolution DNS du ref courant (`dig @1.1.1.1 qaxeszpfjpjzxlxhwmaq.supabase.co`)
+avant de chercher un bug côté code — un NXDOMAIN veut dire projet pausé/supprimé,
+pas un bug applicatif. Envisager de passer sur le plan Pro pour éviter la
+pause automatique.
 
 - **Ne jamais dupliquer ce contenu en dur dans le code.** Tout texte
   éditable (services, portfolio, bio, légal) vient de la base via
-  `src/lib/content.ts`. L'admin Lovable reste le seul outil d'édition — ce
-  repo est présentation uniquement.
+  `src/lib/content.ts`. L'admin Lovable reste le seul outil d'édition pour
+  ce contenu. `supabase/migrations/` et `supabase/functions/` existent dans
+  ce repo (schéma de référence + edge function de notification), mais ce
+  n'est pas un backend applicatif complet : pas de service_role key ici,
+  seulement la clé publique anon côté client.
 - Chaque table a des colonnes bilingues `*_fr` à côté des colonnes
   anglaises. **Toujours brancher les deux** via `<T en={...} fr={...} />`
   (`src/components/Bilingual.tsx`). Un vrai bug trouvé et corrigé : le
@@ -79,6 +96,17 @@ jamais du mot-à-mot :
   jamais de chiffres ou stats inventés.
 - FAQ pensée pour les answer engines (ChatGPT, Perplexity) : questions
   réelles, réponses factuelles courtes, jamais promotionnelles.
+
+## Notifications par email
+
+`supabase/functions/send-contact-notification` envoie un email vers
+franck.berthelot@from6agency.com à chaque soumission de formulaire
+(contact, diagnostic, proposer-un-projet), via l'API Resend. Secret requis
+côté Supabase (Edge Functions → Secrets) : `RESEND_API_KEY`. Le domaine
+d'envoi (`from6agency.com`) doit rester vérifié sur le compte Resend, sinon
+l'API renvoie 403 et l'email ne part pas silencieusement (l'échec de la
+notification ne bloque pas l'enregistrement de la demande ni l'affichage
+du succès côté formulaire, les deux sont volontairement découplés).
 
 ## Déploiement
 

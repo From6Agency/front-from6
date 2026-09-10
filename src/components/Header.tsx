@@ -12,9 +12,9 @@ import { cn } from "@/lib/utils";
 const ITEMS = [
   { key: "advisory", href: "/advisory" },
   { key: "investments", href: "/investments" },
-  { key: "media", href: "/media" },
+  { key: "portfolio", href: "/portfolio" },
+  { key: "resources", href: "/ressources" },
   { key: "about", href: "/about" },
-  { key: "contact", href: "/contact" },
 ] as const;
 
 export function Header() {

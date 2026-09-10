@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Linkedin, ArrowUpRight } from "lucide-react";
+import { Linkedin, ArrowUpRight, ArrowRight } from "lucide-react";
 import { getSiteContent } from "@/lib/content";
-import { BookCallButton } from "@/components/BookCallButton";
 import { T } from "@/components/Bilingual";
+import { ClosingCTA } from "@/components/ClosingCTA";
 
 export const metadata: Metadata = {
-  title: "About FROM 6 AGENCY | Strategic Partner for B2B SaaS",
-  description: "Meet FROM 6 AGENCY, a strategic partner for B2B SaaS companies combining advisory, investment, and revenue-platform execution.",
+  title: "Franck Berthelot | Background, Darix and From 6",
+  description: "Franck Berthelot's path across finance, business systems, and entrepreneurship, and how From 6 and Darix connect.",
   alternates: { canonical: "/about" },
 };
 
@@ -16,11 +16,11 @@ const PERSON_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Franck Berthelot",
-  jobTitle: "Lead-to-Cash Architect",
+  jobTitle: "Entrepreneur & Investor",
   url: "https://from6agency.com/about",
   sameAs: ["https://www.linkedin.com/in/franckberthelot"],
   worksFor: { "@type": "Organization", name: "FROM 6 AGENCY", url: "https://from6agency.com" },
-  knowsAbout: ["Revenue Operations", "Salesforce CPQ", "Lead-to-Cash", "B2B SaaS", "Billing Systems"],
+  knowsAbout: ["Revenue Operations", "Salesforce CPQ", "Lead-to-Cash", "B2B SaaS", "Early-stage investing"],
 };
 
 export default async function AboutPage() {
@@ -67,23 +67,38 @@ export default async function AboutPage() {
           </div>
         </div>
 
-        <div className="rounded-2xl bg-muted/50 p-10 text-center">
-          <h2 className="mb-4 text-2xl font-medium">
-            <T en="Get in Touch" fr="Prenez contact" />
-          </h2>
-          <p className="mx-auto mb-8 max-w-md text-muted-foreground">
-            <T en="Ready to discuss how we can work together?" fr="Prêt à discuter de notre collaboration ?" />
-          </p>
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <Link
-              href="/contact"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-7 text-base font-medium text-primary-foreground hover:bg-primary-hover"
-            >
-              <T en="Get in Touch" fr="Prendre contact" />
-            </Link>
-            <BookCallButton size="lg" variant="outline" />
-          </div>
+        <div className="grid gap-5 md:grid-cols-2">
+          <Link
+            href="/diagnostic"
+            className="group rounded-2xl border border-border bg-card p-7 card-shadow hover-lift"
+          >
+            <p className="mb-2 text-sm font-medium text-muted-foreground">
+              <T en="For companies" fr="Pour les entreprises" />
+            </p>
+            <h2 className="mb-4 text-lg font-medium">
+              <T en="Assess my need with Darix" fr="Évaluer mon besoin avec Darix" />
+            </h2>
+            <span className="inline-flex items-center gap-2 text-sm font-medium transition-all group-hover:gap-3">
+              <T en="Start the diagnostic" fr="Démarrer le diagnostic" /> <ArrowRight className="h-4 w-4" />
+            </span>
+          </Link>
+          <Link
+            href="/proposer-un-projet"
+            className="group rounded-2xl border border-border bg-card p-7 card-shadow hover-lift"
+          >
+            <p className="mb-2 text-sm font-medium text-muted-foreground">
+              <T en="For founders" fr="Pour les fondateurs" />
+            </p>
+            <h2 className="mb-4 text-lg font-medium">
+              <T en="Present my project" fr="Présenter mon projet" />
+            </h2>
+            <span className="inline-flex items-center gap-2 text-sm font-medium transition-all group-hover:gap-3">
+              <T en="Get started" fr="Commencer" /> <ArrowRight className="h-4 w-4" />
+            </span>
+          </Link>
         </div>
+
+        <ClosingCTA />
       </div>
     </div>
   );
