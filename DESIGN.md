@@ -258,7 +258,7 @@ The kit's eight hex values, declared as `--f6-*` custom properties in `src/app/g
 - **Destructive** (`#B42318`): field error text and icon, invalid input border, the form alert (border at 30%, fill at 5%). Forms only.
 
 ### Named Rules
-**The Signal Rule.** Signal is reserved for the logo dot, links and buttons. It never fills a background, colours a heading, tints an icon or decorates a rule. On black it becomes Signal Soft. Emphasis anywhere else is weight, size, Steel or position.
+**The Signal Rule.** Signal is reserved for the logo dot, links, buttons and the state of an action in progress: the focus ring, the selected choice and its wash, the filled progress track, the deposited file, the success disc. It never fills a background, colours a heading, tints an icon or decorates a rule. One deliberate echo of the logo dot is allowed: the last station of the hero's Lead-to-Cash line, "Cash", is Signal Soft. On black, Signal becomes Signal Soft. Emphasis anywhere else is weight, size, Steel or position. (Decided with the owner on 2026-09-11: the kit's "liens, actions" covers interactive states.)
 
 **The Inversion Rule.** A black band swaps the neutrals, not the logic: Ink becomes Paper, Fog becomes Dark Fog, Line becomes Dark Line, Steel becomes Dark Steel, Signal becomes Signal Soft. The primary button on a band stays Signal (`inverted`) and hovers to Paper on Ink; the secondary is a Paper-at-30% outline (`ghost`).
 
@@ -399,7 +399,7 @@ Standard easing is `cubic-bezier(0.16, 1, 0.3, 1)`. The home hero opens in CSS, 
 - **Do** ship every visible string as an EN/FR pair through `<T en fr />`, English first in the HTML, in real business French ("revenus", never "le revenue").
 
 ### Don't:
-- **Don't** use Signal as a background, a heading colour, an icon tint or a decorative rule; the only blue fills are buttons, the selected-row wash and the logo dot.
+- **Don't** use Signal as a background, a heading colour, an icon tint or a decorative rule; the only blue fills are buttons, form states (selected choice, progress track, success disc, focus ring), the logo dot and its single echo, the "Cash" station of the hero line.
 - **Don't** introduce a gradient, a tinted grey, a second accent or a dark-mode theme; the black bands are a local inversion, not a theme.
 - **Don't** add a drop shadow to anything, including the cookie sheet and the portrait; bound surfaces with a 1px Line border instead.
 - **Don't** use any radius other than 0 or `9999px`: no `rounded-sm`, `rounded-md`, `rounded-lg`, `rounded-xl`, `rounded-2xl`.
