@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getSiteContent } from "@/lib/content";
 import { T } from "@/components/Bilingual";
+import { Page, PageHeader } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Legal Notice",
@@ -13,15 +14,11 @@ export default async function LegalNoticePage() {
   const body = content.content ?? { en: "", fr: "" };
 
   return (
-    <div className="section-padding">
-      <div className="mx-auto max-w-3xl">
-        <h1 className="mb-10 text-4xl font-medium">
-          <T en="Legal Notice" fr="Mentions Légales" />
-        </h1>
-        <div className="space-y-4 whitespace-pre-line leading-relaxed text-muted-foreground">
-          <T en={body.en} fr={body.fr} />
-        </div>
+    <Page width="3xl">
+      <PageHeader title={<T en="Legal notice" fr="Mentions légales" />} />
+      <div className="mt-10 whitespace-pre-line text-[0.9375rem] leading-relaxed text-muted-foreground">
+        <T en={body.en} fr={body.fr} />
       </div>
-    </div>
+    </Page>
   );
 }

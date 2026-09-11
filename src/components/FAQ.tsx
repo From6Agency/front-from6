@@ -1,3 +1,4 @@
+import { Plus } from "lucide-react";
 import { T } from "@/components/Bilingual";
 
 const FAQS: Array<{ q_en: string; q_fr: string; a_en: string; a_fr: string }> = [
@@ -14,7 +15,7 @@ const FAQS: Array<{ q_en: string; q_fr: string; a_en: string; a_fr: string }> = 
     a_fr: "Les SaaS B2B, logiciels métiers et projets d'IA appliquée font partie des domaines d'intérêt. Un projet d'un autre secteur peut aussi être présenté en expliquant son activité et l'appui recherché.",
   },
   {
-    q_en: "Do I need a finished business plan to reach out?",
+    q_en: "Do I need a finished specification to reach out?",
     q_fr: "Faut-il déjà avoir un cahier des charges ?",
     a_en: "No. A concrete problem, the tools involved, and a rough timeline are enough to start framing the need.",
     a_fr: "Non. Un problème concret, les outils concernés et un calendrier permettent de commencer à cadrer le besoin.",
@@ -33,6 +34,8 @@ const FAQS: Array<{ q_en: string; q_fr: string; a_en: string; a_fr: string }> = 
   },
 ];
 
+/* Questions et réponses natives (details/summary) : chaque réponse est dans
+   le HTML dès le chargement, lisible par les moteurs de recherche et de réponse. */
 export function FAQ() {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -45,35 +48,19 @@ export function FAQ() {
   };
 
   return (
-    <section className="section-pad relative">
-      <div className="mx-auto max-w-3xl px-6">
-        <div className="mb-14 text-center">
-          <p className="kicker mb-3 text-muted-foreground">FAQ</p>
-          <h2 className="text-3xl font-medium md:text-4xl">
-            <T en="Frequently asked questions" fr="Questions fréquentes" />
-          </h2>
-        </div>
-
-        <div className="divide-y divide-border border-y border-border">
-          {FAQS.map((f) => (
-            <details key={f.q_en} className="group py-6">
-              <summary className="flex cursor-pointer list-none items-start justify-between gap-6">
-                <span className="text-lg font-medium">
-                  <T en={f.q_en} fr={f.q_fr} />
-                </span>
-                <span className="mt-1 shrink-0 font-mono text-xl leading-none text-muted-foreground transition-transform duration-300 group-open:rotate-45">
-                  +
-                </span>
-              </summary>
-              <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">
-                <T en={f.a_en} fr={f.a_fr} />
-              </p>
-            </details>
-          ))}
-        </div>
-      </div>
-
+    <div className="divide-y divide-border border-y border-border">
+      {FAQS.map((f) => (
+        <details key={f.q_en} className="group">
+          <summary className="flex cursor-pointer list-none items-start justify-between gap-6 py-5 text-[1.0625rem] font-medium leading-snug">
+            <T en={f.q_en} fr={f.q_fr} />
+            <Plus className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-45" strokeWidth={2} aria-hidden="true" />
+          </summary>
+          <p className="max-w-2xl pb-6 text-[0.9375rem] leading-relaxed text-muted-foreground">
+            <T en={f.a_en} fr={f.a_fr} />
+          </p>
+        </details>
+      ))}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-    </section>
+    </div>
   );
 }

@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
 import { Header } from "@/components/Header";
@@ -8,19 +8,23 @@ import { CalEmbed } from "@/components/CalEmbed";
 import { Analytics } from "@/components/Analytics";
 import { CookieConsent } from "@/components/CookieConsent";
 
-const geist = Geist({
+// Kit de marque v2.0 : Space Grotesk pour les titres et le nom, Inter pour le texte.
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-geist",
+  weight: ["500", "600", "700"],
+  variable: "--font-space-grotesk",
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-geist-mono",
+  variable: "--font-inter",
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
+};
 
 // Domaine cible réel (from6agency.com), pas le sous-domaine Vercel de preview :
 // canonical/OG doivent pointer vers l'URL de production finale, pas un
@@ -47,6 +51,14 @@ export const metadata: Metadata = {
   authors: [{ name: "Franck Berthelot" }],
   creator: "FROM 6 AGENCY",
   alternates: { canonical: "/" },
+  manifest: "/favicon/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon/favicon.ico", sizes: "32x32" },
+      { url: "/favicon/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/favicon/apple-touch-icon.png",
+  },
   openGraph: {
     type: "website",
     url: SITE_URL,
@@ -55,13 +67,13 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     locale: "en_US",
     alternateLocale: ["fr_FR"],
-    images: [{ url: "/og-from6.png", width: 1200, height: 630, alt: TITLE }],
+    images: [{ url: "/og/f6-og.png", width: 1200, height: 630, alt: "From 6 Agency" }],
   },
   twitter: {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    images: ["/og-from6.png"],
+    images: ["/og/f6-og.png"],
   },
   robots: {
     index: true,
@@ -82,7 +94,7 @@ const JSON_LD = {
       name: "FROM 6 AGENCY",
       legalName: "FROM 6 AGENCY",
       url: SITE_URL,
-      logo: `${SITE_URL}/brand/logo-f6a.png`,
+      logo: `${SITE_URL}/brand/png/f6-logo-horizontal-black-800.png`,
       description: DESCRIPTION,
       founder: { "@type": "Person", name: "Franck Berthelot", jobTitle: "Entrepreneur & Investor" },
       address: {
@@ -115,7 +127,7 @@ const JSON_LD = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
       <body className="antialiased">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }} />
         <Analytics />

@@ -25,12 +25,12 @@ export function CookieConsent() {
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-[60] p-4 sm:p-6">
-      <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 rounded-2xl border border-border bg-background/95 p-5 text-center shadow-xl backdrop-blur-md sm:flex-row sm:justify-between sm:text-left">
+      <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 border border-border bg-background/95 p-5 text-center backdrop-blur-md sm:flex-row sm:justify-between sm:text-left">
         <p className="text-sm text-muted-foreground">
           {isEn
             ? "We use cookies to improve your experience and measure site traffic. "
             : "Nous utilisons des cookies pour améliorer votre expérience et mesurer l'audience du site. "}
-          <Link href="/privacy-policy" className="underline hover:text-foreground">
+          <Link href="/privacy-policy" className="text-signal underline underline-offset-2 transition-colors hover:text-foreground">
             {isEn ? "Learn more" : "En savoir plus"}
           </Link>
         </p>
@@ -38,14 +38,14 @@ export function CookieConsent() {
           <button
             type="button"
             onClick={() => choose("declined")}
-            className="rounded-full border border-border px-4 py-2 text-sm font-medium transition-colors hover:bg-accent"
+            className="rounded-full border border-border px-4 py-2 text-sm font-medium transition-colors hover:border-foreground"
           >
             {isEn ? "Decline" : "Refuser"}
           </button>
           <button
             type="button"
             onClick={() => choose("accepted")}
-            className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-hover"
+            className="rounded-full bg-signal px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-foreground"
           >
             {isEn ? "Accept" : "Accepter"}
           </button>

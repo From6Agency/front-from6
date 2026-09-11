@@ -20,3 +20,7 @@ yarn-error.log*
 .vercel
 
 *.tsbuildinfo
+
+# Impeccable : captures de revue et cache du hook, jamais versionnés
+.impeccable/review/
+.impeccable/hook.cache.json

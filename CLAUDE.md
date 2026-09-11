@@ -22,10 +22,32 @@ Refonte du site vitrine (from6agency.com), migrée hors de Lovable. Next.js
 ## Stack
 
 - Next.js (App Router) + TypeScript, Tailwind v4 (CSS-first, `src/app/globals.css`)
-- Police : Geist / Geist Mono (`next/font/google`) — pas de serif, pas de
-  Fraunces/DM Sans (essayés puis abandonnés sur retour utilisateur)
-- Palette : noir/blanc/gris pur, aucune couleur d'accent. **Pas de dark
-  mode** (retiré : `next-themes` désinstallé, pas de classe `.dark`)
+- **Kit de marque v2.0 (septembre 2026)**, source de vérité pour tout le
+  visuel : `/Users/franckberthelot/Downloads/f6a brandkit/` (brand-guide.html,
+  tokens.css). Assets déjà copiés dans le repo : `public/brand/` (logos SVG
+  et PNG officiels), `public/favicon/` (set complet + `site.webmanifest`),
+  `public/og/f6-og.png` (1200×630). Le logo s'insère en SVG inline via
+  `src/components/brand/Logo.tsx` (`LogoHorizontal`, `Mark`), en
+  `currentColor`, jamais recoloré, jamais recréé, jamais de version bitmap
+  dans le header/footer. Lockup horizontal 120 px minimum.
+- Polices : Space Grotesk 500/600/700 pour les titres et le nom de la
+  marque, Inter pour le texte (`next/font/google`, variables
+  `--font-space-grotesk` / `--font-inter`). Pas de mono, pas de serif.
+  Titres : `letter-spacing: -0.02em`, réglés globalement sur h1-h6 dans
+  `globals.css` (ne pas répéter `font-semibold tracking-tight` en classes).
+- Palette : Ink `#000000`, Paper `#FFFFFF`, Fog `#F2F2F0`, Line `#E3E3DF`,
+  Steel `#6E6E68`, et **une seule couleur vive, Signal `#2233E8`**,
+  réservée au point du logo, aux liens et aux boutons (rien d'autre :
+  pas de fond, pas de titre, pas d'icône décorative en bleu). Sur fond noir
+  : Signal-soft `#6B7CFF` pour les liens, fog/line/steel inversés
+  (`--color-hero-fog/line/steel`). Tokens Tailwind : `signal`,
+  `signal-soft`, `signal-wash`, `hero-*`. **Pas de dark mode** (retiré :
+  `next-themes` désinstallé, pas de classe `.dark`) ; les bandes noires
+  (`.hero-section`) sont une inversion locale, pas un thème.
+- Rayons : **0 ou cercle complet, jamais d'intermédiaire** (pas de
+  `rounded-md/lg/xl/2xl`). Pilules `rounded-full` pour boutons, pastilles,
+  indicateurs. Pas d'ombres portées : hiérarchie par filets 1 px (`border`)
+  et fond fog. Étiquettes en Inter petites capitales via la classe `.label`.
 - `motion` (successeur de framer-motion) pour les animations au scroll
   (`Reveal`/`RevealGroup`/`RevealItem`) et les formes flottantes en fond
   (`FloatingOrbs`, monochrome, doivent avoir `isolate` sur leur conteneur

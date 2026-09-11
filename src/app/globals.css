@@ -1,78 +1,63 @@
 @import "tailwindcss";
 
-@theme inline {
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
-  --color-card: hsl(var(--card));
-  --color-card-foreground: hsl(var(--card-foreground));
-  --color-popover: hsl(var(--popover));
-  --color-popover-foreground: hsl(var(--popover-foreground));
-  --color-primary: hsl(var(--primary));
-  --color-primary-hover: hsl(var(--primary-hover));
-  --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-secondary: hsl(var(--secondary));
-  --color-secondary-foreground: hsl(var(--secondary-foreground));
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
-  --color-accent: hsl(var(--accent));
-  --color-accent-foreground: hsl(var(--accent-foreground));
-  --color-destructive: hsl(var(--destructive));
-  --color-destructive-foreground: hsl(var(--destructive-foreground));
-  --color-border: hsl(var(--border));
-  --color-input: hsl(var(--input));
-  --color-ring: hsl(var(--ring));
-  --color-hero-bg: hsl(var(--hero-bg));
-  --color-hero-fg: hsl(var(--hero-fg));
+/* Tokens de marque From 6 Agency, kit v2.0 (septembre 2026) : un noir, un
+   blanc, trois gris de service et une seule couleur vive, le bleu Signal,
+   réservé au point du logo, aux liens et aux boutons. Rayons : 0 ou cercle
+   complet, jamais d'intermédiaire. Source : public/brand, web/f6-tokens.css. */
+:root {
+  --f6-ink: #000000;
+  --f6-paper: #ffffff;
+  --f6-fog: #f2f2f0;
+  --f6-line: #e3e3df;
+  --f6-steel: #6e6e68;
+  --f6-signal: #2233e8;
+  --f6-signal-soft: #6b7cff;
+  --f6-signal-wash: #edeffe;
 
-  --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 4px);
-  --radius-sm: calc(var(--radius) - 6px);
+  /* Inversion pour les bandes noires (hero, appel de fin). */
+  --f6-dark-fog: #141414;
+  --f6-dark-line: #2c2c2c;
+  --f6-dark-steel: #a0a09a;
 
-  --font-sans: var(--font-geist), system-ui, -apple-system, sans-serif;
-  --font-display: var(--font-geist), system-ui, -apple-system, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --f6-destructive: #b42318;
+
+  --radius: 0px;
 }
 
-/* Noir / blanc / gris pur, aucune couleur d'accent. */
-:root {
-  --background: 0 0% 100%;
-  --foreground: 0 0% 9%;
+@theme inline {
+  --color-background: var(--f6-paper);
+  --color-foreground: var(--f6-ink);
+  --color-card: var(--f6-paper);
+  --color-card-foreground: var(--f6-ink);
+  --color-primary: var(--f6-ink);
+  --color-primary-hover: var(--f6-signal);
+  --color-primary-foreground: var(--f6-paper);
+  --color-secondary: var(--f6-fog);
+  --color-secondary-foreground: var(--f6-ink);
+  --color-muted: var(--f6-fog);
+  --color-muted-foreground: var(--f6-steel);
+  --color-accent: var(--f6-fog);
+  --color-accent-foreground: var(--f6-ink);
+  --color-signal: var(--f6-signal);
+  --color-signal-soft: var(--f6-signal-soft);
+  --color-signal-wash: var(--f6-signal-wash);
+  --color-destructive: var(--f6-destructive);
+  --color-destructive-foreground: var(--f6-paper);
+  --color-border: var(--f6-line);
+  --color-input: var(--f6-line);
+  --color-ring: var(--f6-signal);
+  --color-hero-bg: var(--f6-ink);
+  --color-hero-fg: var(--f6-paper);
+  --color-hero-fog: var(--f6-dark-fog);
+  --color-hero-line: var(--f6-dark-line);
+  --color-hero-steel: var(--f6-dark-steel);
 
-  --card: 0 0% 100%;
-  --card-foreground: 0 0% 9%;
+  --radius-lg: 0px;
+  --radius-md: 0px;
+  --radius-sm: 0px;
 
-  --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 9%;
-
-  --primary: 0 0% 9%;
-  --primary-hover: 0 0% 20%;
-  --primary-foreground: 0 0% 100%;
-
-  --secondary: 0 0% 96%;
-  --secondary-foreground: 0 0% 9%;
-
-  --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 42%;
-
-  --accent: 0 0% 93%;
-  --accent-foreground: 0 0% 9%;
-
-  --destructive: 0 72% 42%;
-  --destructive-foreground: 0 0% 100%;
-
-  --border: 0 0% 89%;
-  --input: 0 0% 89%;
-  --ring: 0 0% 9%;
-
-  --radius: 0.75rem;
-
-  --hero-bg: 0 0% 6%;
-  --hero-fg: 0 0% 98%;
-
-  --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.03);
-  --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.05), 0 2px 4px -2px hsl(0 0% 0% / 0.05);
-  --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.06), 0 4px 6px -4px hsl(0 0% 0% / 0.05);
-  --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.08), 0 8px 10px -6px hsl(0 0% 0% / 0.05);
+  --font-sans: var(--font-inter), "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-space-grotesk), "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
@@ -82,6 +67,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Space Grotesk pour les titres et le nom de la marque, Inter pour le reste. */
 h1,
 h2,
 h3,
@@ -89,84 +75,161 @@ h4,
 h5,
 h6 {
   font-family: var(--font-display);
+  font-weight: 600;
   letter-spacing: -0.02em;
 }
 
-::selection {
-  background: hsl(var(--foreground) / 0.15);
+/* Dans la couche base pour que les utilitaires (outline-none des champs,
+   qui portent leur propre focus) restent prioritaires. */
+@layer base {
+  ::selection {
+    background: var(--f6-signal-wash);
+    color: var(--f6-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 3px;
+  }
 }
 
 @layer utilities {
-  /* Système d'espacement fluide type Bevel : une seule valeur de section
-     partout, qui grandit avec le viewport plutôt que par paliers brusques. */
-  .section-pad {
-    padding-top: clamp(72px, 9vw, 140px);
-    padding-bottom: clamp(72px, 9vw, 140px);
-  }
-  .section-padding {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    /* padding-top part plus haut que padding-bottom : dégage le header fixe
-       (transparent tant qu'on n'a pas scrollé), qui n'existait pas quand
-       cette valeur avait été fixée à 64px. */
-    padding-top: clamp(104px, 12vw, 160px);
-    padding-bottom: clamp(64px, 8vw, 120px);
-  }
-  @media (min-width: 768px) {
-    .section-padding {
-      padding-left: 3rem;
-      padding-right: 3rem;
-    }
-  }
-  @media (min-width: 1024px) {
-    .section-padding {
-      padding-left: 6rem;
-      padding-right: 6rem;
-    }
-  }
-
-  .card-shadow {
-    box-shadow: var(--shadow-md);
-  }
-  .card-shadow-lg {
-    box-shadow: var(--shadow-lg);
-  }
-  .card-shadow-xl {
-    box-shadow: var(--shadow-xl);
-  }
-
-  .hover-lift {
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
-  }
-  .hover-lift:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-xl);
-  }
-
+  /* Bande noire : le hero et l'appel de fin, inversion complète des tokens. */
   .hero-section {
     background: var(--color-hero-bg);
     color: var(--color-hero-fg);
-  }
-
-  .grain::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.05;
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-size: 160px 160px;
   }
 
   .text-balance {
     text-wrap: balance;
   }
 
-  .kicker {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
+  /* Étiquette : Inter en petites capitales espacées, jamais sur un titre. */
+  .label {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
+  }
+
+  /* Séquence d'ouverture du hero, en CSS : chaque élément porte sa --delay.
+     Sans script, tout est visible ; sans animation, rien ne manque. */
+  .anim-rise {
+    animation: rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    animation-delay: var(--delay, 0ms);
+  }
+  .anim-door {
+    animation: door 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    animation-delay: var(--delay, 0ms);
+  }
+  .anim-line {
+    transform-origin: left center;
+    animation: draw 1.2s cubic-bezier(0.65, 0, 0.35, 1) both;
+    animation-delay: var(--delay, 0ms);
+  }
+  .anim-dot {
+    animation: pop 0.35s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    animation-delay: var(--delay, 0ms);
+  }
+  .anim-fade {
+    animation: fade 0.4s ease-out backwards;
+    animation-delay: var(--delay, 0ms);
+  }
+
+  /* Survoler une porte fait reculer l'autre : on prévisualise son parcours. */
+  [data-door-hover="companies"] [data-door="founders"],
+  [data-door-hover="founders"] [data-door="companies"] {
+    opacity: 0.55;
+    transform: scale(0.985);
+  }
+  [data-door] {
+    transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes door {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* FAQ : la réponse s'ouvre en hauteur animée là où le navigateur le permet,
+   et instantanément ailleurs. */
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+  details::details-content {
+    block-size: 0;
+    overflow: clip;
+    transition:
+      block-size 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      content-visibility 0.3s allow-discrete;
+  }
+  details[open]::details-content {
+    block-size: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-rise,
+  .anim-door,
+  .anim-dot {
+    animation-name: fade;
+    animation-duration: 0.3s;
+  }
+  .anim-line {
+    animation: none;
+  }
+  [data-door] {
+    transition: opacity 0.2s ease;
+  }
+  [data-door-hover="companies"] [data-door="founders"],
+  [data-door-hover="founders"] [data-door="companies"] {
+    transform: none;
+  }
+  details::details-content {
+    transition: none;
   }
 }

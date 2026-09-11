@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import { Linkedin, ArrowUpRight, ArrowRight } from "lucide-react";
 import { getSiteContent } from "@/lib/content";
 import { T } from "@/components/Bilingual";
 import { ClosingCTA } from "@/components/ClosingCTA";
+import { ArrowLink, Page, PageHeader, Row, RowList, Section, SectionHeader } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Franck Berthelot | Background, Darix and From 6",
@@ -23,6 +22,24 @@ const PERSON_JSON_LD = {
   knowsAbout: ["Revenue Operations", "Salesforce CPQ", "Lead-to-Cash", "B2B SaaS", "Early-stage investing"],
 };
 
+const PATH = [
+  {
+    term: { en: "Finance", fr: "Finance" },
+    en: "Where I learned to read a company through its flows: what is sold, what is billed, what is actually collected.",
+    fr: "Où j'ai appris à lire une entreprise par ses flux : ce qui est vendu, ce qui est facturé, ce qui est réellement encaissé.",
+  },
+  {
+    term: { en: "Salesforce architecture", fr: "Architecture Salesforce" },
+    en: "Lead-to-Cash platforms: CPQ, Revenue Cloud, billing, integrations. The systems that turn a signed deal into revenue, and the places where they break.",
+    fr: "Les plateformes Lead-to-Cash : CPQ, Revenue Cloud, facturation, intégrations. Les systèmes qui transforment un contrat signé en revenus, et les endroits où ils cassent.",
+  },
+  {
+    term: { en: "Entrepreneurship", fr: "Entrepreneuriat" },
+    en: "Co-founder of Darix and 6WAY, investor in MicePro. The advice comes from someone who still ships and still carries risk.",
+    fr: "Cofondateur de Darix et de 6WAY, investisseur dans MicePro. Le conseil vient de quelqu'un qui livre encore et porte encore du risque.",
+  },
+];
+
 export default async function AboutPage() {
   const about = await getSiteContent("about");
   const bioEn = about.bio?.en ?? "";
@@ -30,76 +47,58 @@ export default async function AboutPage() {
   const photoUrl = about.photo?.en || "/brand/franck-profile.png";
 
   return (
-    <div className="section-padding">
+    <Page>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_JSON_LD) }} />
-      <div className="mx-auto max-w-4xl">
-        <div className="mb-16 grid gap-12 md:grid-cols-3">
-          <div className="md:col-span-1">
-            <div className="sticky top-32">
-              <div className="mb-6 aspect-square w-full overflow-hidden rounded-2xl card-shadow">
-                <Image src={photoUrl} alt="Franck Berthelot" width={480} height={480} className="h-full w-full scale-[1.06] object-cover" />
-              </div>
-              <a
-                href="https://www.linkedin.com/in/franckberthelot"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-              >
-                <Linkedin className="h-4 w-4" />
-                <T en="Franck Berthelot on LinkedIn" fr="Franck Berthelot sur LinkedIn" />
-                <ArrowUpRight className="h-3 w-3" />
-              </a>
-            </div>
+      <div className="grid gap-10 md:grid-cols-[2fr_3fr] md:items-start md:gap-16">
+        <div className="md:sticky md:top-32">
+          <div className="overflow-hidden">
+            <Image src={photoUrl} alt="Franck Berthelot" width={640} height={800} sizes="(min-width: 768px) 40vw, 100vw" className="aspect-[4/5] w-full object-cover" priority />
           </div>
+          <div className="mt-4">
+            <ArrowLink href="https://www.linkedin.com/in/franckberthelot" external>
+              <T en="Franck Berthelot on LinkedIn" fr="Franck Berthelot sur LinkedIn" />
+            </ArrowLink>
+          </div>
+        </div>
 
-          <div className="md:col-span-2">
-            <p className="mb-3 kicker text-muted-foreground">
-              <T en="About us" fr="À propos" />
-            </p>
-            <h1 className="mb-8 text-4xl font-medium md:text-5xl">FROM 6 AGENCY</h1>
-            <div className="max-w-none">
-              {bioEn.split("\n\n").map((para, i) => (
-                <p key={i} className="mb-6 text-lg leading-relaxed text-muted-foreground">
-                  <T en={para} fr={bioFr.split("\n\n")[i] ?? para} />
-                </p>
+        <div>
+          <PageHeader
+            title="Franck Berthelot"
+            lead={
+              <T
+                en="Founder of From 6, co-founder of Darix. One path, three chapters, and a habit of judging a company by how it actually runs."
+                fr="Fondateur de From 6, cofondateur de Darix. Un parcours, trois chapitres, et l'habitude de juger une entreprise à la façon dont elle fonctionne vraiment."
+              />
+            }
+          />
+
+          <Section className="!mt-12">
+            <SectionHeader title={<T en="Path" fr="Parcours" />} className="mb-4" />
+            <RowList>
+              {PATH.map((step) => (
+                <Row key={step.en} term={<T en={step.term.en} fr={step.term.fr} />} className="md:grid-cols-[1fr_2fr]">
+                  <T en={step.en} fr={step.fr} />
+                </Row>
               ))}
-            </div>
-          </div>
-        </div>
+            </RowList>
+          </Section>
 
-        <div className="grid gap-5 md:grid-cols-2">
-          <Link
-            href="/diagnostic"
-            className="group rounded-2xl border border-border bg-card p-7 card-shadow hover-lift"
-          >
-            <p className="mb-2 text-sm font-medium text-muted-foreground">
-              <T en="For companies" fr="Pour les entreprises" />
-            </p>
-            <h2 className="mb-4 text-lg font-medium">
-              <T en="Assess my need with Darix" fr="Évaluer mon besoin avec Darix" />
-            </h2>
-            <span className="inline-flex items-center gap-2 text-sm font-medium transition-all group-hover:gap-3">
-              <T en="Start the diagnostic" fr="Démarrer le diagnostic" /> <ArrowRight className="h-4 w-4" />
-            </span>
-          </Link>
-          <Link
-            href="/proposer-un-projet"
-            className="group rounded-2xl border border-border bg-card p-7 card-shadow hover-lift"
-          >
-            <p className="mb-2 text-sm font-medium text-muted-foreground">
-              <T en="For founders" fr="Pour les fondateurs" />
-            </p>
-            <h2 className="mb-4 text-lg font-medium">
-              <T en="Present my project" fr="Présenter mon projet" />
-            </h2>
-            <span className="inline-flex items-center gap-2 text-sm font-medium transition-all group-hover:gap-3">
-              <T en="Get started" fr="Commencer" /> <ArrowRight className="h-4 w-4" />
-            </span>
-          </Link>
+          {bioEn && (
+            <Section className="!mt-12">
+              <SectionHeader title={<T en="From 6, Darix and the companies" fr="From 6, Darix et les entreprises" />} className="mb-4" />
+              <div className="space-y-4">
+                {bioEn.split("\n\n").map((para, i) => (
+                  <p key={i} className="text-[0.9375rem] leading-relaxed text-muted-foreground md:text-base">
+                    <T en={para} fr={bioFr.split("\n\n")[i] ?? para} />
+                  </p>
+                ))}
+              </div>
+            </Section>
+          )}
         </div>
-
-        <ClosingCTA />
       </div>
-    </div>
+
+      <ClosingCTA />
+    </Page>
   );
 }

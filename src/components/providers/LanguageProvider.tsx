@@ -16,7 +16,7 @@ const UI = {
     "nav.contact": "Contact",
     "footer.legal": "Legal Mentions",
     "footer.privacy": "Privacy Policy",
-    "footer.copyright": "© 2025 FROM 6 AGENCY. All rights reserved.",
+    "footer.copyright": "© 2026 FROM 6 AGENCY. All rights reserved.",
   },
   fr: {
     "nav.home": "Accueil",
@@ -29,7 +29,7 @@ const UI = {
     "nav.contact": "Contact",
     "footer.legal": "Mentions légales",
     "footer.privacy": "Politique de confidentialité",
-    "footer.copyright": "© 2025 FROM 6 AGENCY. Tous droits réservés.",
+    "footer.copyright": "© 2026 FROM 6 AGENCY. Tous droits réservés.",
   },
 } as const;
 

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, ArrowUpRight, PlayCircle } from "lucide-react";
+import { PlayCircle } from "lucide-react";
 import { getPortfolioCompanies } from "@/lib/content";
 import { T } from "@/components/Bilingual";
+import { ClosingCTA } from "@/components/ClosingCTA";
+import { ArrowLink, Page, PageHeader, Pill, Row, RowList } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Darix, MicePro, 6WAY | From 6's projects",
@@ -20,138 +20,87 @@ const JSON_LD = {
   ],
 };
 
+const ROLE_LABELS: Record<string, { en: string; fr: string }> = {
+  "co-founder": { en: "Co-founder", fr: "Cofondateur" },
+  investor: { en: "Investor", fr: "Investisseur" },
+};
+const STATUS_LABELS: Record<string, { en: string; fr: string }> = {
+  active: { en: "Active", fr: "Actif" },
+  "in build": { en: "In build", fr: "En construction" },
+};
+
 export default async function PortfolioPage() {
   const companies = await getPortfolioCompanies();
+  const ordered = [...companies].sort((a, b) => Number(b.name === "Darix") - Number(a.name === "Darix") || (a.display_order ?? 0) - (b.display_order ?? 0));
 
   return (
-    <div className="section-padding">
+    <Page>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }} />
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-16 max-w-3xl">
-          <p className="mb-3 kicker text-muted-foreground">
-            <T en="Projects" fr="Projets" />
-          </p>
-          <h1 className="mb-6 text-4xl font-medium md:text-5xl">
-            <T en="Building and supporting." fr="Construire et accompagner." />
-          </h1>
-          <p className="text-lg leading-relaxed text-muted-foreground">
-            <T
-              en="For each project below: what it does, who it serves, the problem it addresses, Franck's actual role, and its current status."
-              fr="Pour chaque projet ci-dessous : ce qu'il fait, à qui il s'adresse, le problème traité, le rôle réel de Franck et le statut actuel."
-            />
-          </p>
-        </div>
+      <PageHeader
+        title={<T en="Building and supporting." fr="Construire et accompagner." />}
+        lead={
+          <T
+            en="For each company: what it does, who it serves, Franck's actual role and its current status, as recorded in his own files."
+            fr="Pour chaque entreprise : ce qu'elle fait, à qui elle s'adresse, le rôle réel de Franck et son statut actuel, tels qu'ils figurent dans ses propres fiches."
+          />
+        }
+      />
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {companies.map((company) => {
-            const isCofounder = company.role?.toLowerCase() === "co-founder";
-            return (
-              <div key={company.id} className="flex flex-col rounded-2xl border border-border bg-card p-6 card-shadow hover-lift">
-                <div className="mb-3 flex items-start justify-between gap-3">
-                  <div className="flex min-w-0 items-center gap-3">
-                    {company.logo_url && (
-                      <Image
-                        src={company.logo_url}
-                        alt={`${company.name} logo`}
-                        width={40}
-                        height={40}
-                        className="shrink-0 rounded-lg bg-background object-contain p-1.5"
-                      />
-                    )}
-                    <h2 className="truncate font-medium">{company.name}</h2>
-                  </div>
-                  {company.role && (
-                    <span
-                      className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-medium ${isCofounder ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}
-                    >
-                      {company.role}
-                    </span>
+      <div className="mt-16 space-y-16 md:mt-24 md:space-y-20">
+        {ordered.map((company) => {
+          const role = company.role ? ROLE_LABELS[company.role.toLowerCase()] ?? { en: company.role, fr: company.role } : null;
+          const status = company.status ? STATUS_LABELS[company.status.toLowerCase()] ?? { en: company.status, fr: company.status } : null;
+          return (
+            <section key={company.id} className="grid gap-6 md:grid-cols-[1fr_2fr] md:gap-12">
+              <div>
+                <h2 className="text-3xl">{company.name}</h2>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {role && (
+                    <Pill tone={role.en === "Co-founder" ? "solid" : "muted"}>
+                      <T en={role.en} fr={role.fr} />
+                    </Pill>
+                  )}
+                  {status && (
+                    <Pill tone="outline">
+                      <T en={status.en} fr={status.fr} />
+                    </Pill>
                   )}
                 </div>
-
-                <p className="mb-4 text-sm text-muted-foreground">
-                  <T en={company.description} fr={company.description_fr || company.description} />
-                </p>
-
-                {company.tags && company.tags.length > 0 && (
-                  <div className="mb-4 flex flex-wrap gap-1.5">
-                    {company.tags.map((tag) => (
-                      <span key={tag} className="rounded-full border border-border px-2.5 py-1 text-xs">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-
-                {(company.stage_year || company.status) && (
-                  <div className="mb-4 flex items-center gap-2 text-xs text-muted-foreground">
-                    {company.stage_year && <span>{company.stage_year}</span>}
-                    {company.stage_year && company.status && <span>·</span>}
-                    {company.status && <span>{company.status}</span>}
-                  </div>
-                )}
-
-                {company.my_role && (
-                  <div className="mb-5 border-t border-border pt-4">
-                    <p className="mb-1.5 text-xs uppercase tracking-wide text-muted-foreground">
-                      <T en="Franck's role" fr="Le rôle de Franck" />
-                    </p>
-                    <p className="text-sm text-muted-foreground">{company.my_role}</p>
-                  </div>
-                )}
-
-                <div className="mt-auto flex flex-col gap-2 pt-4">
-                  {company.project_video_url && (
-                    <a
-                      href={company.project_video_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm font-medium hover:text-muted-foreground"
-                    >
-                      <PlayCircle className="h-3.5 w-3.5" />
-                      <T en="Watch project video" fr="Voir la vidéo du projet" />
-                      <ArrowUpRight className="h-3.5 w-3.5" />
-                    </a>
+                {company.stage_year && <p className="mt-3 text-sm text-muted-foreground">{company.stage_year}</p>}
+              </div>
+              <div>
+                <RowList>
+                  <Row term={<T en="What it does" fr="Ce qu'elle fait" />}>
+                    <T en={company.description} fr={company.description_fr || company.description} />
+                  </Row>
+                  {company.my_role && <Row term={<T en="Franck's role" fr="Le rôle de Franck" />}>{company.my_role}</Row>}
+                  {company.tags && company.tags.length > 0 && <Row term={<T en="Keywords" fr="Mots-clés" />}>{company.tags.join(", ")}</Row>}
+                </RowList>
+                <div className="mt-5 flex flex-wrap gap-x-8 gap-y-2">
+                  {company.name === "Darix" && (
+                    <ArrowLink href="/darix">
+                      <T en="How From 6 and Darix connect" fr="Le lien entre From 6 et Darix" />
+                    </ArrowLink>
                   )}
                   {company.website_url && (
-                    <a
-                      href={company.website_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm font-medium hover:text-muted-foreground"
-                    >
-                      <T en="Visit website" fr="Visiter le site" />
-                      <ArrowUpRight className="h-3.5 w-3.5" />
-                    </a>
+                    <ArrowLink href={company.website_url} external>
+                      {company.website_url.replace(/^https?:\/\//, "")}
+                    </ArrowLink>
+                  )}
+                  {company.project_video_url && (
+                    <ArrowLink href={company.project_video_url} external>
+                      <PlayCircle className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
+                      <T en="Project video" fr="Vidéo du projet" />
+                    </ArrowLink>
                   )}
                 </div>
               </div>
-            );
-          })}
-        </div>
-        <p className="mt-8 text-center text-sm text-muted-foreground">
-          <T en="More to come." fr="D'autres à venir." />
-        </p>
-
-        <div className="mx-auto mt-20 max-w-3xl rounded-2xl border border-border bg-card p-8 text-center card-shadow">
-          <h2 className="mb-3 text-2xl font-medium">
-            <T en="Present your project to From 6" fr="Présenter votre projet à From 6" />
-          </h2>
-          <p className="mb-6 text-muted-foreground">
-            <T
-              en="If you're building in a related space and looking for investment, advisory, or a hands-on partner, we'd like to hear from you."
-              fr="Si vous construisez dans un domaine proche et cherchez de l'investissement, du conseil ou un partenaire opérationnel, nous serions ravis d'échanger avec vous."
-            />
-          </p>
-          <Link
-            href="/proposer-un-projet"
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-7 text-base font-medium text-primary-foreground hover:bg-primary-hover"
-          >
-            <T en="Present my project" fr="Présenter mon projet" />
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
+            </section>
+          );
+        })}
       </div>
-    </div>
+
+      <ClosingCTA />
+    </Page>
   );
 }
