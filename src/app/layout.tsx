@@ -95,8 +95,6 @@ const JSON_LD = {
       founder: { "@type": "Person", name: "Franck Berthelot", jobTitle: "Entrepreneur & Investor" },
       address: {
         "@type": "PostalAddress",
-        streetAddress: "25 rue du Clos",
-        postalCode: "75020",
         addressLocality: "Paris",
         addressCountry: "FR",
       },
