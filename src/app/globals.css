@@ -231,6 +231,11 @@ a {
   /* Barre mobile des deux portes : cachée tant que les bandes du premier
      écran sont visibles ou que le menu est ouvert, elle remonte dès qu'on
      dépasse les bandes. */
+  .mobile-link-dot {
+    opacity: 0;
+    animation: link-travel 3.2s ease-in-out infinite;
+    animation-delay: 1.4s;
+  }
   .door-bar {
     transition: transform 0.35s var(--ease-out);
   }
@@ -281,6 +286,22 @@ a {
   }
   to {
     opacity: 1;
+  }
+}
+@keyframes link-travel {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    top: calc(100% - 7px);
+    opacity: 0;
   }
 }
 @keyframes draw-y {
@@ -341,7 +362,8 @@ a {
   .flow-branch-h {
     animation: none;
   }
-  .flow-dot {
+  .flow-dot,
+  .mobile-link-dot {
     display: none;
   }
   .door-bar {

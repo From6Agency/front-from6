@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { Fragment } from "react";
 import { T } from "@/components/Bilingual";
+import { Mark } from "@/components/brand/Logo";
 
 export type DoorKey = "companies" | "founders";
 
@@ -51,11 +53,11 @@ export function DoorBands({ active, onActive, className }: { active: DoorKey | n
   return (
     <div className={className}>
       <div className="doors border-y border-border" data-active={active ?? undefined}>
-        {DOORS.map((door) => {
+        {DOORS.map((door, index) => {
           const isActive = active === door.key;
           return (
+            <Fragment key={door.key}>
             <Link
-              key={door.key}
               href={door.href}
               data-state={isActive ? "active" : undefined}
               onPointerEnter={() => onActive(door.key)}
@@ -77,9 +79,26 @@ export function DoorBands({ active, onActive, className }: { active: DoorKey | n
                 </span>
               </div>
             </Link>
+            {index === 0 && <MobileLink />}
+            </Fragment>
           );
         })}
       </div>
+    </div>
+  );
+}
+
+/* Sur téléphone, le schéma complet n'existe pas : un connecteur sobre entre les
+   deux portes, le logo F6 sur le filet, relié aux deux parcours, avec un point
+   qui descend de l'un vers l'autre. Masqué dès md, où le schéma prend le relais. */
+function MobileLink() {
+  return (
+    <div className="mobile-link relative flex h-16 items-center justify-center md:hidden" aria-hidden="true">
+      <span className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-muted-foreground" />
+      <span className="mobile-link-dot absolute left-1/2 top-0 h-[7px] w-[7px] -translate-x-1/2 rounded-full bg-signal" />
+      <span className="relative flex h-11 w-11 items-center justify-center rounded-full border border-muted-foreground/60 bg-background text-foreground">
+        <Mark width={20} />
+      </span>
     </div>
   );
 }
