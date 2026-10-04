@@ -25,7 +25,7 @@ export default function DarixPage() {
     <Page width="4xl">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }} />
       <PageHeader
-        title={<T en="Darix, the team dedicated to your revenue systems." fr="Darix, l'équipe dédiée à vos systèmes revenue." />}
+        title={<T en="Darix, the team dedicated to your revenue systems." fr="Darix, l'équipe dédiée à vos systèmes de revenus." />}
         lead={
           <T
             en="From 6 is where a need first gets framed; Darix is where it gets built: Salesforce, Revenue Cloud, CPQ, billing, ERP integrations, data and AI."

@@ -42,7 +42,7 @@ export default function AdvisoryPage() {
   return (
     <Page>
       <PageHeader
-        title={<T en="Structure your revenue operations with Darix" fr="Structurer vos opérations revenue avec Darix" />}
+        title={<T en="Structure your revenue operations with Darix" fr="Structurer vos opérations de revenus avec Darix" />}
         lead={
           <T
             en="From 6 frames the need. Darix, the operational team Franck Berthelot co-founded, executes on Salesforce. The detail of each offer lives on darix.io; this page tells you whether you are in the right place, and how to come in."

@@ -18,7 +18,7 @@ export default function RessourcesPage() {
         lead={
           <T
             en="Short, direct guides to frame a revenue-systems project before your first conversation with Darix. Each one starts with the answer."
-            fr="Des guides courts et directs pour cadrer un projet de systèmes revenue avant votre premier échange avec Darix. Chacun commence par la réponse."
+            fr="Des guides courts et directs pour cadrer un projet de systèmes de revenus avant votre premier échange avec Darix. Chacun commence par la réponse."
           />
         }
       />

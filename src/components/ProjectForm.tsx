@@ -258,7 +258,7 @@ export function ProjectForm() {
                   setSector(e.target.value);
                   clearError("sector");
                 }}
-                placeholder={isEn ? "B2B SaaS, vertical software, applied AI" : "SaaS B2B, logiciel métier, IA appliquée"}
+                placeholder={isEn ? "Software, applied AI, services, retail..." : "Logiciel, IA appliquée, services, commerce..."}
                 className={inputClass}
                 aria-invalid={Boolean(errors.sector)}
                 aria-describedby={errors.sector ? "proj-sector-error" : undefined}

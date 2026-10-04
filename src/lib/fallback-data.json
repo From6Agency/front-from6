@@ -1,78 +1,11 @@
 {
-  "advisory_services": [
-    {
-      "id": "2c2da629-e596-441b-a660-4fb8dd838b02",
-      "title": "Platform Audit",
-      "title_fr": "Audit Plateforme",
-      "description": "Diagnostic of your Marketing, CRM (Salesforce), CPQ, and billing setup and integrations. Outcome: a clear map of your stack and where it's costing you revenue.",
-      "description_fr": "Diagnostic de votre setup Marketing, CRM (Salesforce), CPQ, facturation et intégrations. Résultat : une cartographie claire de votre stack et des endroits où elle vous coûte du revenue.",
-      "display_order": 1,
-      "published": true,
-      "created_at": "2025-11-21T17:18:46.162023+00:00",
-      "updated_at": "2026-06-26T09:32:44.552918+00:00"
-    },
-    {
-      "id": "b733a3e0-b00b-4917-822a-777ab5435d53",
-      "title": "Process Audit",
-      "title_fr": "Audit Processus",
-      "description": "Analysis of your sales, finance, and lead-to-cash workflows. Outcome: friction points identified, with a prioritized plan to remove them.",
-      "description_fr": "Analyse de vos workflows sales, finance et lead-to-cash. Résultat : points de friction identifiés, avec un plan priorisé pour les supprimer.",
-      "display_order": 2,
-      "published": true,
-      "created_at": "2025-11-21T17:18:46.162023+00:00",
-      "updated_at": "2026-06-26T09:32:44.552918+00:00"
-    },
-    {
-      "id": "0f77491d-c58c-453c-ac7f-8fb99b09e4c5",
-      "title": "Revenue Operations Advisory",
-      "title_fr": "Advisory Lead-to-Cash",
-      "description": "Strategic advisory for revenue platform optimization. Outcome: a RevOps roadmap aligned to how you actually sell and bill.",
-      "description_fr": "Advisory stratégique pour l'optimisation de votre plateforme revenue. Résultat : une roadmap RevOps alignée sur la façon dont vous vendez et facturez réellement.",
-      "display_order": 3,
-      "published": true,
-      "created_at": "2025-11-21T17:18:46.162023+00:00",
-      "updated_at": "2026-06-26T09:32:44.552918+00:00"
-    },
-    {
-      "id": "c0edba09-3a4c-4ed0-8b89-2f44b01b3086",
-      "title": "Revenue Data & Platform Migration",
-      "title_fr": "Migration de données et systèmes Lead-to-Cash",
-      "description": "Expert guidance for revenue platform transitions. Outcome: migrations that protect your data and keep revenue flowing.",
-      "description_fr": "Accompagnement expert pour les transitions de plateforme revenue. Résultat : des migrations qui protègent vos données et maintiennent le revenue en mouvement.",
-      "display_order": 4,
-      "published": true,
-      "created_at": "2025-11-21T17:18:46.162023+00:00",
-      "updated_at": "2026-06-26T09:32:44.552918+00:00"
-    },
-    {
-      "id": "9466325e-42e8-4f3c-adc8-c609d8178673",
-      "title": "AI & Data Enablement",
-      "title_fr": "Enablement IA & Données",
-      "description": "Integrate AI into pricing and forecasting workflows. Outcome: automation that compounds, better forecasts, faster quoting.",
-      "description_fr": "Intégrez l'IA dans vos workflows de pricing et de forecasting. Résultat : une automatisation qui se compose, de meilleurs forecasts, des devis plus rapides.",
-      "display_order": 5,
-      "published": true,
-      "created_at": "2025-11-21T17:18:46.162023+00:00",
-      "updated_at": "2026-06-26T09:32:44.552918+00:00"
-    },
-    {
-      "id": "a82d4675-bc7c-4ca2-a160-e828d4406a56",
-      "title": "GTM Engineering",
-      "title_fr": "Ingénierie GTM",
-      "description": "Design scalable Go-to-Market operations. Outcome: a repeatable, measurable go-to-market motion built to scale.",
-      "description_fr": "Concevez des opérations Go-to-Market scalables. Résultat : une motion go-to-market répétable, mesurable et conçue pour passer à l'échelle.",
-      "display_order": 6,
-      "published": true,
-      "created_at": "2025-11-21T17:18:46.162023+00:00",
-      "updated_at": "2026-06-26T09:32:44.552918+00:00"
-    }
-  ],
+  "advisory_services": [],
   "portfolio_companies": [
     {
       "id": "b26b0265-b4e1-4188-99b0-f8fb7154aafd",
       "name": "MicePro",
       "description": "AI-powered MICE and group-sales automation for hotels and venues. From lead intake to proposal, contract, and coordination, all in one dashboard.",
-      "description_fr": "AI-powered MICE & group-sales automation for hotels and venues — from lead intake to proposal, contract, and coordination, in one dashboard.",
+      "description_fr": "Automatisation par l'IA des ventes MICE et groupes pour les hôtels et les lieux d'événements. De la réception du lead à la proposition, au contrat et à la coordination, dans un seul tableau de bord.",
       "logo_url": null,
       "website_url": "https://micepro.io",
       "display_order": 0,
@@ -101,7 +34,7 @@
       "display_order": 1,
       "published": true,
       "created_at": "2026-06-26T08:57:21.000707+00:00",
-      "updated_at": "2026-10-04T12:00:00.000000+00:00",
+      "updated_at": "2026-10-04T07:47:02.43784+00:00",
       "role": "Co-founder",
       "tags": [
         "Health & Fitness",
@@ -116,21 +49,21 @@
     {
       "id": "71cf1fde-5232-4179-b24f-596f0ce32834",
       "name": "Darix",
-      "description": "Salesforce-native Lead-to-Cash agency and product suite, restoring confidence in revenue ecosystems across CPQ, billing, and integrations.",
-      "description_fr": "Salesforce-native Lead-to-Cash agency and product suite, restoring confidence in revenue ecosystems across CPQ, billing, and integrations.",
+      "description": "Salesforce-native Lead-to-Cash agency: CPQ, Revenue Cloud, billing and integrations delivered by architects, with an in-house product suite in progress.",
+      "description_fr": "Agence Lead-to-Cash native Salesforce : CPQ, Revenue Cloud, facturation et intégrations livrés par des architectes, avec une suite de produits maison en cours.",
       "logo_url": null,
       "website_url": "https://darix.io",
       "display_order": 2,
       "published": true,
       "created_at": "2026-06-26T08:57:21.000707+00:00",
-      "updated_at": "2026-06-26T09:03:36.248139+00:00",
+      "updated_at": "2026-10-04T10:04:47.040425+00:00",
       "role": "Co-founder",
       "tags": [
         "RevOps",
         "Salesforce / Lead-to-Cash",
         "AI Workflows"
       ],
-      "stage_year": "Co-founded · 2026",
+      "stage_year": "Founded · 2026",
       "my_role": "FROM 6 is co-founder and operating partner, leading Salesforce and revenue-platform architecture, with work underway on an in-house product suite built on top of Salesforce infrastructure.",
       "status": "Active",
       "project_video_url": null
@@ -143,7 +76,7 @@
       "title": "Available for Podcast Interviews",
       "title_fr": "Disponible pour des interviews podcast",
       "description": "Open to discussing Lead-to-Cash architecture, RevOps optimization, B2B SaaS scaling, and AI-powered revenue workflows.",
-      "description_fr": "Ouverts pour échanger sur l'architecture Lead-to-Cash, l'optimisation RevOps, la croissance B2B SaaS et les workflows revenue augmentés par l'IA.",
+      "description_fr": "Disponible pour échanger sur l'architecture Lead-to-Cash, l'optimisation RevOps, la croissance des SaaS B2B et les workflows de revenus augmentés par l'IA.",
       "organization": "",
       "organization_fr": "",
       "date": "2025-11-25T13:35:55.020369+00:00",
@@ -157,7 +90,7 @@
       "title": "Guest Expert Appearances",
       "title_fr": "Interventions d'expert",
       "description": "Open for speaking engagements and expert insights on RevOps evolution, CPQ deployments, and AI transformation in revenue operations.",
-      "description_fr": "Disponibles pour des conférences et des analyses d'expert sur l'évolution du RevOps, les déploiements CPQ et la transformation IA des revenue operations.",
+      "description_fr": "Disponible pour des conférences et des analyses d'expert sur l'évolution du RevOps, les déploiements CPQ et la transformation IA des opérations de revenus.",
       "organization": "",
       "organization_fr": "",
       "date": "2025-11-25T13:35:55.020369+00:00",
@@ -178,7 +111,7 @@
       "created_at": "2026-04-22T14:59:31.337766+00:00",
       "updated_at": "2026-06-26T09:32:44.552918+00:00",
       "description": "A deep dive into Lead-to-Cash on Salesforce: how to architect CPQ, billing, and integrations so revenue flows cleanly from first touch to cash. Practical insight for founders and go-to-market teams on alignment, execution, and sustainable performance.",
-      "description_fr": "Un deep dive sur le Lead-to-Cash sur Salesforce : comment architecturer CPQ, facturation et intégrations pour que le revenue circule proprement du premier contact au cash. Insights pratiques pour fondateurs et équipes go-to-market sur l'alignement, l'exécution et la performance durable."
+      "description_fr": "Un approfondissement du Lead-to-Cash sur Salesforce : comment architecturer CPQ, facturation et intégrations pour que les revenus circulent proprement du premier contact à l'encaissement. Conseils pratiques pour fondateurs et équipes go-to-market sur l'alignement, l'exécution et la performance durable."
     },
     {
       "id": "317004f6-bf7a-4b3b-98c4-cb1d029afac6",
@@ -191,7 +124,7 @@
       "created_at": "2026-02-12T10:37:20.126707+00:00",
       "updated_at": "2026-06-26T09:32:44.552918+00:00",
       "description": "Franck's path from finance to revenue architect, and his perspective on RevOps, commercial performance, and business architecture in B2B SaaS.",
-      "description_fr": "Le parcours de Franck, de la finance à architecte revenue, et sa vision du RevOps, de la performance commerciale et de l'architecture business en B2B SaaS."
+      "description_fr": "Le parcours de Franck, de la finance à architecte des systèmes de revenus, et sa vision du RevOps, de la performance commerciale et de l'architecture business en B2B SaaS."
     },
     {
       "id": "a0efa249-58a0-4cec-89ab-d3181d86283d",
@@ -204,7 +137,7 @@
       "created_at": "2026-02-12T10:37:20.126707+00:00",
       "updated_at": "2026-06-26T09:32:44.552918+00:00",
       "description": "A conversation on growth strategy, revenue operations, and the foundations of an effective B2B SaaS billing and quote-to-cash motion.",
-      "description_fr": "Une conversation sur la stratégie de croissance, les revenue operations et les fondations d'une motion billing et quote-to-cash B2B SaaS efficace."
+      "description_fr": "Une conversation sur la stratégie de croissance, les opérations de revenus et les fondations d'une démarche de facturation et de quote-to-cash B2B SaaS efficace."
     }
   ],
   "site_content": [
@@ -221,282 +154,6 @@
       "image_settings": null
     },
     {
-      "id": "5e900120-b483-47f7-b08f-155b44bfbf36",
-      "section": "about",
-      "key": "bio",
-      "content_en": "FROM 6 AGENCY is a strategic partner for B2B SaaS companies, from advice to investment. We combine business-architecture expertise, revenue-platform know-how, and hands-on execution to help founders and leadership teams strengthen the systems behind growth. With Salesforce and CRM & Revenue platforms at the heart of our work, we design and run Lead-to-Cash, RevOps, CPQ, billing, and AI-powered workflows that scale.",
-      "content_fr": "FROM 6 AGENCY est un partenaire stratégique pour les entreprises B2B SaaS, du conseil à l'investissement. Nous combinons expertise en architecture business, maîtrise des plateformes revenue et exécution opérationnelle pour aider les fondateurs et les équipes de direction à renforcer les systèmes qui portent la croissance. Avec Salesforce et les plateformes CRM & Revenue au cœur de notre approche, nous concevons et opérons des workflows Lead-to-Cash, RevOps, CPQ, facturation et IA scalables.",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2026-06-26T10:44:55.248411+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
-      "id": "3fea7986-fcf3-48a7-9e81-90496c208920",
-      "section": "hero",
-      "key": "title",
-      "content_en": "FROM 6 AGENCY",
-      "content_fr": "FROM 6 AGENCY",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-25T13:37:56.718939+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
-      "id": "58588ba5-0019-4188-9a18-93806b57822f",
-      "section": "hero",
-      "key": "intro",
-      "content_en": "Strategic advisory for B2B SaaS companies on revenue operations, business architecture, and AI-powered innovation.",
-      "content_fr": "Accompagnement stratégique des entreprises B2B SaaS portant sur la performance des opérations commerciales, la structuration de l’architecture métier et la valorisation de l’innovation grâce à l’intelligence artificielle",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-26T14:35:46.248255+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
-      "id": "da16d00f-91f9-4927-a8aa-3110f8732819",
-      "section": "hero",
-      "key": "subtitle",
-      "content_en": "Advisory. Investments. Intelligence.",
-      "content_fr": "Advisory. Investissements. Expertise.",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-26T14:36:13.848533+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
-      "id": "92fa7d1d-fc4a-4b25-b501-408a3b55b4e8",
-      "section": "investments",
-      "key": "support_title",
-      "content_en": "Active Partnership",
-      "content_fr": "Accompagnement Stratégique",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-26T14:39:44.754068+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
-      "id": "6f6c2825-f8f9-4077-9b93-0f2aeafbded8",
-      "section": "investments",
-      "key": "portfolio_title",
-      "content_en": "Portfolio",
-      "content_fr": "Portfolio",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-25T13:37:56.718939+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
-      "id": "341fc0ef-10aa-4228-ae51-ef5650e0e507",
-      "section": "investments",
-      "key": "thesis_title",
-      "content_en": "Investment Thesis",
-      "content_fr": "Thèse d'investissement",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-25T13:37:56.718939+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
-      "id": "456917d0-ebfd-4255-85d7-cd8277fb625c",
-      "section": "investments",
-      "key": "additional_support_title",
-      "content_en": "Additional Support",
-      "content_fr": "Expertise Complémentaire",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-26T14:36:51.64318+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
-      "id": "06862937-1da3-4a9c-bfc1-eb8cebecfb22",
-      "section": "investments",
-      "key": "intro",
-      "content_en": "Early-stage B2B SaaS investments with hands-on operational support. Focus on revenue infrastructure, RevOps tools, and AI-powered workflows.",
-      "content_fr": "Investissement en phase d’amorçage dans des startups B2B SaaS, avec accompagnement opérationnel. Focus sur l’optimisation des revenus, les outils RevOps et les workflows automatisés par l’intelligence artificielle.",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-26T14:38:05.722215+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
-      "id": "0ce7efee-3992-465a-b5aa-cbba7f8ab606",
-      "section": "investments",
-      "key": "portfolio_description",
-      "content_en": "Portfolio companies will be featured here soon.",
-      "content_fr": "Les entreprises du portfolio seront présentées ici prochainement.",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-25T13:37:56.718939+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
-      "id": "017fbd34-2e1d-41ea-9fc4-5fa8e881921e",
-      "section": "investments",
-      "key": "thesis_content",
-      "content_en": "I invest in early-stage B2B SaaS startups building revenue infrastructure, RevOps tools, AI-powered workflows, and vertical SaaS platforms. Typical check size: €10-50K.",
-      "content_fr": "Investisseur early-stage spécialisé B2B SaaS pré-seed/seed. Focus sur l’optimisation des revenus, les outils RevOps, l’automatisation par l’IA et les SaaS verticaux. Tickets : 10-50K€.",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-27T09:17:30.405575+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
-      "id": "5dfadd53-658e-4acc-86b4-b2f700b25a2f",
-      "section": "investments_additional",
-      "key": "item2",
-      "content_en": "Investor & customer introductions",
-      "content_fr": "Introductions investisseurs & clients",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-25T13:37:56.718939+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
-      "id": "554e6132-7a5d-4ae1-a921-61ec378aca52",
-      "section": "investments_additional",
-      "key": "item3",
-      "content_en": "Governance & board advisory",
-      "content_fr": "Gouvernance & advisory board",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-25T13:37:56.718939+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
-      "id": "bb8b185b-e258-42e9-8a1c-427ec9a393d4",
-      "section": "investments_additional",
-      "key": "item4",
-      "content_en": "Hands-on business systems architecture",
-      "content_fr": "Architecture systèmes business hands-on",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-25T13:37:56.718939+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
-      "id": "52bedac5-5693-4534-a20e-a7046353e3bd",
-      "section": "investments_additional",
-      "key": "item1",
-      "content_en": "Strategic hiring (Sales, RevOps, Product)",
-      "content_fr": "Recrutement stratégique (Sales, RevOps, Produit)",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-25T13:37:56.718939+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
-      "id": "ff1d6523-c6eb-42df-81d7-a5cd2a9a98f7",
-      "section": "investments_support",
-      "key": "area3_title",
-      "content_en": "Product Positioning & Roadmap",
-      "content_fr": "Positionnement Produit & Roadmap",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-25T13:37:56.718939+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
-      "id": "c94e4c9e-6775-42b1-a5f3-e917476b9367",
-      "section": "investments_support",
-      "key": "area2_title",
-      "content_en": "Revenue Platforms Architecture",
-      "content_fr": "Architecture Revenue",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-27T09:26:34.516459+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
-      "id": "3966ee93-86d2-4fc4-b36a-c1421cedb220",
-      "section": "investments_support",
-      "key": "area1_desc",
-      "content_en": "Build efficient sales engines and scalable GTM motions",
-      "content_fr": "Concevoir des moteurs de croissance performants et des stratégies go-to-market scalables",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-26T14:43:58.096248+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
-      "id": "10714860-3b8c-4f4a-8b94-646dc9b487bb",
-      "section": "investments_support",
-      "key": "area2_desc",
-      "content_en": "Design revenue infrastructure from day one",
-      "content_fr": "Poser les fondations de la croissance dès le lancement",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-26T14:45:22.258943+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
-      "id": "605c68df-34e2-4a27-ac21-5703c306d2b7",
-      "section": "investments_support",
-      "key": "area4_title",
-      "content_en": "Revenue Operations Setup",
-      "content_fr": "Structurer les Revenue Operations",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-26T14:48:23.065441+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
-      "id": "d80a436c-f639-45eb-b4ba-c4e2e8858f63",
-      "section": "investments_support",
-      "key": "area4_desc",
-      "content_en": "Deploy CRM foundations, Quote-to-Cash processes, finance systems and analytics",
-      "content_fr": "Déployer les fondations CRM, processus du devis à l’encaissement, finance et analytics",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-26T14:49:05.877472+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
-      "id": "ce1cb1a2-5059-46a7-85d4-1225b89becd0",
-      "section": "investments_support",
-      "key": "area1_title",
-      "content_en": "Go-to-Market Strategy & Execution",
-      "content_fr": "Stratégie & Exécution Go-to-Market",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-25T13:37:56.718939+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
-      "id": "2bb65f8d-d1ba-4ecd-966c-323172bc4bce",
-      "section": "investments_support",
-      "key": "area3_desc",
-      "content_en": "Align product strategy with market needs",
-      "content_fr": "Aligner la stratégie produit avec les besoins du marché",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-25T13:37:56.718939+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
       "id": "036a5e92-71a4-4401-a84a-80dd684b695f",
       "section": "legal",
       "key": "content",
@@ -509,18 +166,6 @@
       "image_settings": null
     },
     {
-      "id": "216f0d1d-5e42-4530-9b8c-4d492c086b0c",
-      "section": "media",
-      "key": "intro",
-      "content_en": "Analysis and learnings on building high-performing, scalable companies",
-      "content_fr": "Analyses et retours d’expérience sur la construction d’entreprises performantes et scalables",
-      "published": true,
-      "created_at": "2025-11-25T13:37:56.718939+00:00",
-      "updated_at": "2025-11-26T14:50:04.736457+00:00",
-      "image_url": null,
-      "image_settings": null
-    },
-    {
       "id": "4330a782-b3ad-4af4-a471-ec2890f60828",
       "section": "privacy",
       "key": "content",
@@ -529,6 +174,30 @@
       "published": true,
       "created_at": "2025-11-26T15:47:39.359512+00:00",
       "updated_at": "2025-11-26T15:47:39.359512+00:00",
+      "image_url": null,
+      "image_settings": null
+    },
+    {
+      "id": "017fbd34-2e1d-41ea-9fc4-5fa8e881921e",
+      "section": "investments",
+      "key": "thesis_content",
+      "content_en": "I invest at pre-seed and seed and stay involved after the investment: advisory, hands-on work on revenue systems, sometimes co-founding. Technology and AI are my field of expertise, but I do not limit myself to one sector.",
+      "content_fr": "J'investis en pré-seed et en seed et je reste impliqué après l'investissement : conseil, travail concret sur les systèmes de revenus, parfois cofondation. La technologie et l'IA sont mon domaine d'expertise, mais je ne me limite pas à un seul secteur.",
+      "published": true,
+      "created_at": "2025-11-25T13:37:56.718939+00:00",
+      "updated_at": "2026-10-04T10:04:47.040425+00:00",
+      "image_url": null,
+      "image_settings": null
+    },
+    {
+      "id": "5e900120-b483-47f7-b08f-155b44bfbf36",
+      "section": "about",
+      "key": "bio",
+      "content_en": "From 6 is the company through which I operate and invest. Darix, co-founded in 2026, is the Salesforce team that executes revenue-system projects: Lead-to-Cash, CPQ, Revenue Cloud, billing, integrations. 6WAY, in beta since 2026, is a training and nutrition app with an AI coach, live on the web and on iPhone by request. MicePro, where I invest, automates group sales for hotels and venues. The role is the same each time: build the systems behind the revenue, not only advise on them.",
+      "content_fr": "From 6 est la société par laquelle j'opère et j'investis. Darix, cofondée en 2026, est l'équipe Salesforce qui exécute les projets de systèmes de revenus : Lead-to-Cash, CPQ, Revenue Cloud, facturation, intégrations. 6WAY, en bêta depuis 2026, est une app d'entraînement et de nutrition avec un coach IA, en ligne sur le web et sur iPhone sur demande. MicePro, où j'investis, automatise les ventes groupes des hôtels et lieux d'événements. Le rôle est le même à chaque fois : construire les systèmes derrière le revenu, pas seulement conseiller.",
+      "published": true,
+      "created_at": "2025-11-25T13:37:56.718939+00:00",
+      "updated_at": "2026-10-04T10:04:47.040425+00:00",
       "image_url": null,
       "image_settings": null
     }

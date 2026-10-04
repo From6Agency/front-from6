@@ -7,7 +7,7 @@ import { ArrowLink, Button, Page, PageHeader, Row, RowList, Section, SectionHead
 
 export const metadata: Metadata = {
   title: "Media & Speaking",
-  description: "Podcasts, articles, and speaking appearances by Franck Berthelot on B2B SaaS revenue, RevOps, and AI-powered go-to-market.",
+  description: "Podcasts, articles, and speaking appearances by Franck Berthelot on revenue systems, RevOps, and AI.",
   alternates: { canonical: "/media" },
 };
 
@@ -55,11 +55,11 @@ export default async function MediaPage() {
     <Page>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(mediaJsonLd) }} />
       <PageHeader
-        title={<T en="Opening the discussion on revenue systems." fr="Ouvrir la discussion sur les systèmes revenue." />}
+        title={<T en="Opening the discussion on revenue systems." fr="Ouvrir la discussion sur les systèmes de revenus." />}
         lead={
           <T
-            en="Podcasts, masterclasses and interviews on Lead-to-Cash, Salesforce, RevOps and building B2B software companies. Each recording links to its source."
-            fr="Podcasts, masterclass et interviews sur le Lead-to-Cash, Salesforce, le RevOps et la construction d'entreprises B2B. Chaque enregistrement renvoie à sa source."
+            en="Podcasts, masterclasses and interviews on Lead-to-Cash, Salesforce, RevOps and building companies. Each recording links to its source."
+            fr="Podcasts, masterclass et interviews sur le Lead-to-Cash, Salesforce, le RevOps et la construction d'entreprises. Chaque enregistrement renvoie à sa source."
           />
         }
       />

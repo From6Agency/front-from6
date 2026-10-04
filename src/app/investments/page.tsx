@@ -7,25 +7,20 @@ import { ArrowLink, Button, Page, PageHeader, Row, RowList, Section, SectionHead
 
 export const metadata: Metadata = {
   title: "Investment and support for founders",
-  description: "An operator's experience by your side: investment, advisory, and hands-on support for early-stage B2B SaaS founders.",
+  description: "An operator's experience by your side: investment, advisory, and hands-on support for early-stage founders.",
   alternates: { canonical: "/investments" },
 };
 
 const THESIS = [
   {
-    title: { en: "Revenue infrastructure and RevOps tools", fr: "Infrastructure de revenus et outils RevOps" },
-    en: "Products that make go-to-market teams faster and cleaner.",
-    fr: "Des produits qui rendent les équipes go-to-market plus rapides et plus efficaces.",
+    title: { en: "Technology and AI", fr: "Technologie et IA" },
+    en: "My field of expertise: software, AI-powered products, revenue infrastructure and RevOps tools.",
+    fr: "Mon domaine d'expertise : logiciels, produits augmentés par l'IA, infrastructure de revenus et outils RevOps.",
   },
   {
-    title: { en: "AI-powered workflows", fr: "Workflows augmentés par l'IA" },
-    en: "Automation that compounds, not features that demo well.",
-    fr: "Une automatisation qui s'accumule dans le temps, pas des fonctionnalités qui brillent en démo.",
-  },
-  {
-    title: { en: "Vertical SaaS", fr: "SaaS vertical" },
-    en: "Focused platforms owning a specific industry's lead-to-cash.",
-    fr: "Des plateformes focalisées qui maîtrisent le lead-to-cash d'un secteur précis.",
+    title: { en: "Other sectors", fr: "Autres secteurs" },
+    en: "Not limited to tech: a project from another sector can be presented when I can bring more than capital.",
+    fr: "Pas limité à la tech : un projet d'un autre secteur peut être présenté quand je peux apporter plus que du capital.",
   },
 ];
 
@@ -77,8 +72,8 @@ export default async function InvestmentsPage() {
           title={<T en="What I invest in" fr="Ce dans quoi j'investis" />}
           lead={
             <T
-              en="I invest early, stay close, and only join projects where I can genuinely help build. A project outside these three lines can still be presented."
-              fr="J'investis tôt, je reste proche, et je ne rejoins que des projets où je peux vraiment aider à construire. Un projet hors de ces trois lignes peut aussi être présenté."
+              en="I invest early, stay close, and only join projects where I can genuinely help build."
+              fr="J'investis tôt, je reste proche, et je ne rejoins que des projets où je peux vraiment aider à construire."
             />
           }
         />

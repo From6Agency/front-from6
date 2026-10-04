@@ -6,13 +6,13 @@ const FAQS: Array<{ q_en: string; q_fr: string; a_en: string; a_fr: string }> = 
     q_en: "What is the link between From 6 and Darix?",
     q_fr: "Quel est le lien entre From 6 et Darix ?",
     a_en: "From 6 carries Franck Berthelot's entrepreneurial and investment activity. Darix, which he co-founded, handles the operational projects tied to revenue systems: Salesforce, CPQ, billing, and integrations.",
-    a_fr: "From 6 porte les activités entrepreneuriales et d'investissement de Franck Berthelot. Darix, qu'il a cofondé, intervient sur les projets opérationnels liés aux systèmes revenue : Salesforce, CPQ, facturation et intégrations.",
+    a_fr: "From 6 porte les activités entrepreneuriales et d'investissement de Franck Berthelot. Darix, qu'il a cofondé, intervient sur les projets opérationnels liés aux systèmes de revenus : Salesforce, CPQ, facturation et intégrations.",
   },
   {
     q_en: "What kind of projects can I present to From 6?",
     q_fr: "Quels projets peut-on présenter à From 6 ?",
-    a_en: "B2B SaaS, vertical software, and applied AI projects are the main areas of interest. A project from another sector can also be presented by explaining its activity and the kind of support it needs.",
-    a_fr: "Les SaaS B2B, logiciels métiers et projets d'IA appliquée font partie des domaines d'intérêt. Un projet d'un autre secteur peut aussi être présenté en expliquant son activité et l'appui recherché.",
+    a_en: "Early-stage projects where I can bring more than capital. Technology, software and AI are my field of expertise, but a project from another sector can also be presented by explaining its activity and the kind of support it needs.",
+    a_fr: "Des projets en phase précoce où je peux apporter plus que du capital. La technologie, le logiciel et l'IA sont mon domaine d'expertise, mais un projet d'un autre secteur peut aussi être présenté en expliquant son activité et l'appui recherché.",
   },
   {
     q_en: "Do I need a finished specification to reach out?",
@@ -29,8 +29,8 @@ const FAQS: Array<{ q_en: string; q_fr: string; a_en: string; a_fr: string }> = 
   {
     q_en: "Can I propose a speaking engagement or a podcast?",
     q_fr: "Peut-on proposer une intervention ou un podcast ?",
-    a_en: "Yes. Relevant topics include revenue systems, Salesforce, SaaS, and entrepreneurship. Requests go through the Contact page.",
-    a_fr: "Oui. Les sujets peuvent notamment concerner les systèmes revenue, Salesforce, les SaaS et l'entrepreneuriat. La demande passe par la page Contact.",
+    a_en: "Yes. Relevant topics include revenue systems, Salesforce, software, and entrepreneurship. Requests go through the Contact page.",
+    a_fr: "Oui. Les sujets peuvent notamment concerner les systèmes de revenus, Salesforce, les logiciels et l'entrepreneuriat. La demande passe par la page Contact.",
   },
 ];
 

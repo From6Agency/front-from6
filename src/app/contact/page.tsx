@@ -28,7 +28,7 @@ export default function ContactPage() {
           <DoorCard
             href="/diagnostic"
             label={{ en: "For companies", fr: "Pour les entreprises" }}
-            title={<T en="A revenue-systems need" fr="Un enjeu de systèmes revenue" />}
+            title={<T en="A revenue-systems need" fr="Un enjeu de systèmes de revenus" />}
             cta={{ en: "Start the diagnostic", fr: "Démarrer le diagnostic" }}
           >
             <T en="Salesforce, CPQ, billing, integrations, data or AI: three short steps and a first direction." fr="Salesforce, CPQ, facturation, intégrations, data ou IA : trois étapes courtes et une première orientation." />

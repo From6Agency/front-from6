@@ -19,7 +19,7 @@ const PERSON_JSON_LD = {
   url: "https://from6agency.com/about",
   sameAs: ["https://www.linkedin.com/in/franckberthelot"],
   worksFor: { "@type": "Organization", name: "FROM 6 AGENCY", url: "https://from6agency.com" },
-  knowsAbout: ["Revenue Operations", "Salesforce CPQ", "Lead-to-Cash", "B2B SaaS", "Early-stage investing"],
+  knowsAbout: ["Revenue Operations", "Salesforce CPQ", "Lead-to-Cash", "Artificial intelligence", "Early-stage investing"],
 };
 
 const PATH = [
