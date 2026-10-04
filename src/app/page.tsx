@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { getPortfolioCompanies } from "@/lib/content";
 import { DARIX_OFFERS, darixLink } from "@/lib/darix";
 import { T } from "@/components/Bilingual";
@@ -78,7 +78,6 @@ export default async function Home() {
             {ordered.map((company) => {
               const role = label(ROLE_LABELS, company.role);
               const status = label(STATUS_LABELS, company.status);
-              const domain = company.website_url?.replace(/^https?:\/\//, "");
               return (
                 <article key={company.id} className="flex flex-col">
                   <div className="flex flex-wrap items-center gap-3">
@@ -99,16 +98,18 @@ export default async function Home() {
                   <p className="mt-4 flex-1 text-[0.9375rem] leading-relaxed text-muted-foreground">
                     <T en={company.description} fr={company.description_fr || company.description} />
                   </p>
-                  <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
-                    {company.name === "Darix" && (
-                      <ArrowLink href="/darix">
-                        <T en="How From 6 and Darix connect" fr="Le lien entre From 6 et Darix" />
-                      </ArrowLink>
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    {company.website_url && (
+                      <Button href={company.website_url} external>
+                        <T en={`Visit ${company.name}`} fr={`Découvrir ${company.name}`} />
+                        <ArrowUpRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
+                      </Button>
                     )}
-                    {company.website_url && domain && (
-                      <ArrowLink href={company.website_url} external>
-                        {domain}
-                      </ArrowLink>
+                    {company.name === "Darix" && (
+                      <Button href="/darix" variant="outline">
+                        <T en="How From 6 and Darix connect" fr="Le lien entre From 6 et Darix" />
+                        <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
+                      </Button>
                     )}
                   </div>
                 </article>

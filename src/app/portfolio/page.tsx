@@ -3,7 +3,9 @@ import { PlayCircle } from "lucide-react";
 import { getPortfolioCompanies } from "@/lib/content";
 import { T } from "@/components/Bilingual";
 import { ClosingCTA } from "@/components/ClosingCTA";
-import { ArrowLink, Page, PageHeader, Pill, Row, RowList } from "@/components/ui";
+import { LinkedInVideo } from "@/components/LinkedInVideo";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { Button, Page, PageHeader, Pill, Row, RowList } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Darix, MicePro, 6WAY | From 6's projects",
@@ -77,24 +79,28 @@ export default async function PortfolioPage() {
                   {company.my_role && <Row term={<T en="Franck's role" fr="Le rôle de Franck" />}>{company.my_role}</Row>}
                   {company.tags && company.tags.length > 0 && <Row term={<T en="Keywords" fr="Mots-clés" />}>{company.tags.join(", ")}</Row>}
                 </RowList>
-                <div className="mt-5 flex flex-wrap gap-x-8 gap-y-2">
-                  {company.name === "Darix" && (
-                    <ArrowLink href="/darix">
-                      <T en="How From 6 and Darix connect" fr="Le lien entre From 6 et Darix" />
-                    </ArrowLink>
-                  )}
+                <div className="mt-6 flex flex-wrap gap-3">
                   {company.website_url && (
-                    <ArrowLink href={company.website_url} external>
-                      {company.website_url.replace(/^https?:\/\//, "")}
-                    </ArrowLink>
+                    <Button href={company.website_url} external>
+                      <T en={`Visit ${company.name}`} fr={`Découvrir ${company.name}`} />
+                      <ArrowUpRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
+                    </Button>
                   )}
-                  {company.project_video_url && (
-                    <ArrowLink href={company.project_video_url} external>
-                      <PlayCircle className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
-                      <T en="Project video" fr="Vidéo du projet" />
-                    </ArrowLink>
+                  {company.name === "Darix" && (
+                    <Button href="/darix" variant="outline">
+                      <T en="How From 6 and Darix connect" fr="Le lien entre From 6 et Darix" />
+                      <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
+                    </Button>
                   )}
                 </div>
+                {company.project_video_url && (
+                  <div className="mt-6">
+                    <LinkedInVideo url={company.project_video_url} title={`${company.name}, video`} />
+                    <a href={company.project_video_url} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block text-sm font-medium text-signal underline-offset-4 hover:underline">
+                      <T en="Open on LinkedIn" fr="Ouvrir sur LinkedIn" />
+                    </a>
+                  </div>
+                )}
               </div>
             </section>
           );
