@@ -26,6 +26,7 @@ const ROLE_LABELS: Record<string, { en: string; fr: string }> = {
 };
 const STATUS_LABELS: Record<string, { en: string; fr: string }> = {
   active: { en: "Active", fr: "Actif" },
+  beta: { en: "Beta", fr: "Bêta" },
   "in build": { en: "In build", fr: "En construction" },
 };
 

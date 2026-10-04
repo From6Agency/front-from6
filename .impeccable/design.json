@@ -1,91 +1,495 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-11T12:00:00Z",
+  "generatedAt": "2026-10-05T01:00:00Z",
   "title": "Design System: FROM 6 AGENCY",
   "extensions": {
     "colorMeta": {
-      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#000000", "tonalRamp": ["#000000", "#141414", "#2C2C2C", "#6E6E68", "#A0A09A", "#E3E3DF", "#F2F2F0", "#FFFFFF"] },
-      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#FFFFFF", "tonalRamp": ["#000000", "#141414", "#2C2C2C", "#6E6E68", "#A0A09A", "#E3E3DF", "#F2F2F0", "#FFFFFF"] },
-      "fog": { "role": "neutral", "displayName": "Fog", "canonical": "#F2F2F0", "tonalRamp": ["#000000", "#141414", "#2C2C2C", "#6E6E68", "#A0A09A", "#E3E3DF", "#F2F2F0", "#FFFFFF"] },
-      "line": { "role": "neutral", "displayName": "Line", "canonical": "#E3E3DF", "tonalRamp": ["#000000", "#141414", "#2C2C2C", "#6E6E68", "#A0A09A", "#E3E3DF", "#F2F2F0", "#FFFFFF"] },
-      "steel": { "role": "neutral", "displayName": "Steel", "canonical": "#6E6E68", "tonalRamp": ["#000000", "#141414", "#2C2C2C", "#6E6E68", "#A0A09A", "#E3E3DF", "#F2F2F0", "#FFFFFF"] },
-      "signal": { "role": "primary", "displayName": "Signal", "canonical": "#2233E8", "tonalRamp": ["#0B1250", "#121C7E", "#1A28B3", "#2233E8", "#4D5CF0", "#6B7CFF", "#B3BCFF", "#EDEFFE"] },
-      "signal-soft": { "role": "primary", "displayName": "Signal Soft", "canonical": "#6B7CFF", "tonalRamp": ["#0B1250", "#121C7E", "#1A28B3", "#2233E8", "#4D5CF0", "#6B7CFF", "#B3BCFF", "#EDEFFE"] },
-      "signal-wash": { "role": "primary", "displayName": "Signal Wash", "canonical": "#EDEFFE", "tonalRamp": ["#0B1250", "#121C7E", "#1A28B3", "#2233E8", "#4D5CF0", "#6B7CFF", "#B3BCFF", "#EDEFFE"] },
-      "dark-fog": { "role": "surface", "displayName": "Dark Fog", "canonical": "#141414", "tonalRamp": ["#000000", "#141414", "#2C2C2C", "#6E6E68", "#A0A09A", "#E3E3DF", "#F2F2F0", "#FFFFFF"] },
-      "dark-line": { "role": "surface", "displayName": "Dark Line", "canonical": "#2C2C2C", "tonalRamp": ["#000000", "#141414", "#2C2C2C", "#6E6E68", "#A0A09A", "#E3E3DF", "#F2F2F0", "#FFFFFF"] },
-      "dark-steel": { "role": "surface", "displayName": "Dark Steel", "canonical": "#A0A09A", "tonalRamp": ["#000000", "#141414", "#2C2C2C", "#6E6E68", "#A0A09A", "#E3E3DF", "#F2F2F0", "#FFFFFF"] },
-      "destructive": { "role": "semantic", "displayName": "Destructive", "canonical": "#B42318", "tonalRamp": ["#3A0B08", "#5C1109", "#8A1A11", "#B42318", "#D0433A", "#E27A72", "#F0B4AF", "#FBEAE8"] }
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#000000",
+        "tonalRamp": [
+          "#000000",
+          "#141414",
+          "#2C2C2C",
+          "#6E6E68",
+          "#A0A09A",
+          "#E3E3DF",
+          "#F2F2F0",
+          "#FFFFFF"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#FFFFFF",
+        "tonalRamp": [
+          "#000000",
+          "#141414",
+          "#2C2C2C",
+          "#6E6E68",
+          "#A0A09A",
+          "#E3E3DF",
+          "#F2F2F0",
+          "#FFFFFF"
+        ]
+      },
+      "fog": {
+        "role": "neutral",
+        "displayName": "Fog",
+        "canonical": "#F2F2F0",
+        "tonalRamp": [
+          "#000000",
+          "#141414",
+          "#2C2C2C",
+          "#6E6E68",
+          "#A0A09A",
+          "#E3E3DF",
+          "#F2F2F0",
+          "#FFFFFF"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "canonical": "#E3E3DF",
+        "tonalRamp": [
+          "#000000",
+          "#141414",
+          "#2C2C2C",
+          "#6E6E68",
+          "#A0A09A",
+          "#E3E3DF",
+          "#F2F2F0",
+          "#FFFFFF"
+        ]
+      },
+      "steel": {
+        "role": "neutral",
+        "displayName": "Steel",
+        "canonical": "#6E6E68",
+        "tonalRamp": [
+          "#000000",
+          "#141414",
+          "#2C2C2C",
+          "#6E6E68",
+          "#A0A09A",
+          "#E3E3DF",
+          "#F2F2F0",
+          "#FFFFFF"
+        ]
+      },
+      "signal": {
+        "role": "primary",
+        "displayName": "Signal",
+        "canonical": "#2233E8",
+        "tonalRamp": [
+          "#0B1250",
+          "#121C7E",
+          "#1A28B3",
+          "#2233E8",
+          "#4D5CF0",
+          "#6B7CFF",
+          "#B3BCFF",
+          "#EDEFFE"
+        ]
+      },
+      "signal-soft": {
+        "role": "primary",
+        "displayName": "Signal Soft",
+        "canonical": "#6B7CFF",
+        "tonalRamp": [
+          "#0B1250",
+          "#121C7E",
+          "#1A28B3",
+          "#2233E8",
+          "#4D5CF0",
+          "#6B7CFF",
+          "#B3BCFF",
+          "#EDEFFE"
+        ]
+      },
+      "signal-wash": {
+        "role": "primary",
+        "displayName": "Signal Wash",
+        "canonical": "#EDEFFE",
+        "tonalRamp": [
+          "#0B1250",
+          "#121C7E",
+          "#1A28B3",
+          "#2233E8",
+          "#4D5CF0",
+          "#6B7CFF",
+          "#B3BCFF",
+          "#EDEFFE"
+        ]
+      },
+      "dark-fog": {
+        "role": "surface",
+        "displayName": "Dark Fog",
+        "canonical": "#141414",
+        "tonalRamp": [
+          "#000000",
+          "#141414",
+          "#2C2C2C",
+          "#6E6E68",
+          "#A0A09A",
+          "#E3E3DF",
+          "#F2F2F0",
+          "#FFFFFF"
+        ]
+      },
+      "dark-line": {
+        "role": "surface",
+        "displayName": "Dark Line",
+        "canonical": "#2C2C2C",
+        "tonalRamp": [
+          "#000000",
+          "#141414",
+          "#2C2C2C",
+          "#6E6E68",
+          "#A0A09A",
+          "#E3E3DF",
+          "#F2F2F0",
+          "#FFFFFF"
+        ]
+      },
+      "dark-steel": {
+        "role": "surface",
+        "displayName": "Dark Steel",
+        "canonical": "#A0A09A",
+        "tonalRamp": [
+          "#000000",
+          "#141414",
+          "#2C2C2C",
+          "#6E6E68",
+          "#A0A09A",
+          "#E3E3DF",
+          "#F2F2F0",
+          "#FFFFFF"
+        ]
+      },
+      "destructive": {
+        "role": "semantic",
+        "displayName": "Destructive",
+        "canonical": "#B42318",
+        "tonalRamp": [
+          "#3A0B08",
+          "#5C1109",
+          "#8A1A11",
+          "#B42318",
+          "#D0433A",
+          "#E27A72",
+          "#F0B4AF",
+          "#FBEAE8"
+        ]
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Home hero h1 on the black band; Space Grotesk 600, -0.02em." },
-      "headline": { "displayName": "Headline", "purpose": "Inner-page h1 via PageHeader, 48rem column." },
-      "band-title": { "displayName": "Band Title", "purpose": "Home closing band h2; inner ClosingCTA one step down." },
-      "title": { "displayName": "Title", "purpose": "Section h2 via SectionHeader." },
-      "card-title": { "displayName": "Card Title", "purpose": "DoorCard and company card titles." },
-      "step-title": { "displayName": "Step Title", "purpose": "StepRail heading inside forms; the one h2 set in Inter 500 rather than Space Grotesk." },
-      "lead": { "displayName": "Lead", "purpose": "Steel paragraph under a page or section heading, 42rem cap." },
-      "body": { "displayName": "Body", "purpose": "Card descriptions, row definitions, FAQ answers, inputs." },
-      "ui": { "displayName": "UI", "purpose": "Buttons, nav links, arrow links, field labels, footer links." },
-      "label": { "displayName": "Label", "purpose": "Inter small caps (.label) inside pills, at the top of DoorCard, footer group titles, Lead-to-Cash stations; never an eyebrow above a heading." }
+      "display": {
+        "displayName": "Display",
+        "purpose": "Home h1 in the left column (beside the illustration from md); Archivo 700 at 92 percent width, -0.03em; 2rem, 3.5rem at md, 4rem at lg; three lines EN, four FR."
+      },
+      "door-heading": {
+        "displayName": "Door Heading",
+        "purpose": "The audience word of each door band; 2rem, 2.75rem at md, 3.25rem at lg; Ink at rest, Signal when active."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Inner-page h1 via PageHeader, 48rem column; 2.25rem then 3.5rem at md."
+      },
+      "band-title": {
+        "displayName": "Band Title",
+        "purpose": "Closing band h2; 1.875rem then 2.5rem at md. Inner ClosingCTA one step down."
+      },
+      "company-name": {
+        "displayName": "Company Name",
+        "purpose": "h3 of each company record with a status Pill beside it; 1.5rem then 1.875rem at md."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Section h2 via SectionHeader; 1.5rem then 1.75rem at md."
+      },
+      "door-question": {
+        "displayName": "Door Question",
+        "purpose": "The one sentence beside the audience word, Archivo 400 at normal width; 1.125rem, 1.25rem at md, 1.5rem at lg."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Steel paragraph under the home headline (0.875rem then 1.125rem at md, leading-snug, 36rem cap) or a page heading (1.125rem then 1.25rem at 1.625, 42rem cap)."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Company descriptions, row definitions, FAQ answers, inputs."
+      },
+      "ui": {
+        "displayName": "UI",
+        "purpose": "Buttons, nav links, arrow links, door calls, field labels, footer links; Archivo 500."
+      },
+      "meta": {
+        "displayName": "Meta",
+        "purpose": "Tabular small type: roles and years, attribution line, form counters; 0.75rem then 0.875rem at md."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase .label inside pills, footer group titles and the illustration's lane names; never above a heading."
+      },
+      "flow-label": {
+        "displayName": "Flow Label",
+        "purpose": "The step words under the illustration's nodes (md and up): 0.6875rem at 0.05em, uppercase, Steel at rest and Ink on the active lane."
+      }
     },
     "shadows": [
-      { "name": "none", "value": "none", "purpose": "No drop shadow anywhere. Surfaces are bounded by a 1px Line border or a Fog / Ink fill." },
-      { "name": "focus-ring-input", "value": "0 0 0 2px rgb(34 51 232 / 0.15)", "purpose": "The only box-shadow in the codebase: input and textarea focus ring beside a Signal border." },
-      { "name": "focus-ring-choice", "value": "0 0 0 2px rgb(34 51 232 / 0.30)", "purpose": "has-[:focus-visible] ring on ChoiceGroup rows and FileDrop." }
+      {
+        "name": "none",
+        "value": "none",
+        "purpose": "No drop shadow anywhere. Surfaces are bounded by a 1px hairline or a Fog / Ink fill; the capsule header and cookie sheet float by translucency and backdrop-blur; the marks in the proof row sit directly on Paper."
+      },
+      {
+        "name": "focus-ring-input",
+        "value": "0 0 0 2px rgb(34 51 232 / 0.15)",
+        "purpose": "The only box-shadow in the codebase: input and textarea focus ring beside a Signal border."
+      },
+      {
+        "name": "focus-ring-choice",
+        "value": "0 0 0 2px rgb(34 51 232 / 0.30)",
+        "purpose": "has-[:focus-visible] ring on ChoiceGroup rows and FileDrop."
+      }
     ],
     "motion": [
-      { "name": "ease-out-expo", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Standard easing: hero rise and door slide, reveals, step slide, progress fill, success disc, door-pair scale." },
-      { "name": "ease-draw", "value": "cubic-bezier(0.65, 0, 0.35, 1)", "purpose": "Lead-to-Cash line drawing only." },
-      { "name": "anim-rise", "value": "opacity 0 to 1, translateY 18px to 0, 600ms, --delay 0 / 120 / 220ms", "purpose": "Hero title, lead and attribution on load (CSS keyframes)." },
-      { "name": "anim-line", "value": "scaleX 0 to 1 from left, 1200ms, --delay 500ms", "purpose": "Lead-to-Cash rail under the hero title." },
-      { "name": "anim-dot", "value": "opacity + scale 0.4 to 1, 350ms, staggered along the line", "purpose": "Lead-to-Cash station dots; last dot is Signal Soft." },
-      { "name": "anim-fade", "value": "opacity 0 to 1, 400ms ease-out", "purpose": "Lead-to-Cash station labels, 80ms after their dot." },
-      { "name": "anim-door", "value": "opacity 0 to 1, translateX 28px to 0, 500ms, --delay 1100 / 1240ms", "purpose": "The two hero door cards." },
-      { "name": "door-pair-hover", "value": "sibling door: opacity 0.55, scale 0.985; 200ms opacity, 250ms transform", "purpose": "Hovering or focusing one hero door recedes the other." },
-      { "name": "reveal", "value": "opacity 0 to 1, translateY 24px to 0, 600ms, once, viewport margin -80px", "purpose": "Scroll reveals on inner sections." },
-      { "name": "reveal-photo", "value": "opacity 0 to 1, scale 1.04 to 1, 900ms, once", "purpose": "Portrait on the home page." },
-      { "name": "reveal-group", "value": "staggerChildren 70ms, items 500ms", "purpose": "Company cards and Darix offer rows." },
-      { "name": "step-pane", "value": "in: opacity + translateX 28px * direction, 240ms; out: translateX -17px * direction, 140ms easeIn; reduced motion: 120ms / 80ms, no offset", "purpose": "Direction-aware slide between form steps." },
-      { "name": "step-rail", "value": "scaleX 0 to 1 from left, 300ms, Signal fill", "purpose": "Progress segment fill." },
-      { "name": "success-check", "value": "scale 0.6 to 1 with opacity, 350ms", "purpose": "Signal disc on submission acknowledgement." },
-      { "name": "faq-open", "value": "block-size 0 to auto, 300ms, via interpolate-size where supported", "purpose": "details::details-content height animation." },
-      { "name": "transition-fast", "value": "150ms", "purpose": "Form control colour, border and ring changes." },
-      { "name": "transition-ui", "value": "200ms", "purpose": "Buttons, nav links, FAQ plus rotation (45deg)." },
-      { "name": "transition-chrome", "value": "300ms", "purpose": "Header background, border, text and logo colour on scroll." },
-      { "name": "reduced-motion", "value": "hero animations become a 300ms fade; anim-line none; door pair opacity only; FAQ height snaps; motion reveals fade without displacement", "purpose": "prefers-reduced-motion block in globals.css and useReducedMotion in components." },
-      { "name": "selection", "value": "background #EDEFFE; color #000000", "purpose": "::selection." },
-      { "name": "focus-ring", "value": "outline 2px solid #2233E8; outline-offset 3px", "purpose": "Global :focus-visible." }
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Standard easing (--ease-out): entrance, door padding, node pop, door bar, FAQ height, form step slide, progress fill, success disc."
+      },
+      {
+        "name": "ease-draw",
+        "value": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "purpose": "Rail drawing in the illustration only."
+      },
+      {
+        "name": "anim-rise",
+        "value": "opacity 0 to 1, translateY 14px to 0, 0.7s, backwards, --delay 0 / 120 / 200 / 260 / 420ms",
+        "purpose": "The one orchestrated entrance: headline, lead, attribution, illustration (md and up), door pair. Final state is the default state."
+      },
+      {
+        "name": "flow-stub",
+        "value": "opacity 0 to 1, 0.4s ease-out, delay 420ms",
+        "purpose": "Hub stub, branch bar and arms of the illustration."
+      },
+      {
+        "name": "flow-rail",
+        "value": "scaleX 0 to 1 from the origin, 1s ease-draw, delay 520ms + lane * 260ms (a scaleY phone variant exists but is not rendered)",
+        "purpose": "Each lane's rail draws itself."
+      },
+      {
+        "name": "flow-node",
+        "value": "opacity 0 to 1, scale 0.4 to 1, 0.35s, delay 700ms + lane * 260ms + step * 200ms",
+        "purpose": "The four nodes of each lane pop in order."
+      },
+      {
+        "name": "flow-label",
+        "value": "opacity 0 to 1, 0.4s ease-out, delay 780ms + lane * 260ms + step * 200ms",
+        "purpose": "Each step label follows its node by 80ms."
+      },
+      {
+        "name": "flow-dot",
+        "value": "left 0 to calc(100% - 7px), 7s linear infinite, delay 1.8s + lane * 3.5s, opacity in over 6 percent and out over the last 6 percent",
+        "purpose": "A 7px dot travels each rail continuously; the illustration renders from md only."
+      },
+      {
+        "name": "flow-active",
+        "value": "rail Ink, nodes and dot Signal, labels Ink, lane name Signal, 0.2s; other lane opacity 0.35, 0.25s",
+        "purpose": "The lane of the hovered or focused door lights up; the other fades."
+      },
+      {
+        "name": "door-active",
+        "value": "padding-block 2.25rem at lg, heading colour Signal; padding 0.4s, colour 0.2s",
+        "purpose": "The hovered or focused door band grows and recolours."
+      },
+      {
+        "name": "door-inactive",
+        "value": "padding-block 0.75rem at lg, opacity 0.45; padding 0.4s, opacity 0.25s",
+        "purpose": "The sibling band compresses and fades while one door is active."
+      },
+      {
+        "name": "arrow-nudge",
+        "value": "translateX 4px on the door call, 2px on ArrowLink (diagonal when external), 200ms",
+        "purpose": "Only hover transform besides the door pair."
+      },
+      {
+        "name": "mark-row",
+        "value": "scroll-linked (useScroll start end to end start): row x from the column free width (inner width minus row width, measured at mount and resize, md and up) to 0; per-mark drift Darix 24px to -16px, 6WAY 40px to -28px, MicePro 56px to -40px from md; below md no travel and drifts scaled by 0.35 (8 to -6, 14 to -10, 20 to -14px), same measurement; x 0 under reduced motion",
+        "purpose": "The row of three marks enters aligned right and leaves aligned left while the section passes through the viewport, each mark drifting at its own speed on top."
+      },
+      {
+        "name": "door-bar",
+        "value": "translateY 100% to 0, 0.35s",
+        "purpose": "Mobile door bar visible from first paint, withdrawn while the door pair is on screen or the menu is open."
+      },
+      {
+        "name": "cookie-shift",
+        "value": "bottom 0 to 4.5rem, 300ms",
+        "purpose": "Cookie sheet moves up while the mobile door bar is visible."
+      },
+      {
+        "name": "step-pane",
+        "value": "in: opacity + translateX 28px * direction, 240ms; out: translateX -17px * direction, 140ms easeIn; reduced motion: 120ms / 80ms, no offset",
+        "purpose": "Direction-aware slide between form steps (inherited)."
+      },
+      {
+        "name": "step-rail",
+        "value": "scaleX 0 to 1 from left, 300ms, Signal fill",
+        "purpose": "Progress segment fill (inherited)."
+      },
+      {
+        "name": "success-check",
+        "value": "scale 0.6 to 1 with opacity, 350ms",
+        "purpose": "Signal disc on submission acknowledgement (inherited)."
+      },
+      {
+        "name": "faq-open",
+        "value": "block-size 0 to auto, 0.3s, via interpolate-size where supported; Plus icon rotates 45deg over 200ms",
+        "purpose": "details::details-content height animation."
+      },
+      {
+        "name": "transition-fast",
+        "value": "150ms",
+        "purpose": "Form control colour, border and ring changes."
+      },
+      {
+        "name": "transition-ui",
+        "value": "200ms",
+        "purpose": "Buttons, links, nav, door heading colour, lane colours, FAQ icon."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "anim-rise none; flow animations none and flow-dot hidden; .door transitions opacity and colour only; mark row static; door-bar none; details transition none; motion components fade without displacement",
+        "purpose": "prefers-reduced-motion block in globals.css and useReducedMotion in ProofStrip and forms."
+      },
+      {
+        "name": "selection",
+        "value": "background #EDEFFE; color #000000",
+        "purpose": "::selection."
+      },
+      {
+        "name": "focus-ring",
+        "value": "outline 2px solid #2233E8; outline-offset 3px",
+        "purpose": "Global :focus-visible."
+      }
     ],
     "breakpoints": [
-      { "name": "sm", "value": "640px" },
-      { "name": "md", "value": "768px" },
-      { "name": "lg", "value": "1024px" }
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
     ],
     "containers": [
-      { "name": "narrow", "value": "48rem", "purpose": "Form pages, PageHeader title cap, cookie sheet." },
-      { "name": "lead", "value": "42rem", "purpose": "Lead paragraphs, FAQ answers, contact form column." },
-      { "name": "reading", "value": "56rem", "purpose": "Darix page." },
-      { "name": "page", "value": "64rem", "purpose": "Default Page width." },
-      { "name": "home", "value": "72rem", "purpose": "Home bands and body, footer (kit container 1180px lands here at 1152px)." },
-      { "name": "header", "value": "80rem", "purpose": "Fixed header bar." }
+      {
+        "name": "narrow",
+        "value": "48rem",
+        "purpose": "Form pages, PageHeader title cap, cookie sheet."
+      },
+      {
+        "name": "lead",
+        "value": "42rem",
+        "purpose": "Page leads, FAQ answers, SectionHeader text."
+      },
+      {
+        "name": "home-lead",
+        "value": "36rem",
+        "purpose": "Home lead under the headline."
+      },
+      {
+        "name": "reading",
+        "value": "56rem",
+        "purpose": "Darix page."
+      },
+      {
+        "name": "page",
+        "value": "64rem",
+        "purpose": "Default Page width."
+      },
+      {
+        "name": "home",
+        "value": "72rem",
+        "purpose": "Home column, header capsule, footer, portfolio-style pages; the mark row clips viewport-wide through negative gutter margins."
+      }
     ],
+    "fontAxes": {
+      "family": "Archivo",
+      "loader": "next/font/google, axes: [\"wdth\"], variable --font-archivo",
+      "weightRange": "100 to 900",
+      "widthRange": "62 to 125",
+      "headings": "font-weight 700, font-stretch 92%, letter-spacing -0.03em (global h1 to h6 and .display)",
+      "text": "normal width, 400 and 500",
+      "numerals": ".tnum sets font-variant-numeric: tabular-nums"
+    },
     "logo": {
       "source": "src/components/brand/Logo.tsx (LogoHorizontal, Mark), official kit paths inlined as SVG",
       "fill": "currentColor",
-      "horizontalWidths": { "header": "150px", "footer": "140px", "minimum": "120px" },
-      "markWidths": { "default": "28px", "minimum": "20px" },
+      "horizontalWidths": {
+        "header-mobile": "120px",
+        "header-desktop": "136px",
+        "footer": "140px",
+        "minimum": "120px"
+      },
+      "markWidths": {
+        "flow-hub": "32px",
+        "default": "28px",
+        "minimum": "20px"
+      },
       "forbidden": "recolour, rotate, outline, shadow, redraw, bitmap in header or footer"
     }
   },
   "components": [
+    {
+      "name": "Capsule Header",
+      "kind": "nav",
+      "refersTo": "header-capsule",
+      "description": "Floating Paper capsule at 90 percent with blur and a Line border: logo left, five links centre, EN / FR and the Signal call right. Same on every page.",
+      "html": "<div class=\"ds-capsule\"><span class=\"ds-capsule-logo\">F6<span class=\"ds-capsule-dot\">.</span></span><nav class=\"ds-capsule-nav\"><a href=\"#\">Companies</a><a href=\"#\" class=\"ds-capsule-active\" aria-current=\"page\">Founders</a><a href=\"#\">Projects</a><a href=\"#\">Resources</a><a href=\"#\">About</a></nav><span class=\"ds-capsule-right\"><button class=\"ds-capsule-lang\" type=\"button\"><span class=\"ds-capsule-lang-on\">EN</span><span class=\"ds-capsule-slash\">/</span><span>FR</span></button><button class=\"ds-capsule-cta\" type=\"button\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M8 2v4\"/><path d=\"M16 2v4\"/><rect width=\"18\" height=\"18\" x=\"3\" y=\"4\" rx=\"0\"/><path d=\"M3 10h18\"/></svg>Book a call</button></span></div>",
+      "css": ".ds-capsule { display: flex; align-items: center; justify-content: space-between; gap: 16px; max-width: 72rem; padding: 8px 12px 8px 24px; border: 1px solid var(--f6-line, #E3E3DF); border-radius: 9999px; background: rgb(255 255 255 / 0.9); backdrop-filter: blur(12px); color: var(--f6-ink, #000000); font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; } .ds-capsule-logo { font-weight: 700; font-stretch: 92%; letter-spacing: -0.03em; font-size: 1.5rem; } .ds-capsule-dot { color: var(--f6-signal, #2233E8); } .ds-capsule-nav { display: flex; gap: 28px; font-size: 0.875rem; font-weight: 500; } .ds-capsule-nav a { color: inherit; text-decoration: none; transition: color 200ms; } .ds-capsule-nav a:hover, .ds-capsule-active { color: var(--f6-signal, #2233E8); } .ds-capsule-right { display: flex; align-items: center; gap: 8px; } .ds-capsule-lang { display: inline-flex; align-items: center; gap: 4px; height: 36px; padding: 0 10px; border: 0; background: none; font: inherit; font-size: 0.75rem; font-weight: 500; font-variant-numeric: tabular-nums; color: var(--f6-steel, #6E6E68); cursor: pointer; } .ds-capsule-lang-on { color: var(--f6-ink, #000000); } .ds-capsule-slash { color: var(--f6-line, #E3E3DF); } .ds-capsule-cta { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 16px; border: 0; border-radius: 9999px; background: var(--f6-signal, #2233E8); color: #FFFFFF; font: inherit; font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: background-color 200ms; } .ds-capsule-cta:hover { background: var(--f6-ink, #000000); } .ds-capsule a:focus-visible, .ds-capsule button:focus-visible { outline: 2px solid var(--f6-signal, #2233E8); outline-offset: 3px; }"
+    },
+    {
+      "name": "Flow Illustration",
+      "kind": "custom",
+      "refersTo": "flow-hub",
+      "description": "The first-screen illustration drawn in code, desktop only (md and up): the F6 hub, a Steel stub and branch, two named lanes with four Ink nodes and uppercase labels; a dot travels each rail; hovering a lane (or its door) turns it Signal and fades the other.",
+      "html": "<div class=\"ds-flow\"><div class=\"ds-flow-hubwrap\"><div class=\"ds-flow-hub\">F6<span class=\"ds-flow-hubdot\">.</span></div><span class=\"ds-flow-stub\"></span></div><div class=\"ds-flow-lanes\"><span class=\"ds-flow-branch\"></span><span class=\"ds-flow-arm ds-flow-arm-top\"></span><span class=\"ds-flow-arm ds-flow-arm-bottom\"></span><div class=\"ds-flow-lane\" style=\"--lane:0\"><span class=\"ds-flow-name\">Companies</span><span class=\"ds-flow-rail\"></span><span class=\"ds-flow-dot\"></span><ol><li style=\"--i:0\"><span class=\"ds-flow-node\"></span><span class=\"ds-flow-label\">Quote</span></li><li style=\"--i:1\"><span class=\"ds-flow-node\"></span><span class=\"ds-flow-label\">Contract</span></li><li style=\"--i:2\"><span class=\"ds-flow-node\"></span><span class=\"ds-flow-label\">Invoice</span></li><li style=\"--i:3\"><span class=\"ds-flow-node\"></span><span class=\"ds-flow-label\">Cash</span></li></ol></div><div class=\"ds-flow-lane\" style=\"--lane:1\"><span class=\"ds-flow-name\">Founders</span><span class=\"ds-flow-rail\"></span><span class=\"ds-flow-dot\"></span><ol><li style=\"--i:0\"><span class=\"ds-flow-node\"></span><span class=\"ds-flow-label\">Advisory</span></li><li style=\"--i:1\"><span class=\"ds-flow-node\"></span><span class=\"ds-flow-label\">Involvement</span></li><li style=\"--i:2\"><span class=\"ds-flow-node\"></span><span class=\"ds-flow-label\">Investment</span></li><li style=\"--i:3\"><span class=\"ds-flow-node\"></span><span class=\"ds-flow-label\">Co-founding</span></li></ol></div></div></div>",
+      "css": ".ds-flow { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 32px; max-width: 560px; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; color: var(--f6-ink, #000000); } .ds-flow-hubwrap { position: relative; } .ds-flow-hub { display: flex; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: 9999px; border: 1px solid rgb(110 110 104 / 0.6); background: #FFFFFF; font-weight: 700; font-stretch: 92%; letter-spacing: -0.03em; font-size: 1.375rem; } .ds-flow-hubdot { color: var(--f6-signal, #2233E8); } .ds-flow-stub { position: absolute; left: 100%; top: 50%; width: 32px; height: 1px; background: var(--f6-steel, #6E6E68); transform: translateY(-50%); animation: ds-fade 0.4s ease-out backwards; animation-delay: 420ms; } .ds-flow-lanes { position: relative; display: flex; flex-direction: column; gap: 56px; padding-left: 32px; } .ds-flow-branch { position: absolute; left: 0; top: 26px; bottom: 33px; width: 1px; background: var(--f6-steel, #6E6E68); animation: ds-fade 0.4s ease-out backwards; animation-delay: 420ms; } .ds-flow-arm { position: absolute; left: 0; width: 32px; height: 1px; background: var(--f6-steel, #6E6E68); animation: ds-fade 0.4s ease-out backwards; animation-delay: 420ms; } .ds-flow-arm-top { top: 26px; } .ds-flow-arm-bottom { bottom: 33px; } .ds-flow-lane { position: relative; padding-top: 20px; transition: opacity 0.25s ease; } .ds-flow-name { position: absolute; left: 0; top: 0; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--f6-steel, #6E6E68); white-space: nowrap; transition: color 0.2s ease; } .ds-flow-rail { position: absolute; left: 0; right: 0; top: 26px; height: 1px; background: var(--f6-steel, #6E6E68); transform-origin: left top; animation: ds-draw 1s cubic-bezier(0.65, 0, 0.35, 1) both; animation-delay: calc(520ms + var(--lane, 0) * 260ms); transition: background-color 0.2s ease; } .ds-flow-dot { position: absolute; top: 23px; width: 7px; height: 7px; border-radius: 9999px; background: var(--f6-ink, #000000); opacity: 0; animation: ds-travel 7s linear infinite; animation-delay: calc(1.8s + var(--lane, 0) * 3.5s); transition: background-color 0.2s ease; } .ds-flow-lane ol { position: relative; display: flex; justify-content: space-between; margin: 0; padding: 0; list-style: none; } .ds-flow-lane li { display: flex; flex-direction: column; align-items: center; gap: 10px; } .ds-flow-lane li:first-child { align-items: flex-start; } .ds-flow-lane li:last-child { align-items: flex-end; } .ds-flow-node { display: block; width: 13px; height: 13px; border-radius: 9999px; border: 2px solid #FFFFFF; background: var(--f6-ink, #000000); animation: ds-pop 0.35s cubic-bezier(0.16, 1, 0.3, 1) backwards; animation-delay: calc(700ms + var(--lane, 0) * 260ms + var(--i, 0) * 200ms); transition: background-color 0.2s ease; } .ds-flow-label { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; color: var(--f6-steel, #6E6E68); animation: ds-fade 0.4s ease-out backwards; animation-delay: calc(780ms + var(--lane, 0) * 260ms + var(--i, 0) * 200ms); transition: color 0.2s ease; } .ds-flow:has(.ds-flow-lane:hover) .ds-flow-lane:not(:hover) { opacity: 0.35; } .ds-flow-lane:hover .ds-flow-rail { background: var(--f6-ink, #000000); } .ds-flow-lane:hover .ds-flow-node, .ds-flow-lane:hover .ds-flow-dot { background: var(--f6-signal, #2233E8); } .ds-flow-lane:hover .ds-flow-label { color: var(--f6-ink, #000000); } .ds-flow-lane:hover .ds-flow-name { color: var(--f6-signal, #2233E8); } @keyframes ds-fade { from { opacity: 0; } to { opacity: 1; } } @keyframes ds-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } } @keyframes ds-pop { from { opacity: 0; transform: scale(0.4); } to { opacity: 1; transform: scale(1); } } @keyframes ds-travel { 0% { left: 0; opacity: 0; } 6% { opacity: 1; } 94% { opacity: 1; } 100% { left: calc(100% - 7px); opacity: 0; } } @media (prefers-reduced-motion: reduce) { .ds-flow-stub, .ds-flow-branch, .ds-flow-arm, .ds-flow-rail, .ds-flow-node, .ds-flow-label { animation: none; } .ds-flow-dot { display: none; } }"
+    },
+    {
+      "name": "Door Bands",
+      "kind": "custom",
+      "refersTo": "door-band",
+      "description": "The first-screen pair: two short full-width bands under hairlines, audience word, one question, one Signal link. The hovered or focused door grows and turns its heading Signal; the other compresses and fades to 45 percent.",
+      "html": "<div class=\"ds-doors\"><a class=\"ds-door\" href=\"#\"><h2 class=\"ds-door-h\">Companies</h2><div class=\"ds-door-row\"><p class=\"ds-door-question\">Are your systems slowing your growth?</p><span class=\"ds-door-cta\">Assess my need <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></span></div></a><a class=\"ds-door\" href=\"#\"><h2 class=\"ds-door-h\">Founders</h2><div class=\"ds-door-row\"><p class=\"ds-door-question\">Looking for an investor who knows the field?</p><span class=\"ds-door-cta\">Present my project <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></span></div></a></div>",
+      "css": ".ds-doors { border-top: 1px solid var(--f6-line, #E3E3DF); border-bottom: 1px solid var(--f6-line, #E3E3DF); font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; color: var(--f6-ink, #000000); } .ds-door { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 40px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--f6-line, #E3E3DF); text-decoration: none; color: inherit; transition: padding 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, color 0.2s ease; } .ds-door:last-child { border-bottom: 0; } .ds-door-h { margin: 0; font-size: 3.25rem; line-height: 0.95; font-weight: 700; font-stretch: 92%; letter-spacing: -0.03em; transition: color 200ms; } .ds-door-row { display: flex; align-items: baseline; justify-content: space-between; gap: 32px; } .ds-door-question { margin: 0; font-size: 1.5rem; line-height: 1.25; text-wrap: balance; } .ds-door-cta { display: inline-flex; flex: none; align-items: center; gap: 6px; font-size: 0.875rem; font-weight: 500; color: var(--f6-signal, #2233E8); } .ds-door-cta svg { transition: transform 200ms; } .ds-door:hover, .ds-door:focus-visible { padding: 36px 0; } .ds-door:hover .ds-door-h, .ds-door:focus-visible .ds-door-h { color: var(--f6-signal, #2233E8); } .ds-door:hover .ds-door-cta svg { transform: translateX(4px); } .ds-doors:has(.ds-door:hover) .ds-door:not(:hover) { padding: 12px 0; opacity: 0.45; } .ds-door:focus-visible { outline: 2px solid var(--f6-signal, #2233E8); outline-offset: 3px; } @media (prefers-reduced-motion: reduce) { .ds-door { transition: opacity 0.2s ease, color 0.2s ease; } }"
+    },
+    {
+      "name": "Mark Row",
+      "kind": "custom",
+      "refersTo": "mark-row",
+      "description": "Row of the three company marks on Paper between the section header and the records, sized by visual weight: Darix 140px, MicePro 210px in grayscale, 6WAY wordmark 160px, 80 to 96px apart; on scroll the row travels across the column free width while each mark drifts at its own speed. Static snapshot here; wordmarks stand for the raster files.",
+      "html": "<div class=\"ds-marks\"><div class=\"ds-marks-row\"><figure class=\"ds-mark ds-mark-darix\"><span>DARIX</span></figure><figure class=\"ds-mark ds-mark-micepro\"><span>MicePro</span></figure><figure class=\"ds-mark ds-mark-6way\"><span>6WAY</span></figure></div></div>",
+      "css": ".ds-marks { overflow: hidden; padding: 40px 0; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; color: var(--f6-ink, #000000); } .ds-marks-row { display: flex; width: max-content; align-items: center; gap: 96px; } .ds-mark { flex: none; display: flex; align-items: center; justify-content: center; margin: 0; font-weight: 700; font-stretch: 92%; } .ds-mark-darix { width: 140px; height: 114px; font-size: 1.75rem; letter-spacing: 0.2em; } .ds-mark-micepro { width: 210px; height: 80px; font-size: 1.75rem; letter-spacing: -0.03em; filter: grayscale(1); } .ds-mark-6way { width: 160px; height: 28px; font-size: 1.625rem; letter-spacing: -0.03em; }"
+    },
     {
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
       "description": "Signal pill, 44px, for the main action of any block; hovers to Ink.",
       "html": "<a class=\"ds-btn-primary\" href=\"#\">Assess my need <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
-      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 24px; border-radius: 9999px; background: #2233E8; color: #FFFFFF; font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 0.875rem; font-weight: 500; text-decoration: none; transition: background-color 200ms; } .ds-btn-primary:hover { background: #000000; } .ds-btn-primary:focus-visible { outline: 2px solid #2233E8; outline-offset: 3px; }"
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 24px; border-radius: 9999px; background: var(--f6-signal, #2233E8); color: #FFFFFF; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-size: 0.875rem; font-weight: 500; text-decoration: none; transition: background-color 200ms; } .ds-btn-primary:hover { background: var(--f6-ink, #000000); } .ds-btn-primary:focus-visible { outline: 2px solid var(--f6-signal, #2233E8); outline-offset: 3px; }"
     },
     {
       "name": "Outline Button",
@@ -93,15 +497,15 @@
       "refersTo": "button-outline",
       "description": "Line-bordered pill for the secondary path beside a primary; the border turns Ink on hover.",
       "html": "<a class=\"ds-btn-outline\" href=\"#\">Founders: present a project</a>",
-      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 24px; border-radius: 9999px; background: transparent; border: 1px solid #E3E3DF; color: #000000; font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 0.875rem; font-weight: 500; text-decoration: none; transition: border-color 200ms; } .ds-btn-outline:hover { border-color: #000000; } .ds-btn-outline:focus-visible { outline: 2px solid #2233E8; outline-offset: 3px; }"
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 24px; border-radius: 9999px; background: transparent; border: 1px solid var(--f6-line, #E3E3DF); color: var(--f6-ink, #000000); font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-size: 0.875rem; font-weight: 500; text-decoration: none; transition: border-color 200ms; } .ds-btn-outline:hover { border-color: var(--f6-ink, #000000); } .ds-btn-outline:focus-visible { outline: 2px solid var(--f6-signal, #2233E8); outline-offset: 3px; }"
     },
     {
       "name": "Band Buttons (inverted + ghost)",
       "kind": "button",
       "refersTo": "button-inverted",
-      "description": "On a black band the primary stays Signal and hovers to Paper on Ink; the secondary is a Paper-at-30% outline.",
-      "html": "<div class=\"ds-band\"><a class=\"ds-btn-inverted\" href=\"#\">Choose my path</a> <a class=\"ds-btn-ghost\" href=\"#\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M8 2v4\"/><path d=\"M16 2v4\"/><rect width=\"18\" height=\"18\" x=\"3\" y=\"4\" rx=\"0\"/><path d=\"M3 10h18\"/></svg>Book a 30-min call</a></div>",
-      "css": ".ds-band { display: inline-flex; gap: 12px; padding: 24px; background: #000000; font-family: Inter, 'Helvetica Neue', Arial, sans-serif; } .ds-btn-inverted, .ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 48px; padding: 0 28px; border-radius: 9999px; font-size: 1rem; font-weight: 500; text-decoration: none; transition: background-color 200ms, color 200ms, border-color 200ms; } .ds-btn-inverted { background: #2233E8; color: #FFFFFF; } .ds-btn-inverted:hover { background: #FFFFFF; color: #000000; } .ds-btn-ghost { background: transparent; color: #FFFFFF; border: 1px solid rgb(255 255 255 / 0.3); } .ds-btn-ghost:hover { border-color: #FFFFFF; } .ds-btn-inverted:focus-visible, .ds-btn-ghost:focus-visible { outline: 2px solid #6B7CFF; outline-offset: 3px; }"
+      "description": "On the closing band the primary stays Signal and hovers to Paper on Ink; the secondary is a Paper-at-30 percent outline; the tertiary call is a 36px ghost beside a Dark Steel line.",
+      "html": "<div class=\"ds-band\"><a class=\"ds-btn-inverted\" href=\"#\">Companies: assess my need</a><a class=\"ds-btn-ghost\" href=\"#\">Founders: present my project</a><p class=\"ds-band-tertiary\">Or a 30-minute call: <button class=\"ds-btn-ghost ds-btn-ghost-sm\" type=\"button\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M8 2v4\"/><path d=\"M16 2v4\"/><rect width=\"18\" height=\"18\" x=\"3\" y=\"4\" rx=\"0\"/><path d=\"M3 10h18\"/></svg>Book a slot</button></p></div>",
+      "css": ".ds-band { display: flex; flex-direction: column; gap: 12px; max-width: 420px; padding: 32px; background: var(--f6-ink, #000000); color: #FFFFFF; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; } .ds-btn-inverted, .ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 48px; padding: 0 28px; border-radius: 9999px; font: inherit; font-size: 1rem; font-weight: 500; text-decoration: none; cursor: pointer; transition: background-color 200ms, color 200ms, border-color 200ms; } .ds-btn-inverted { background: var(--f6-signal, #2233E8); color: #FFFFFF; border: 0; } .ds-btn-inverted:hover { background: #FFFFFF; color: var(--f6-ink, #000000); } .ds-btn-ghost { background: transparent; color: #FFFFFF; border: 1px solid rgb(255 255 255 / 0.3); } .ds-btn-ghost:hover { border-color: #FFFFFF; } .ds-btn-ghost-sm { height: 36px; padding: 0 16px; font-size: 0.875rem; } .ds-band-tertiary { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 4px 0 0; font-size: 0.875rem; font-variant-numeric: tabular-nums; color: var(--f6-dark-steel, #A0A09A); } .ds-btn-inverted:focus-visible, .ds-btn-ghost:focus-visible { outline: 2px solid var(--f6-signal-soft, #6B7CFF); outline-offset: 3px; }"
     },
     {
       "name": "Arrow Link",
@@ -109,118 +513,144 @@
       "refersTo": "nav-link-active",
       "description": "Inline Signal link with a 16px arrow; text hovers to Ink, arrow nudges 2px.",
       "html": "<a class=\"ds-arrow-link\" href=\"#\">See the projects <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
-      "css": ".ds-arrow-link { display: inline-flex; align-items: center; gap: 6px; color: #2233E8; font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 0.875rem; font-weight: 500; text-decoration: none; transition: color 200ms; } .ds-arrow-link svg { transition: transform 200ms; } .ds-arrow-link:hover { color: #000000; } .ds-arrow-link:hover svg { transform: translateX(2px); } .ds-arrow-link:focus-visible { outline: 2px solid #2233E8; outline-offset: 3px; }"
+      "css": ".ds-arrow-link { display: inline-flex; align-items: center; gap: 6px; color: var(--f6-signal, #2233E8); font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-size: 0.875rem; font-weight: 500; text-decoration: none; transition: color 200ms; } .ds-arrow-link svg { transition: transform 200ms; } .ds-arrow-link:hover { color: var(--f6-ink, #000000); } .ds-arrow-link:hover svg { transform: translateX(2px); } .ds-arrow-link:focus-visible { outline: 2px solid var(--f6-signal, #2233E8); outline-offset: 3px; }"
+    },
+    {
+      "name": "Company Record",
+      "kind": "card",
+      "refersTo": "row",
+      "description": "One of three side-by-side records 24px under the mark row: name with status Pill, role and year tabular, description, arrow links. No border, no panel.",
+      "html": "<article class=\"ds-record\"><div class=\"ds-record-head\"><h3 class=\"ds-record-name\">Darix</h3><span class=\"ds-pill ds-pill-solid\">Active</span></div><p class=\"ds-record-meta\">Co-founder, Co-founded · 2026</p><p class=\"ds-record-desc\">Salesforce-native Lead-to-Cash agency and the operational team behind every company request.</p><div class=\"ds-record-links\"><a class=\"ds-arrow-link\" href=\"#\">How From 6 and Darix connect <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a></div></article>",
+      "css": ".ds-record { display: flex; flex-direction: column; max-width: 360px; padding-top: 40px; border-top: 1px solid var(--f6-line, #E3E3DF); font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; color: var(--f6-ink, #000000); } .ds-record-head { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; } .ds-record-name { margin: 0; font-size: 1.875rem; line-height: 1.1; font-weight: 700; font-stretch: 92%; letter-spacing: -0.03em; } .ds-record-meta { margin: 8px 0 0; font-size: 0.875rem; font-variant-numeric: tabular-nums; color: var(--f6-steel, #6E6E68); } .ds-record-desc { flex: 1; margin: 16px 0 0; font-size: 0.9375rem; line-height: 1.625; color: var(--f6-steel, #6E6E68); } .ds-record-links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 20px; } .ds-pill { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 9999px; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.25; } .ds-pill-solid { background: var(--f6-ink, #000000); color: #FFFFFF; } .ds-arrow-link { display: inline-flex; align-items: center; gap: 6px; color: var(--f6-signal, #2233E8); font-size: 0.875rem; font-weight: 500; text-decoration: none; transition: color 200ms; } .ds-arrow-link svg { transition: transform 200ms; } .ds-arrow-link:hover { color: var(--f6-ink, #000000); } .ds-arrow-link:hover svg { transform: translateX(2px); }"
     },
     {
       "name": "Pill",
       "kind": "chip",
       "refersTo": "pill-solid",
-      "description": "Inter small-caps status or role classifier; solid, muted and outline tones.",
+      "description": "Uppercase status or role classifier beside a company name; solid, muted and outline tones.",
       "html": "<span class=\"ds-pill ds-pill-solid\">Active</span> <span class=\"ds-pill ds-pill-muted\">Co-founder</span> <span class=\"ds-pill ds-pill-outline\">In build</span>",
-      "css": ".ds-pill { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 9999px; font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.25; } .ds-pill-solid { background: #000000; color: #FFFFFF; } .ds-pill-muted { background: #F2F2F0; color: #000000; } .ds-pill-outline { border: 1px solid #E3E3DF; color: #6E6E68; }"
-    },
-    {
-      "name": "Door Card",
-      "kind": "card",
-      "refersTo": "card",
-      "description": "Square whole-card link into a journey: label, Space Grotesk title, body, Signal arrow call. Hover turns the border Ink, never lifts.",
-      "html": "<a class=\"ds-door\" href=\"#\"><span class=\"ds-door-label\">For companies</span><span class=\"ds-door-title\">Are your systems slowing your growth?</span><span class=\"ds-door-body\">Salesforce, CPQ, billing, integrations, data or AI: we clarify what blocks your teams and identify the next step with Darix.</span><span class=\"ds-door-cta\">Assess my need <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></span></a>",
-      "css": ".ds-door { display: flex; flex-direction: column; height: 100%; max-width: 420px; padding: 24px; border-radius: 0; border: 1px solid #E3E3DF; background: #FFFFFF; color: #000000; text-decoration: none; font-family: Inter, 'Helvetica Neue', Arial, sans-serif; transition: border-color 200ms; } .ds-door:hover { border-color: #000000; } .ds-door:focus-visible { outline: 2px solid #2233E8; outline-offset: 3px; } .ds-door-label { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #6E6E68; } .ds-door-title { margin-top: 12px; font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; font-size: 1.25rem; font-weight: 600; line-height: 1.375; letter-spacing: -0.02em; } .ds-door-body { margin-top: 12px; flex: 1; font-size: 0.9375rem; line-height: 1.625; color: #6E6E68; } .ds-door-cta { margin-top: 24px; display: inline-flex; align-items: center; gap: 8px; font-size: 0.875rem; font-weight: 500; color: #2233E8; } .ds-door-cta svg { transition: transform 200ms; } .ds-door:hover .ds-door-cta svg { transform: translateX(4px); }"
-    },
-    {
-      "name": "Door Card on Band",
-      "kind": "card",
-      "refersTo": "card-on-band",
-      "description": "The hero variant: Dark Fog fill, Dark Line border, Dark Steel label, Signal Soft call; hover border Paper.",
-      "html": "<div class=\"ds-band-bg\"><a class=\"ds-door-dark\" href=\"#\"><span class=\"ds-door-dark-label\">For founders</span><span class=\"ds-door-dark-title\">Looking for an investor who knows the field?</span><span class=\"ds-door-dark-body\">Present your company, its stage and the support you need: investment, advisory or hands-on involvement.</span><span class=\"ds-door-dark-cta\">Present my project <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></span></a></div>",
-      "css": ".ds-band-bg { padding: 24px; background: #000000; } .ds-door-dark { display: flex; flex-direction: column; max-width: 420px; padding: 24px; border: 1px solid #2C2C2C; background: #141414; color: #FFFFFF; text-decoration: none; font-family: Inter, 'Helvetica Neue', Arial, sans-serif; transition: border-color 200ms; } .ds-door-dark:hover { border-color: #FFFFFF; } .ds-door-dark:focus-visible { outline: 2px solid #6B7CFF; outline-offset: 3px; } .ds-door-dark-label { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #A0A09A; } .ds-door-dark-title { margin-top: 12px; font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; font-size: 1.25rem; font-weight: 600; line-height: 1.375; letter-spacing: -0.02em; } .ds-door-dark-body { margin-top: 12px; flex: 1; font-size: 0.9375rem; line-height: 1.625; color: rgb(255 255 255 / 0.7); } .ds-door-dark-cta { margin-top: 24px; display: inline-flex; align-items: center; gap: 8px; font-size: 0.875rem; font-weight: 500; color: #6B7CFF; } .ds-door-dark-cta svg { transition: transform 200ms; } .ds-door-dark:hover .ds-door-dark-cta svg { transform: translateX(4px); }"
+      "css": ".ds-pill { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 9999px; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.25; } .ds-pill-solid { background: var(--f6-ink, #000000); color: #FFFFFF; } .ds-pill-muted { background: var(--f6-fog, #F2F2F0); color: var(--f6-ink, #000000); } .ds-pill-outline { border: 1px solid var(--f6-line, #E3E3DF); color: var(--f6-steel, #6E6E68); }"
     },
     {
       "name": "Row List",
       "kind": "custom",
-      "refersTo": "card",
-      "description": "Line-divided term and definition rows; the default way to list offers, symptoms and recordings. The term turns Signal on hover.",
+      "refersTo": "row",
+      "description": "Line-divided term and definition rows; the default way to list offers, recordings and symptoms. The term turns Signal on hover.",
       "html": "<div class=\"ds-rows\"><a class=\"ds-row\" href=\"#\"><span class=\"ds-row-term\">Quote-to-Cash</span><span class=\"ds-row-def\">From catalog to cash: CPQ, Revenue Cloud Advanced and billing.</span></a><a class=\"ds-row\" href=\"#\"><span class=\"ds-row-term\">Integrations</span><span class=\"ds-row-def\">Governed flows between Salesforce, your ERP, your billing and your data platforms.</span></a></div>",
-      "css": ".ds-rows { border-top: 1px solid #E3E3DF; border-bottom: 1px solid #E3E3DF; font-family: Inter, 'Helvetica Neue', Arial, sans-serif; color: #000000; } .ds-row { display: grid; grid-template-columns: 1fr 2fr; gap: 32px; padding: 16px 0; text-decoration: none; color: inherit; } .ds-row + .ds-row { border-top: 1px solid #E3E3DF; } .ds-row-term { font-size: 1rem; font-weight: 500; transition: color 200ms; } .ds-row:hover .ds-row-term { color: #2233E8; } .ds-row-def { font-size: 0.9375rem; line-height: 1.625; color: #6E6E68; }"
+      "css": ".ds-rows { border-top: 1px solid var(--f6-line, #E3E3DF); border-bottom: 1px solid var(--f6-line, #E3E3DF); font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; color: var(--f6-ink, #000000); } .ds-row { display: grid; grid-template-columns: 1fr 2fr; gap: 32px; padding: 16px 0; text-decoration: none; color: inherit; } .ds-row + .ds-row { border-top: 1px solid var(--f6-line, #E3E3DF); } .ds-row-term { font-size: 1rem; font-weight: 500; transition: color 200ms; } .ds-row:hover .ds-row-term { color: var(--f6-signal, #2233E8); } .ds-row-def { font-size: 0.9375rem; line-height: 1.625; color: var(--f6-steel, #6E6E68); }"
     },
     {
       "name": "Text Input",
       "kind": "input",
       "refersTo": "input",
-      "description": "Square 44px control with a Line stroke; focus is a Signal border plus a 15% Signal ring.",
+      "description": "Square 44px control with a Line stroke; focus is a Signal border plus a 15 percent Signal ring. Inherited from the previous build.",
       "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Work email <span class=\"ds-field-opt\">Optional</span></span><input class=\"ds-input\" type=\"email\" placeholder=\"you@company.com\" /></label>",
-      "css": ".ds-field { display: block; max-width: 360px; font-family: Inter, 'Helvetica Neue', Arial, sans-serif; color: #000000; } .ds-field-label { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; font-size: 0.875rem; font-weight: 500; } .ds-field-opt { font-size: 0.75rem; font-weight: 400; color: #6E6E68; } .ds-input { width: 100%; height: 44px; padding: 0 14px; border-radius: 0; border: 1px solid #E3E3DF; background: #FFFFFF; color: #000000; font: inherit; font-size: 0.9375rem; outline: none; transition: border-color 150ms, box-shadow 150ms; } .ds-input::placeholder { color: rgb(110 110 104 / 0.7); } .ds-input:focus { border-color: #2233E8; box-shadow: 0 0 0 2px rgb(34 51 232 / 0.15); } .ds-input[aria-invalid=\"true\"] { border-color: #B42318; } .ds-input:disabled { opacity: 0.6; cursor: not-allowed; }"
-    },
-    {
-      "name": "Choice Row",
-      "kind": "input",
-      "refersTo": "choice-row",
-      "description": "Exclusive option as a square row with a drawn radio; selected row takes a Signal border and Signal Wash fill.",
-      "html": "<div class=\"ds-choices\"><label class=\"ds-choice\"><input type=\"radio\" name=\"ds-c\" checked /><span class=\"ds-choice-dot\"></span><span class=\"ds-choice-text\"><span class=\"ds-choice-label\">An operational need</span><span class=\"ds-choice-desc\">Salesforce, CPQ, billing, integrations.</span></span></label><label class=\"ds-choice\"><input type=\"radio\" name=\"ds-c\" /><span class=\"ds-choice-dot\"></span><span class=\"ds-choice-text\"><span class=\"ds-choice-label\">A company to present</span></span></label></div>",
-      "css": ".ds-choices { display: grid; gap: 8px; max-width: 420px; font-family: Inter, 'Helvetica Neue', Arial, sans-serif; color: #000000; } .ds-choice { position: relative; display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; border-radius: 0; border: 1px solid #E3E3DF; font-size: 0.9375rem; line-height: 1.375; cursor: pointer; transition: border-color 150ms, background-color 150ms; } .ds-choice:hover { border-color: #000000; } .ds-choice input { position: absolute; width: 1px; height: 1px; opacity: 0; } .ds-choice:has(input:checked) { border-color: #2233E8; background: #EDEFFE; } .ds-choice:has(input:focus-visible) { box-shadow: 0 0 0 2px rgb(34 51 232 / 0.3); } .ds-choice-dot { flex: none; margin-top: 3px; width: 16px; height: 16px; border-radius: 9999px; border: 1px solid rgb(110 110 104 / 0.5); display: flex; align-items: center; justify-content: center; transition: border-color 150ms; } .ds-choice-dot::after { content: ''; width: 8px; height: 8px; border-radius: 9999px; background: #2233E8; transform: scale(0); transition: transform 150ms ease-out; } .ds-choice:has(input:checked) .ds-choice-dot { border-color: #2233E8; } .ds-choice:has(input:checked) .ds-choice-dot::after { transform: scale(1); } .ds-choice:has(input:checked) .ds-choice-label { font-weight: 500; } .ds-choice-text { display: block; min-width: 0; } .ds-choice-label { display: block; } .ds-choice-desc { display: block; margin-top: 2px; font-size: 0.875rem; color: #6E6E68; }"
-    },
-    {
-      "name": "Nav Links",
-      "kind": "nav",
-      "refersTo": "nav-link",
-      "description": "Plain Ink text links, 28px apart; hover and active turn Signal (Signal Soft over the black hero).",
-      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link\" href=\"#\">Advisory</a><a class=\"ds-nav-link ds-nav-active\" href=\"#\" aria-current=\"page\">Investments</a><a class=\"ds-nav-link\" href=\"#\">Portfolio</a><a class=\"ds-nav-link\" href=\"#\">Resources</a><a class=\"ds-nav-link\" href=\"#\">About</a></nav>",
-      "css": ".ds-nav { display: inline-flex; align-items: center; gap: 28px; font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 0.875rem; } .ds-nav-link { color: #000000; text-decoration: none; transition: color 200ms; } .ds-nav-link:hover, .ds-nav-active { color: #2233E8; } .ds-nav-link:focus-visible { outline: 2px solid #2233E8; outline-offset: 3px; }"
+      "css": ".ds-field { display: block; max-width: 360px; font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; color: var(--f6-ink, #000000); } .ds-field-label { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; font-size: 0.875rem; font-weight: 500; } .ds-field-opt { font-size: 0.75rem; font-weight: 400; color: var(--f6-steel, #6E6E68); } .ds-input { width: 100%; height: 44px; padding: 0 14px; border-radius: 0; border: 1px solid var(--f6-line, #E3E3DF); background: #FFFFFF; color: var(--f6-ink, #000000); font: inherit; font-size: 0.9375rem; outline: none; transition: border-color 150ms, box-shadow 150ms; } .ds-input::placeholder { color: rgb(110 110 104 / 0.7); } .ds-input:focus { border-color: var(--f6-signal, #2233E8); box-shadow: 0 0 0 2px rgb(34 51 232 / 0.15); } .ds-input[aria-invalid=\"true\"] { border-color: var(--f6-destructive, #B42318); } .ds-input:disabled { opacity: 0.6; cursor: not-allowed; }"
     },
     {
       "name": "FAQ Item",
       "kind": "custom",
-      "refersTo": "card",
+      "refersTo": "row",
       "description": "Native details/summary row in a Line list with a plus that rotates 45 degrees when open.",
       "html": "<div class=\"ds-faq\"><details class=\"ds-faq-item\" open><summary class=\"ds-faq-q\">Is the online diagnostic an audit? <svg class=\"ds-faq-icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"M12 5v14\"/></svg></summary><p class=\"ds-faq-a\">It gives a first direction based on the answers provided. An actual audit requires further analysis with the teams involved.</p></details><details class=\"ds-faq-item\"><summary class=\"ds-faq-q\">Do I need a finished specification to reach out? <svg class=\"ds-faq-icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"M12 5v14\"/></svg></summary><p class=\"ds-faq-a\">No. A concrete problem, the tools involved, and a rough timeline are enough.</p></details></div>",
-      "css": ".ds-faq { max-width: 640px; border-top: 1px solid #E3E3DF; border-bottom: 1px solid #E3E3DF; font-family: Inter, 'Helvetica Neue', Arial, sans-serif; color: #000000; } .ds-faq-item + .ds-faq-item { border-top: 1px solid #E3E3DF; } .ds-faq-q { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding: 20px 0; list-style: none; cursor: pointer; font-size: 1.0625rem; font-weight: 500; line-height: 1.375; } .ds-faq-q::-webkit-details-marker { display: none; } .ds-faq-icon { flex: none; margin-top: 2px; color: #6E6E68; transition: transform 200ms; } .ds-faq-item[open] .ds-faq-icon { transform: rotate(45deg); } .ds-faq-a { margin: 0; padding-bottom: 24px; font-size: 0.9375rem; line-height: 1.625; color: #6E6E68; }"
+      "css": ".ds-faq { max-width: 640px; border-top: 1px solid var(--f6-line, #E3E3DF); border-bottom: 1px solid var(--f6-line, #E3E3DF); font-family: Archivo, 'Helvetica Neue', Arial, sans-serif; color: var(--f6-ink, #000000); } .ds-faq-item + .ds-faq-item { border-top: 1px solid var(--f6-line, #E3E3DF); } .ds-faq-q { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding: 20px 0; list-style: none; cursor: pointer; font-size: 1.0625rem; font-weight: 500; line-height: 1.375; } .ds-faq-q::-webkit-details-marker { display: none; } .ds-faq-icon { flex: none; margin-top: 2px; color: var(--f6-steel, #6E6E68); transition: transform 200ms; } .ds-faq-item[open] .ds-faq-icon { transform: rotate(45deg); } .ds-faq-a { margin: 0; padding-bottom: 24px; font-size: 0.9375rem; line-height: 1.625; color: var(--f6-steel, #6E6E68); }"
     }
   ],
   "narrative": {
-    "northStar": "The Signed Brief",
-    "overview": "The site is set like a business brief on white paper in pure black ink, and then signed once in blue. Everything structural is achromatic: Ink text, Paper ground, Fog panels, Line hairlines, Steel for supporting sentences. The one chromatic value, Signal blue, marks exactly the places a reader can act: the dot of the F6 monogram, links, and buttons. Hierarchy comes from two typefaces doing two jobs (Space Grotesk for titles and the brand name, Inter for everything read), from size and weight, and from 1px lines, never from tint or ornament.\n\nSurfaces are square. The only curves in the system are full circles: pill buttons, status pills, radio indicators, progress segments, the success disc, and the dot in the logo. Nothing casts a shadow; a card is a rectangle with a 1px Line border on Paper, and it hovers by turning that border to Ink. The home hero and the home closing call are full-bleed black bands that invert the neutrals (Dark Fog, Dark Line, Dark Steel) and switch links to Signal Soft so the blue stays legible on black.\n\nDensity is low and editorial. A page opens with a single Space Grotesk headline (no kicker above it), a Steel lead of two lines at most, then sections separated by 64 to 96px. Lists are hairline rows, not icon grids; cards exist only where an entire thing is a destination. Motion is a one-time CSS opening sequence on the home hero (title rises, a Lead-to-Cash line draws itself, the two doors slide in), one-shot reveals on scroll, direction-aware slides between form steps, and 150 to 300ms colour transitions everywhere else.",
+    "northStar": "Two Doors on Paper",
+    "overview": "The site is a white page set in black with one blue signature, and its first screen is a structure rather than a picture: a headline and its Steel lead on the left, a code-drawn illustration on the right (from md; phones show the headline, lead and bands alone) in which From 6 is the hub two named lanes leave from, and under both, two short full-width bands facing each other under a hairline, one for company leaders and one for founders. Each band carries the audience word at display size, one question and one Signal link; the four real steps of each path live on the illustration's lanes. Nothing on the ground is tinted; everything structural is Ink on Paper, Steel hairlines, Line dividers and Steel sentences. Signal blue appears exactly where a reader can act, and once more on the door under the pointer and its lane.\n\nOne typeface family does every job. Archivo, loaded as a variable font with its width axis, is set heavy and narrow for headings (weight 700, width 92 percent, tracking -0.03em) and upright at normal width for everything read. Dates, years and counters are set in tabular numerals. There is no second face, no mono, no serif, and no kicker or eyebrow above a heading: the heading opens its block alone.\n\nSurfaces are square and bounded by 1px lines, buttons, pills, the hub and the nodes are full circles, and nothing casts a shadow or carries a gradient. The header is a floating Paper capsule detached from the viewport edge. Proof is one sober row of the three company marks, drifting a few pixels on scroll, straight on Paper, then three records side by side. The home has one black band and it is the closing call, not the hero. Motion is one orchestrated entrance on the first screen that ends with the illustration drawing itself, the door and lane hover pair, a continuous dot on each lane, the scroll-linked mark row, 150 to 300ms colour transitions, and reduced-motion fallbacks for all of it. Secondary pages inherit the type, the header and the footer, and otherwise keep the recipes of the previous build: PageHeader, SectionHeader, RowList, ClosingCTA and the multi-step form kit.",
     "keyCharacteristics": [
-      "Six neutrals and one accent: Signal #2233E8 appears only on the logo dot, links and buttons; Signal Soft replaces it on black; Signal Wash is the selection and selected-row tint.",
-      "Two faces, two jobs: Space Grotesk 600 with -0.02em tracking on every heading and the brand name; Inter for text, UI and labels. No mono, no serif.",
-      "Radius is 0 or a full circle. Cards, inputs, panels and bands are square; buttons, pills and indicators are round.",
-      "No drop shadows anywhere; depth is a 1px Line border, a Fog panel, or a black band inversion.",
-      "Black bands (.hero-section) for the home hero and home closing call, with the neutrals inverted through hero-fog, hero-line, hero-steel.",
-      "The logo is the official inline SVG in currentColor: horizontal lockup at 150px in the header and 140px in the footer, never recoloured, rotated or shadowed.",
+      "Eight neutrals and one accent, unchanged since the September kit: Signal is for the logo dot, links, buttons, the active door heading and its lane; Signal Soft is its form on black; Signal Wash is the selection and selected-row tint.",
+      "One family, two settings: Archivo 700 at 92 percent width and -0.03em for every heading and the .display utility; Archivo 400 and 500 at normal width for sentences, UI and labels; .tnum on every number that lines up.",
+      "Radius is 0 or a full circle. Bands, panels, inputs, records and the mobile menu are square; buttons, pills, radio marks, progress segments, the header capsule, the illustration's hub, nodes and travelling dot are round.",
+      "No shadows and no gradients. Depth is a 1px hairline, a Fog panel, or the single black band at the end of the home.",
+      "The first viewport is on Paper: intro left, illustration right from md, two short door bands under hairlines. The hover grammar is a pair: one band grows and turns Signal with its lane, the other band and lane fade.",
+      "Illustration is drawn in code from the palette's own materials: Steel hairlines, Ink nodes, uppercase labels and the F6 Mark; no generated imagery.",
+      "The header is a fixed Paper capsule at 90 percent with a blur, inset 12 to 16px from the edge, on every page; the mobile menu is a square Line-bordered panel beneath it.",
+      "Proof is real material, never redrawn: the Darix mark, the MicePro logo in monochrome and the 6WAY wordmark, laid on Paper in one row without panel, caption or label.",
+      "The logo is the kit's inline SVG in currentColor, lockup at 120px (mobile header), 136px (desktop header) and 140px (footer); the mark alone at 32px inside the illustration's hub (md and up).",
       "Every visible string is an EN/FR pair through <T />; English is server-rendered."
     ],
     "rules": [
-      { "name": "The Signal Rule", "body": "Signal is reserved for the logo dot, links, buttons and the state of an action in progress: the focus ring, the selected choice and its wash, the filled progress track, the deposited file, the success disc. It never fills a background, colours a heading, tints an icon or decorates a rule. One deliberate echo of the logo dot is allowed: the last station of the hero's Lead-to-Cash line, \"Cash\", is Signal Soft. On black, Signal becomes Signal Soft. Emphasis anywhere else is weight, size, Steel or position. (Decided with the owner on 2026-09-11: the kit's \"liens, actions\" covers interactive states.)", "section": "colors" },
-      { "name": "The Inversion Rule", "body": "A black band swaps the neutrals, not the logic: Ink becomes Paper, Fog becomes Dark Fog, Line becomes Dark Line, Steel becomes Dark Steel, Signal becomes Signal Soft. The primary button on a band stays Signal (inverted) and hovers to Paper on Ink; the secondary is a Paper-at-30% outline (ghost).", "section": "colors" },
-      { "name": "The Steel Body Rule", "body": "Any sentence that supports a heading is Steel. Ink is for headings, terms, the current step title, and the strings the reader must not miss.", "section": "colors" },
-      { "name": "The Two Faces Rule", "body": "Space Grotesk is for headings (h1 to h6) and the brand name; Inter is for everything else, including labels and buttons. No third face, no mono.", "section": "typography" },
-      { "name": "The Label Inside Rule", "body": "The uppercase .label sits inside the object it classifies (top of a card, a pill, a footer column) and never above a page or section heading. The heading opens the block alone.", "section": "typography" },
-      { "name": "The No Shadow Rule", "body": "No surface, card, button, sheet or image carries a shadow. If a surface needs an edge, give it a 1px Line border; if it needs weight, give it a Fog or Ink fill.", "section": "elevation" },
-      { "name": "The Border Hover Rule", "body": "Hover changes a colour, never a position or a shadow: border to Ink, text to Signal, fill to Ink or Paper. The only transforms on hover are the 2 to 4px nudge of an arrow icon and the home door pair, where the door not hovered recedes to 55% opacity and 98.5% scale.", "section": "elevation" },
-      { "name": "The Zero or Circle Rule", "body": "A corner is square or the element is a pill. No 4, 8, 12 or 16px radius exists and none may be introduced.", "section": "shapes" }
+      {
+        "name": "The Signal Rule",
+        "body": "Signal is reserved for the logo dot, links, buttons, the heading of the active door with its lane (name, nodes, dot) and the state of an action in progress (focus ring, selected choice and its wash, filled progress track, deposited file, success disc). It never fills a background, colours a resting heading, tints an icon or decorates a rule. On black it becomes Signal Soft. Emphasis anywhere else is weight, size, Steel or position.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Band Rule",
+        "body": "The home carries exactly one black band and it is the closing call. The first viewport is on Paper. A black band swaps the neutrals, not the logic: Ink becomes Paper, Steel becomes Dark Steel, the primary button stays Signal (inverted) and hovers to Paper on Ink, the secondary is a Paper-at-30 percent outline (ghost).",
+        "section": "colors"
+      },
+      {
+        "name": "The Steel Body Rule",
+        "body": "Any sentence that supports a heading is Steel, and so is any line that is drawn rather than written. Ink is for headings, questions, terms, the current step title, the nodes, and the strings the reader must not miss.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "Archivo is the only typeface. Hierarchy comes from the axes, never from a second face: 700 at 92 percent width and -0.03em for headings, 400 and 500 at normal width for everything else. No mono, no serif, no system display face.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Rule",
+        "body": "Every date, year, counter, duration and episode number carries .tnum so columns and rows of figures hold still.",
+        "section": "typography"
+      },
+      {
+        "name": "The Heading Alone Rule",
+        "body": "No kicker, eyebrow or uppercase label sits above a page, section or door heading. Uppercase lives inside the object it classifies: a Pill, a footer column, a lane of the illustration.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Shadow Rule",
+        "body": "No surface, band, button, sheet, capsule, node or image carries a shadow. If a surface needs an edge, give it a 1px hairline; if it needs weight, give it a Fog or Ink fill.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Colour Hover Rule",
+        "body": "Hover changes a colour, not a position or a shadow. The only transforms on hover are the 2 to 4px nudge of an arrow icon and the door pair, where the active band gains padding and the inactive one loses it and fades to 45 percent while its lane fades to 35 percent.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Zero or Circle Rule",
+        "body": "A corner is square or the element is a pill. No 4, 8, 12 or 16px radius exists and none may be introduced.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Drawn in Code Rule",
+        "body": "An illustration is built from the palette's own materials, 1px Steel lines, Ink circles, uppercase labels and the official Mark, laid out with CSS. No generated imagery, no icon set, no third colour.",
+        "section": "shapes"
+      }
     ],
     "dos": [
-      "Do build every surface from Ink, Paper, Fog, Line and Steel; reach for Dark Fog, Dark Line and Dark Steel only inside .hero-section.",
-      "Do spend Signal only on the logo dot, text links and buttons, and switch to Signal Soft for links on black; hover a link to Ink and a primary button to Ink.",
-      "Do set every heading in Space Grotesk 600 at -0.02em through the global h1 to h6 rule, and every sentence, label and control in Inter.",
-      "Do open a page with PageHeader (Headline, then a Steel lead of at most two lines) and every section with SectionHeader; the heading carries alone.",
-      "Do list things as RowList rows divided by Line unless each item is a whole clickable destination, in which case use a square card with a 1px Line border that hovers to Ink.",
-      "Do make every button a pill: 44px medium or 48px large, Inter 500, primary / outline / inverted / ghost, hover by colour change only.",
-      "Do put the .label (Inter 500, 0.6875rem, 0.06em, uppercase) inside the object it classifies: a Pill, the top of a DoorCard, a footer column.",
-      "Do keep controls square with a 1px Line border, and show focus as a Signal border plus a 15% Signal ring.",
+      "Do build every surface from Ink, Paper, Fog, Line and Steel; reach for Dark Steel, Dark Fog and Dark Line only inside .hero-section, and keep that band to the closing call.",
+      "Do spend Signal only on the logo dot, text links, buttons, the active door heading with its lane, and in-progress form states; switch to Signal Soft for any link on black; hover a link to Ink and a primary button to Ink.",
+      "Do set every heading through the global h1 to h6 rule (Archivo 700, font-stretch: 92%, -0.03em) or the .display utility, and every sentence, control and label in Archivo at normal width.",
+      "Do put .tnum on every date, year, counter and duration.",
+      "Do open the home with the headline and lead beside the code-drawn illustration (from md), then the two short door bands on Paper; open inner pages with PageHeader and every section with SectionHeader; the heading carries alone.",
+      "Do draw any illustration from 1px Steel lines, Ink circles, uppercase labels and the official Mark, and let it share state with the element it explains.",
+      "Do show proof as the companies' real marks laid straight on Paper in one row, in monochrome where a logo would bring a third colour, named by the records beneath and by alt.",
+      "Do list things as RowList rows divided by Line.",
+      "Do make every button a pill: 44px medium, 48px large, 36px compact, Archivo 500, primary / outline / inverted / ghost, hover by colour change only.",
+      "Do keep the header as the Paper capsule at 90 percent with blur, inset from the edge, on every page.",
+      "Do keep controls square with a 1px Line border, and show focus as a Signal border plus a 15 percent Signal ring.",
       "Do insert the logo as the inline SVG from Logo.tsx in currentColor, lockup at 120px or wider, mark at 20px or wider.",
-      "Do ease motion with cubic-bezier(0.16, 1, 0.3, 1), keep colour transitions between 150 and 300ms, and honour prefers-reduced-motion on anything that moves.",
-      "Do ship every visible string as an EN/FR pair through <T en fr />, English first in the HTML, in real business French (\"revenus\", never \"le revenue\")."
+      "Do ease motion with cubic-bezier(0.16, 1, 0.3, 1) (drawing with cubic-bezier(0.65, 0, 0.35, 1)), keep colour transitions between 150 and 300ms, make the final state the default state, and honour prefers-reduced-motion on anything that moves, loops or follows scroll.",
+      "Do ship every visible string as an EN/FR pair through <T en fr />, English first in the HTML, in real business French."
     ],
     "donts": [
-      "Don't use Signal as a background, a heading colour, an icon tint or a decorative rule; the only blue fills are buttons, form states (selected choice, progress track, success disc, focus ring), the logo dot and its single echo, the \"Cash\" station of the hero line.",
-      "Don't introduce a gradient, a tinted grey, a second accent or a dark-mode theme; the black bands are a local inversion, not a theme.",
-      "Don't add a drop shadow to anything, including the cookie sheet and the portrait; bound surfaces with a 1px Line border instead.",
+      "Don't use Signal as a background, a resting heading colour, an icon tint or a decorative rule; the only blue fills are buttons, form states, the logo dot and the active lane's nodes and dot.",
+      "Don't introduce a gradient, a tinted grey, a second accent, an orb or a dark-mode theme; the black band is a local inversion, not a theme.",
+      "Don't put a black band or a card grid in the first viewport; the home hero is Paper with intro, illustration and two door bands under hairlines.",
+      "Don't add a drop shadow to anything, including the capsule, the cookie sheet, the door bar, the marks and the portrait; bound surfaces with a 1px hairline instead.",
       "Don't use any radius other than 0 or 9999px: no rounded-sm, rounded-md, rounded-lg, rounded-xl, rounded-2xl.",
-      "Don't place an uppercase label or any eyebrow above a page or section heading.",
-      "Don't use a typeface other than Space Grotesk (headings, brand name) and Inter (everything else); no mono, no serif, no system display face.",
+      "Don't place an uppercase label, kicker or eyebrow above a page, section or door heading.",
+      "Don't load a second typeface; no Space Grotesk, no Inter, no mono, no serif, no system display face. Vary Archivo's weight and width instead.",
       "Don't recolour, rotate, outline, shadow, redraw or rasterise the logo; never set the horizontal lockup below 120px.",
-      "Don't lift on hover: no translate, no shadow change on cards or buttons; change border or text colour instead.",
-      "Don't nest a card inside a card, or put a Paper card on a black band; band cards are Dark Fog with a Dark Line border.",
+      "Don't lift on hover: no translate, no scale, no shadow change on bands, buttons or rows; change padding (doors only), border or text colour instead.",
+      "Don't generate, illustrate or redraw proof or imagery; show real marks and logos, in monochrome where a logo would bring a third colour, and draw diagrams in code.",
+      "Don't put proof in a grey panel with a caption, nor pile up app screens; the mark row sits on Paper and the records name the companies.",
       "Don't use em or en dashes in visible copy (comma, colon, parentheses; | in SEO titles), rhythmic word triplets separated by periods, emojis, hype, or any invented client, figure, testimonial, certification or criterion."
     ]
   }

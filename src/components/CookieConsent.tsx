@@ -24,7 +24,7 @@ export function CookieConsent() {
   if (!visible) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-[60] p-4 sm:p-6">
+    <div className="cookie-sheet fixed inset-x-0 bottom-0 z-[60] p-4 transition-[bottom] duration-300 sm:p-6">
       <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 border border-border bg-background/95 p-5 text-center backdrop-blur-md sm:flex-row sm:justify-between sm:text-left">
         <p className="text-sm text-muted-foreground">
           {isEn

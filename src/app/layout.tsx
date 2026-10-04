@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Archivo } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
 import { Header } from "@/components/Header";
@@ -8,22 +8,18 @@ import { CalEmbed } from "@/components/CalEmbed";
 import { Analytics } from "@/components/Analytics";
 import { CookieConsent } from "@/components/CookieConsent";
 
-// Kit de marque v2.0 : Space Grotesk pour les titres et le nom, Inter pour le texte.
-const spaceGrotesk = Space_Grotesk({
+// Redesign d'octobre 2026 : une seule famille, Archivo en variable (graisse et
+// largeur), serrée pour les titres, droite pour le texte. Le logo reste le SVG
+// officiel du kit, il ne dépend pas de la police.
+const archivo = Archivo({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-space-grotesk",
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
+  axes: ["wdth"],
+  variable: "--font-archivo",
   display: "swap",
 });
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: "#ffffff",
 };
 
 // Domaine cible réel (from6agency.com), pas le sous-domaine Vercel de preview :
@@ -127,7 +123,7 @@ const JSON_LD = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
+    <html lang="en" className={archivo.variable}>
       <body className="antialiased">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }} />
         <Analytics />

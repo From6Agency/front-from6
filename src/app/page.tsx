@@ -1,15 +1,14 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { getPortfolioCompanies } from "@/lib/content";
 import { DARIX_OFFERS, darixLink } from "@/lib/darix";
 import { T } from "@/components/Bilingual";
 import { FAQ } from "@/components/FAQ";
 import { BookCallButton } from "@/components/BookCallButton";
-import { Reveal, RevealGroup, RevealItem } from "@/components/Reveal";
-import { DoorPair } from "@/components/home/DoorPair";
-import { LeadToCashLine } from "@/components/home/LeadToCashLine";
-import { ArrowLink, Button, DoorCard, Pill, Row, RowList, Section, SectionHeader } from "@/components/ui";
+import { HeroDoors } from "@/components/home/HeroDoors";
+import { ProofStrip } from "@/components/home/ProofStrip";
+import { MobileDoorBar } from "@/components/home/MobileDoorBar";
+import { ArrowLink, Button, Pill, Row, RowList, Section, SectionHeader } from "@/components/ui";
 
 const delay = (ms: number) => ({ ["--delay" as string]: `${ms}ms` });
 
@@ -23,6 +22,7 @@ const ROLE_LABELS: Record<string, { en: string; fr: string }> = {
 };
 const STATUS_LABELS: Record<string, { en: string; fr: string }> = {
   active: { en: "Active", fr: "Actif" },
+  beta: { en: "Beta", fr: "Bêta" },
   "in build": { en: "In build", fr: "En construction" },
 };
 
@@ -37,66 +37,32 @@ export default async function Home() {
   const ordered = [...companies].sort((a, b) => Number(b.name === "Darix") - Number(a.name === "Darix") || (a.display_order ?? 0) - (b.display_order ?? 0));
 
   return (
-    <div>
-      {/* Premier écran : qui parle, et les deux portes. Une seule bande sombre,
-          sans carte dans la carte ni courbe décorative. */}
-      <section className="hero-section pb-16 pt-32 md:pb-24 md:pt-40">
-        <div className="mx-auto max-w-6xl px-6 md:px-10">
-          <div className="grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16">
-            {/* Séquence d'ouverture : le titre se pose, la ligne Lead-to-Cash se
-                trace, puis les deux portes arrivent. Tout en CSS, délais en cascade. */}
-            <div>
-              <h1 className="text-balance text-[2.75rem] leading-[1.04] anim-rise md:text-6xl">
+    <div className="pb-24 lg:pb-0">
+      {/* Premier écran : le titre et sa phrase à gauche, l'illustration des deux
+          voies à droite, puis les deux portes en bandes courtes. Fond Paper. */}
+      <section className="mx-auto max-w-6xl px-6 pt-24 md:px-10 md:pt-28">
+        <HeroDoors
+          intro={
+            <>
+              <h1 className="text-balance text-[2rem] leading-[0.98] anim-rise md:text-[3.5rem] lg:text-[4rem]">
                 <T en="Field experience to help your company grow." fr="L'expérience du terrain pour faire grandir votre entreprise." />
               </h1>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-hero-fg/70 anim-rise md:text-xl" style={delay(120)}>
+              <p className="mt-5 max-w-xl text-sm leading-snug text-muted-foreground anim-rise md:mt-6 md:text-lg" style={delay(120)}>
                 <T
                   en="From 6 connects companies to Darix's revenue expertise and supports founders through advisory and investment."
-                  fr="From 6 relie les entreprises à l'expertise revenue de Darix et accompagne les fondateurs par le conseil et l'investissement."
+                  fr="From 6 relie les entreprises à l'expertise revenus de Darix et accompagne les fondateurs par le conseil et l'investissement."
                 />
               </p>
-              <p className="mt-6 text-sm text-hero-steel anim-rise" style={delay(220)}>
-                <T
-                  en="Franck Berthelot, co-founder of Darix and 6WAY, investor in MicePro."
-                  fr="Franck Berthelot, cofondateur de Darix et de 6WAY, investisseur dans MicePro."
-                />
+              <p className="tnum mt-3 hidden text-xs text-muted-foreground anim-rise md:block md:text-sm" style={delay(200)}>
+                <T en="Franck Berthelot, co-founder of Darix and 6WAY, investor in MicePro." fr="Franck Berthelot, cofondateur de Darix et de 6WAY, investisseur dans MicePro." />
               </p>
-              <LeadToCashLine delay={500} />
-            </div>
-            <DoorPair className="grid gap-4">
-              <div data-door="companies" className="anim-door" style={delay(1100)}>
-                <DoorCard
-                  dark
-                  href="/diagnostic"
-                  label={{ en: "For companies", fr: "Pour les entreprises" }}
-                  title={<T en="Are your systems slowing your growth?" fr="Vos systèmes freinent votre croissance ?" />}
-                  cta={{ en: "Assess my need", fr: "Évaluer mon besoin" }}
-                >
-                  <T
-                    en="Salesforce, CPQ, billing, integrations, data or AI: we clarify what blocks your teams and identify the next step with Darix."
-                    fr="Salesforce, CPQ, facturation, intégrations, data ou IA : nous précisons ce qui bloque vos équipes et identifions la prochaine étape avec Darix."
-                  />
-                </DoorCard>
-              </div>
-              <div data-door="founders" className="anim-door" style={delay(1240)}>
-                <DoorCard
-                  dark
-                  href="/proposer-un-projet"
-                  label={{ en: "For founders", fr: "Pour les fondateurs" }}
-                  title={<T en="Looking for an investor who knows the field?" fr="Vous cherchez un investisseur qui connaît le terrain ?" />}
-                  cta={{ en: "Present my project", fr: "Présenter mon projet" }}
-                >
-                  <T
-                    en="Present your company, its stage and the support you need: investment, advisory or hands-on involvement."
-                    fr="Présentez votre entreprise, son stade et l'appui recherché : investissement, conseil ou implication opérationnelle."
-                  />
-                </DoorCard>
-              </div>
-            </DoorPair>
-          </div>
-        </div>
+            </>
+          }
+        />
       </section>
 
+      {/* Preuve : les trois marques en une rangée qui glisse au scroll, puis
+          les trois fiches côte à côte. */}
       <div className="mx-auto max-w-6xl px-6 pb-8 md:px-10">
         <Section id="entreprises" className="!mt-20 md:!mt-28">
           <SectionHeader
@@ -107,57 +73,48 @@ export default async function Home() {
               </ArrowLink>
             }
           />
-          <RevealGroup className="grid gap-4 md:grid-cols-3">
+          <ProofStrip />
+          <div className="mt-6 grid gap-10 border-t border-border pt-8 md:grid-cols-3 md:gap-10 md:pt-10">
             {ordered.map((company) => {
               const role = label(ROLE_LABELS, company.role);
               const status = label(STATUS_LABELS, company.status);
-              const href = company.name === "Darix" ? "/darix" : company.website_url ?? "/portfolio";
-              const external = href.startsWith("http");
-              const inner = (
-                <>
-                  <div className="flex items-start justify-between gap-3">
-                    <h3 className="text-xl">{company.name}</h3>
+              const domain = company.website_url?.replace(/^https?:\/\//, "");
+              return (
+                <article key={company.id} className="flex flex-col">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <h3 className="text-2xl md:text-3xl">{company.name}</h3>
                     {status && (
                       <Pill tone={status.en === "Active" ? "solid" : "outline"}>
                         <T en={status.en} fr={status.fr} />
                       </Pill>
                     )}
                   </div>
-                  {role && (
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      <T en={role.en} fr={role.fr} />
-                      {company.stage_year && <span>, {company.stage_year}</span>}
+                  {(role || company.stage_year) && (
+                    <p className="tnum mt-2 text-sm text-muted-foreground">
+                      {role && <T en={role.en} fr={role.fr} />}
+                      {role && company.stage_year && ", "}
+                      {company.stage_year}
                     </p>
                   )}
                   <p className="mt-4 flex-1 text-[0.9375rem] leading-relaxed text-muted-foreground">
                     <T en={company.description} fr={company.description_fr || company.description} />
                   </p>
-                  <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-signal">
-                    <T en="Discover" fr="Découvrir" /> {company.name}
-                    {external ? (
-                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" strokeWidth={2} aria-hidden="true" />
-                    ) : (
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2} aria-hidden="true" />
+                  <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
+                    {company.name === "Darix" && (
+                      <ArrowLink href="/darix">
+                        <T en="How From 6 and Darix connect" fr="Le lien entre From 6 et Darix" />
+                      </ArrowLink>
                     )}
-                  </span>
-                </>
-              );
-              const classes = "group flex h-full flex-col border border-border bg-card p-6 transition-colors hover:border-foreground";
-              return (
-                <RevealItem key={company.id} className="h-full">
-                  {external ? (
-                    <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
-                      {inner}
-                    </a>
-                  ) : (
-                    <Link href={href} className={classes}>
-                      {inner}
-                    </Link>
-                  )}
-                </RevealItem>
+                    {company.website_url && domain && (
+                      <ArrowLink href={company.website_url} external>
+                        {domain}
+                      </ArrowLink>
+                    )}
+                  </div>
+                </article>
               );
             })}
-          </RevealGroup>
+          </div>
         </Section>
 
         <Section id="darix">
@@ -170,17 +127,13 @@ export default async function Home() {
               />
             }
           />
-          <RevealGroup stagger={0.06}>
-            <RowList>
-              {DARIX_OFFERS.map((offer) => (
-                <RevealItem key={offer.key}>
-                  <Row href={darixLink(offer.path, "home")} external term={<T en={offer.label.en} fr={offer.label.fr} />}>
-                    <T en={offer.teaser.en} fr={offer.teaser.fr} />
-                  </Row>
-                </RevealItem>
-              ))}
-            </RowList>
-          </RevealGroup>
+          <RowList>
+            {DARIX_OFFERS.map((offer) => (
+              <Row key={offer.key} href={darixLink(offer.path, "home")} external term={<T en={offer.label.en} fr={offer.label.fr} />}>
+                <T en={offer.teaser.en} fr={offer.teaser.fr} />
+              </Row>
+            ))}
+          </RowList>
           <div className="mt-8 flex flex-wrap items-center gap-6">
             <Button href="/diagnostic">
               <T en="Assess my need" fr="Évaluer mon besoin" />
@@ -194,16 +147,14 @@ export default async function Home() {
 
         <Section id="parcours">
           <div className="grid gap-10 md:grid-cols-[2fr_3fr] md:items-start md:gap-16">
-            <Reveal effect="photo" className="overflow-hidden">
-              <Image
-                src="/brand/franck-profile.png"
-                alt="Franck Berthelot"
-                width={640}
-                height={800}
-                sizes="(min-width: 768px) 40vw, 100vw"
-                className="aspect-[4/5] w-full object-cover"
-              />
-            </Reveal>
+            <Image
+              src="/brand/franck-profile.png"
+              alt="Franck Berthelot"
+              width={640}
+              height={800}
+              sizes="(min-width: 768px) 40vw, 100vw"
+              className="aspect-[4/5] w-full object-cover"
+            />
             <div>
               <h2 className="text-balance text-2xl leading-tight md:text-[1.75rem]">
                 <T en="A path across finance, business systems and entrepreneurship." fr="Un parcours entre finance, systèmes d'entreprise et entrepreneuriat." />
@@ -211,10 +162,10 @@ export default async function Home() {
               <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
                 <T
                   en="Finance first, then Salesforce architecture on revenue platforms (Lead-to-Cash, CPQ, billing, integrations), then entrepreneurship. That order is why I read a company through its flows and its systems before its pitch, and why the advice comes with hands that still build."
-                  fr="La finance d'abord, puis l'architecture Salesforce des plateformes revenue (Lead-to-Cash, CPQ, facturation, intégrations), puis l'entrepreneuriat. Cet ordre explique pourquoi je lis une entreprise par ses flux et ses systèmes avant son pitch, et pourquoi le conseil vient avec des mains qui construisent encore."
+                  fr="La finance d'abord, puis l'architecture Salesforce des plateformes revenus (Lead-to-Cash, CPQ, facturation, intégrations), puis l'entrepreneuriat. Cet ordre explique pourquoi je lis une entreprise par ses flux et ses systèmes avant son pitch, et pourquoi le conseil vient avec des mains qui construisent encore."
                 />
               </p>
-              <RowList className="mt-8">
+              <RowList className="tnum mt-8">
                 <Row href={EPISODE_URL} external term="Podcast Engrenages, épisode 29">
                   <T en="The role of RevOps inside Salesforce, decoding the CPQ layer." fr="Le rôle du RevOps dans les entrailles de Salesforce, décryptage de la brique CPQ." />
                 </Row>
@@ -235,6 +186,7 @@ export default async function Home() {
         </Section>
       </div>
 
+      {/* La seule bande noire du site : l'appel de fin, les deux parcours. */}
       <section className="hero-section py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6 md:px-10">
           <div className="grid gap-8 md:grid-cols-[1.2fr_1fr] md:items-center">
@@ -249,17 +201,25 @@ export default async function Home() {
                 />
               </p>
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
-              <Button href="/contact" size="lg" variant="inverted">
-                <T en="Choose my path" fr="Choisir mon parcours" />
+            <div className="flex flex-col gap-3">
+              <Button href="/diagnostic" size="lg" variant="inverted">
+                <T en="Companies: assess my need" fr="Entreprises : évaluer mon besoin" />
               </Button>
-              <BookCallButton size="lg" variant="ghost">
-                <T en="Book a 30-min call" fr="Réserver un appel de 30 min" />
-              </BookCallButton>
+              <Button href="/proposer-un-projet" size="lg" variant="ghost">
+                <T en="Founders: present my project" fr="Fondateurs : présenter mon projet" />
+              </Button>
+              <p className="tnum mt-1 flex flex-wrap items-center gap-x-2 text-sm text-hero-steel">
+                <T en="Or a 30-minute call:" fr="Ou un appel de 30 minutes :" />
+                <BookCallButton variant="ghost" className="!h-9 !px-4 !text-sm">
+                  <T en="Book a slot" fr="Réserver un créneau" />
+                </BookCallButton>
+              </p>
             </div>
           </div>
         </div>
       </section>
+
+      <MobileDoorBar />
     </div>
   );
 }

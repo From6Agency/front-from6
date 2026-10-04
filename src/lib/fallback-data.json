@@ -94,23 +94,23 @@
     {
       "id": "ec3be327-7b24-4e5e-b411-7b782aaaa267",
       "name": "6WAY",
-      "description": "AI-powered sports and nutrition coaching platform connecting coaches and their clients to build, track, and adjust personalized training programs.",
-      "description_fr": "AI-powered sports & nutrition coaching platform connecting coaches and their clients to build, track, and adjust personalized training programs.",
+      "description": "One app for strength training, running, nutrition and stats, with VOLT, an AI coach that logs workouts, meals and sleep from a sentence and writes dated race programs. Coaches follow their athletes from a dedicated dashboard. Live on the web, iPhone beta open on request.",
+      "description_fr": "Une seule app pour la musculation, le running, la nutrition et les statistiques, avec VOLT, un coach IA qui note séances, repas et sommeil à partir d'une phrase et écrit des programmes de course datés. Les coachs suivent leurs athlètes depuis un tableau de bord dédié. En ligne sur le web, bêta iPhone ouverte sur demande.",
       "logo_url": null,
       "website_url": "https://6way.app",
       "display_order": 1,
       "published": true,
       "created_at": "2026-06-26T08:57:21.000707+00:00",
-      "updated_at": "2026-06-26T09:03:36.248139+00:00",
+      "updated_at": "2026-10-04T12:00:00.000000+00:00",
       "role": "Co-founder",
       "tags": [
-        "Vertical SaaS",
-        "AI Workflows",
-        "Health & Fitness"
+        "Health & Fitness",
+        "AI Coach",
+        "Mobile App"
       ],
-      "stage_year": "In build · 2026",
-      "my_role": "FROM 6 is co-founder and operator-builder, shaping product, pricing, and GTM while building the platform toward its beta launch.",
-      "status": "In build",
+      "stage_year": "Beta · 2026",
+      "my_role": "FROM 6 is co-founder and operator-builder: product and features, the coach app, pricing and go-to-market, built with Sonho Agency. The app is live on the web and in beta on iPhone via TestFlight.",
+      "status": "Active",
       "project_video_url": null
     },
     {

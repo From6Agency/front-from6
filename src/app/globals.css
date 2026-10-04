@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
-/* Tokens de marque From 6 Agency, kit v2.0 (septembre 2026) : un noir, un
-   blanc, trois gris de service et une seule couleur vive, le bleu Signal,
-   réservé au point du logo, aux liens et aux boutons. Rayons : 0 ou cercle
-   complet, jamais d'intermédiaire. Source : public/brand, web/f6-tokens.css. */
+/* Tokens de marque From 6 Agency : un noir, un blanc, trois gris de service et
+   une seule couleur vive, le bleu Signal, réservé au point du logo, aux liens,
+   aux boutons et à la porte active. Rayons : 0 ou cercle complet, jamais
+   d'intermédiaire. Redesign d'octobre 2026 : palette conservée, typographie et
+   composition remises à plat (voir .impeccable/surfaces/src-app-page-tsx.md). */
 :root {
   --f6-ink: #000000;
   --f6-paper: #ffffff;
@@ -14,7 +15,7 @@
   --f6-signal-soft: #6b7cff;
   --f6-signal-wash: #edeffe;
 
-  /* Inversion pour les bandes noires (hero, appel de fin). */
+  /* Inversion pour la bande noire de fin de page. */
   --f6-dark-fog: #141414;
   --f6-dark-line: #2c2c2c;
   --f6-dark-steel: #a0a09a;
@@ -22,6 +23,7 @@
   --f6-destructive: #b42318;
 
   --radius: 0px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @theme inline {
@@ -56,8 +58,10 @@
   --radius-md: 0px;
   --radius-sm: 0px;
 
-  --font-sans: var(--font-inter), "Helvetica Neue", Arial, sans-serif;
-  --font-display: var(--font-space-grotesk), "Helvetica Neue", Arial, sans-serif;
+  /* Une seule famille, Archivo (axe de largeur 62 à 125, graisse 100 à 900) :
+     serrée et lourde pour les titres, droite pour le texte. */
+  --font-sans: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
@@ -65,9 +69,11 @@ body {
   color: var(--color-foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  caret-color: var(--f6-signal);
+  accent-color: var(--f6-signal);
 }
 
-/* Space Grotesk pour les titres et le nom de la marque, Inter pour le reste. */
+/* Titres : Archivo à 92 % de chasse, graisse 700, interlettrage -0.03em. */
 h1,
 h2,
 h3,
@@ -75,8 +81,13 @@ h4,
 h5,
 h6 {
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  font-stretch: 92%;
+  letter-spacing: -0.03em;
+}
+
+a {
+  text-underline-offset: 0.2em;
 }
 
 /* Dans la couche base pour que les utilitaires (outline-none des champs,
@@ -94,7 +105,7 @@ h6 {
 }
 
 @layer utilities {
-  /* Bande noire : le hero et l'appel de fin, inversion complète des tokens. */
+  /* Bande noire : l'appel de fin, inversion complète des tokens. */
   .hero-section {
     background: var(--color-hero-bg);
     color: var(--color-hero-fg);
@@ -104,7 +115,20 @@ h6 {
     text-wrap: balance;
   }
 
-  /* Étiquette : Inter en petites capitales espacées, jamais sur un titre. */
+  /* Chiffres tabulaires : dates, années, numéros d'épisode, durées. */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Titre d'affiche hors balise h : même réglage que h1 à h6. */
+  .display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-stretch: 92%;
+    letter-spacing: -0.03em;
+  }
+
+  /* Étiquette : petites capitales espacées, jamais au-dessus d'un titre. */
   .label {
     font-size: 0.6875rem;
     font-weight: 500;
@@ -112,59 +136,125 @@ h6 {
     text-transform: uppercase;
   }
 
-  /* Séquence d'ouverture du hero, en CSS : chaque élément porte sa --delay.
-     Sans script, tout est visible ; sans animation, rien ne manque. */
+  /* Séquence d'ouverture du premier écran, en CSS : chaque élément porte sa
+     --delay. Sans animation, rien ne manque : l'état final est l'état par défaut. */
   .anim-rise {
-    animation: rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
-    animation-delay: var(--delay, 0ms);
-  }
-  .anim-door {
-    animation: door 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
-    animation-delay: var(--delay, 0ms);
-  }
-  .anim-line {
-    transform-origin: left center;
-    animation: draw 1.2s cubic-bezier(0.65, 0, 0.35, 1) both;
-    animation-delay: var(--delay, 0ms);
-  }
-  .anim-dot {
-    animation: pop 0.35s cubic-bezier(0.16, 1, 0.3, 1) backwards;
-    animation-delay: var(--delay, 0ms);
-  }
-  .anim-fade {
-    animation: fade 0.4s ease-out backwards;
+    animation: rise 0.7s var(--ease-out) backwards;
     animation-delay: var(--delay, 0ms);
   }
 
-  /* Survoler une porte fait reculer l'autre : on prévisualise son parcours. */
-  [data-door-hover="companies"] [data-door="founders"],
-  [data-door-hover="founders"] [data-door="companies"] {
-    opacity: 0.55;
-    transform: scale(0.985);
+  /* Les deux portes : la porte survolée ou focalisée gagne de la hauteur et
+     son titre passe en Signal (sa voie s'allume dans le schéma, voir .flow) ;
+     l'autre porte se resserre et s'efface à moitié. Le couple s'élargit /
+     se resserre se lit comme un seul mouvement. */
+  .door {
+    transition:
+      padding 0.4s var(--ease-out),
+      opacity 0.25s ease,
+      color 0.2s ease;
   }
-  [data-door] {
-    transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  .doors[data-active] .door:not([data-state="active"]) {
+    opacity: 0.45;
+  }
+  @media (min-width: 1024px) {
+    .door[data-state="active"] {
+      padding-block: 2.25rem;
+    }
+    .doors[data-active] .door:not([data-state="active"]) {
+      padding-block: 0.75rem;
+    }
+  }
+
+  /* Illustration des deux voies : les filets se tracent, les points et les
+     étiquettes arrivent dans l'ordre, puis un point parcourt chaque voie en
+     continu. La voie de la porte survolée passe en Signal, l'autre s'efface. */
+  .flow-stub,
+  .flow-branch,
+  .flow-branch-h {
+    animation: fade 0.4s ease-out backwards;
+    animation-delay: 420ms;
+  }
+  .flow-rail {
+    transform-origin: left top;
+    animation: draw-y 1s cubic-bezier(0.65, 0, 0.35, 1) both;
+    animation-delay: calc(520ms + var(--lane, 0) * 260ms);
+  }
+  @media (min-width: 768px) {
+    .flow-rail {
+      animation-name: draw;
+    }
+  }
+  .flow-node {
+    animation: pop 0.35s var(--ease-out) backwards;
+    animation-delay: calc(700ms + var(--lane, 0) * 260ms + var(--i, 0) * 200ms);
+  }
+  .flow-label {
+    animation: fade 0.4s ease-out backwards;
+    animation-delay: calc(780ms + var(--lane, 0) * 260ms + var(--i, 0) * 200ms);
+  }
+  .flow-dot {
+    opacity: 0;
+    animation: travel 7s linear infinite;
+    animation-delay: calc(1.8s + var(--lane, 0) * 3.5s);
+  }
+  .flow-lane {
+    transition: opacity 0.25s ease;
+  }
+  .flow-rail,
+  .flow-node,
+  .flow-dot,
+  .flow-label {
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+  .flow[data-active] .flow-lane:not([data-state="active"]) {
+    opacity: 0.35;
+  }
+  .flow-lane[data-state="active"] .flow-rail {
+    background: var(--f6-ink);
+  }
+  .flow-lane[data-state="active"] .flow-node,
+  .flow-lane[data-state="active"] .flow-dot {
+    background: var(--f6-signal);
+  }
+  .flow-lane[data-state="active"] .flow-label {
+    color: var(--f6-ink);
+  }
+  .flow-name {
+    transition: color 0.2s ease;
+  }
+  .flow-lane[data-state="active"] .flow-name {
+    color: var(--f6-signal);
+  }
+
+  /* Barre mobile des deux portes : cachée tant que les bandes du premier
+     écran sont visibles ou que le menu est ouvert, elle remonte dès qu'on
+     dépasse les bandes. */
+  .door-bar {
+    transition: transform 0.35s var(--ease-out);
+  }
+  .door-bar[data-visible="false"],
+  html[data-menu-open="true"] .door-bar {
+    transform: translateY(100%);
+  }
+
+  /* Le bandeau cookies laisse la place à la barre mobile quand elle est là. */
+  @media (max-width: 1023px) {
+    body:has(.door-bar[data-visible="true"]) .cookie-sheet {
+      bottom: 4.5rem;
+    }
   }
 }
 
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-@keyframes door {
-  from {
-    opacity: 0;
-    transform: translateX(28px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
   }
 }
 @keyframes draw {
@@ -193,6 +283,30 @@ h6 {
     opacity: 1;
   }
 }
+@keyframes draw-y {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+@keyframes travel {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  94% {
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% - 7px);
+    opacity: 0;
+  }
+}
 
 /* FAQ : la réponse s'ouvre en hauteur animée là où le navigateur le permet,
    et instantanément ailleurs. */
@@ -204,7 +318,7 @@ h6 {
     block-size: 0;
     overflow: clip;
     transition:
-      block-size 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      block-size 0.3s var(--ease-out),
       content-visibility 0.3s allow-discrete;
   }
   details[open]::details-content {
@@ -213,21 +327,25 @@ h6 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .anim-rise,
-  .anim-door,
-  .anim-dot {
-    animation-name: fade;
-    animation-duration: 0.3s;
-  }
-  .anim-line {
+  .anim-rise {
     animation: none;
   }
-  [data-door] {
-    transition: opacity 0.2s ease;
+  .door {
+    transition: opacity 0.2s ease, color 0.2s ease;
   }
-  [data-door-hover="companies"] [data-door="founders"],
-  [data-door-hover="founders"] [data-door="companies"] {
-    transform: none;
+  .flow-rail,
+  .flow-node,
+  .flow-label,
+  .flow-stub,
+  .flow-branch,
+  .flow-branch-h {
+    animation: none;
+  }
+  .flow-dot {
+    display: none;
+  }
+  .door-bar {
+    transition: none;
   }
   details::details-content {
     transition: none;

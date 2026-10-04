@@ -30,11 +30,13 @@ Refonte du site vitrine (from6agency.com), migrée hors de Lovable. Next.js
   `src/components/brand/Logo.tsx` (`LogoHorizontal`, `Mark`), en
   `currentColor`, jamais recoloré, jamais recréé, jamais de version bitmap
   dans le header/footer. Lockup horizontal 120 px minimum.
-- Polices : Space Grotesk 500/600/700 pour les titres et le nom de la
-  marque, Inter pour le texte (`next/font/google`, variables
-  `--font-space-grotesk` / `--font-inter`). Pas de mono, pas de serif.
-  Titres : `letter-spacing: -0.02em`, réglés globalement sur h1-h6 dans
-  `globals.css` (ne pas répéter `font-semibold tracking-tight` en classes).
+- Polices (redesign du 04/10/2026, remplace le duo Space Grotesk / Inter du
+  kit v2.0) : une seule famille, Archivo variable avec axe de largeur
+  (`next/font/google`, `axes: ["wdth"]`, variable `--font-archivo`). Titres :
+  graisse 700, `font-stretch: 92%`, `letter-spacing: -0.03em`, réglés
+  globalement sur h1-h6 dans `globals.css` ; texte à chasse normale ; chiffres
+  tabulaires via la classe `.tnum`. Pas de mono, pas de serif. Le nom de la
+  marque reste le SVG officiel du logo, indépendant de la police.
 - Palette : Ink `#000000`, Paper `#FFFFFF`, Fog `#F2F2F0`, Line `#E3E3DF`,
   Steel `#6E6E68`, et **une seule couleur vive, Signal `#2233E8`**,
   réservée au point du logo, aux liens et aux boutons (rien d'autre :
@@ -47,12 +49,17 @@ Refonte du site vitrine (from6agency.com), migrée hors de Lovable. Next.js
 - Rayons : **0 ou cercle complet, jamais d'intermédiaire** (pas de
   `rounded-md/lg/xl/2xl`). Pilules `rounded-full` pour boutons, pastilles,
   indicateurs. Pas d'ombres portées : hiérarchie par filets 1 px (`border`)
-  et fond fog. Étiquettes en Inter petites capitales via la classe `.label`.
-- `motion` (successeur de framer-motion) pour les animations au scroll
-  (`Reveal`/`RevealGroup`/`RevealItem`) et les formes flottantes en fond
-  (`FloatingOrbs`, monochrome, doivent avoir `isolate` sur leur conteneur
-  parent sinon leur `z-index` négatif se fait recouvrir par le bg du
-  parent — bug déjà rencontré et corrigé)
+  et fond fog. Étiquettes en petites capitales espacées via la classe `.label`.
+- `motion` (successeur de framer-motion) : sur la home, uniquement la rangée
+  des trois marques liée au scroll (`ProofStrip`, `useScroll` +
+  `useTransform`, immobile sous `prefers-reduced-motion`). Le contenu n'est
+  jamais masqué en attendant le scroll : les entrées (`.anim-rise`, le schéma
+  `.flow-*`) sont des animations CSS dont l'état final est l'état par défaut.
+  `Reveal`/`RevealGroup` ne sont plus utilisés par la home ; `FloatingOrbs`
+  n'existe plus.
+- Premier écran de la home : titre à gauche, schéma des deux voies à droite
+  (`FlowIllustration`, dessiné en code, masqué sous `md`), puis deux bandes
+  courtes (`DoorBands`) ; l'état de survol est partagé dans `HeroDoors`.
 
 ## Données : Supabase réel, pas de duplication
 
@@ -76,6 +83,18 @@ avant de chercher un bug côté code — un NXDOMAIN veut dire projet pausé/sup
 pas un bug applicatif. Envisager de passer sur le plan Pro pour éviter la
 pause automatique.
 
+- **Le CLI Supabase de ce Mac est connecté à l'org « 6way »**, pas à
+  `franckfrom6's Org` : `supabase projects list` ne montre pas ce projet et
+  `supabase db query/push` sur ce repo répond 403, bien que
+  `supabase/.temp/project-ref` pointe sur le bon ref (constaté le 04/10/2026).
+  Pour modifier une ligne de contenu (ex : fiche portfolio) : SQL Editor du
+  dashboard, ou admin Lovable, puis redéployer (contenu lu au build). Garder
+  `src/lib/fallback-data.json` et une migration datée en phase avec la base.
+- **Cache de fetch Next.** Les lectures Supabase passent par un `fetch` en
+  `cache: "no-store"` (`src/lib/supabase.ts`) : sans cela, un build peut
+  resservir `.next/cache/fetch-cache` et afficher une fiche périmée alors que
+  la base est à jour (vu le 04/10/2026 en local). En cas de doute après une
+  mise à jour de contenu : `rm -rf .next/cache/fetch-cache` puis rebuild.
 - **Ne jamais dupliquer ce contenu en dur dans le code.** Tout texte
   éditable (services, portfolio, bio, légal) vient de la base via
   `src/lib/content.ts`. L'admin Lovable reste le seul outil d'édition pour

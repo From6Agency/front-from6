@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { BookCallButton } from "@/components/BookCallButton";
 import { LogoHorizontal } from "@/components/brand/Logo";
@@ -17,89 +17,68 @@ const ITEMS = [
   { key: "about", href: "/about" },
 ] as const;
 
+/* En-tête en capsule flottante, détachée du bord : le logo, cinq entrées, la
+   langue et la prise de rendez-vous. Toujours sur fond Paper, quelle que soit
+   la page ; le menu mobile s'ouvre en panneau carré sous la capsule. */
 export function Header() {
   const { t, language, setLanguage } = useLanguage();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => setOpen(false), [pathname]);
 
+  // Le menu ouvert est signalé sur <html> pour que la barre mobile des portes
+  // (home) se range pendant qu'il est affiché.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    document.documentElement.dataset.menuOpen = open ? "true" : "false";
+    return () => {
+      delete document.documentElement.dataset.menuOpen;
+    };
+  }, [open]);
 
-  // Seule la home a un hero noir sous le header : tant qu'on n'a pas
-  // scrollé sur cette page, le logo et la navigation passent en blanc.
-  const onDarkHero = pathname === "/" && !scrolled;
+  const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
-        scrolled ? "border-b border-border bg-background/95 backdrop-blur-md" : "border-b border-transparent bg-transparent",
-      )}
-    >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <Link
-          href="/"
-          aria-label="From 6 Agency, accueil"
-          className={cn("flex shrink-0 items-center transition-colors duration-300", onDarkHero ? "text-hero-fg" : "text-foreground")}
-        >
-          <LogoHorizontal width={150} />
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-4 md:pt-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-border bg-background/90 py-2 pl-4 pr-2 backdrop-blur-md md:pl-6 md:pr-3">
+        <Link href="/" aria-label="From 6 Agency, accueil" className="flex shrink-0 items-center text-foreground">
+          <LogoHorizontal width={120} className="md:hidden" />
+          <LogoHorizontal width={136} className="hidden md:block" />
         </Link>
 
-        <nav
-          className={cn(
-            "absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 text-sm lg:flex",
-            onDarkHero ? "text-hero-fg" : "text-foreground",
-          )}
-          aria-label="Main"
-        >
-          {ITEMS.map((item) => {
-            const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
-            return (
-              <Link
-                key={item.key}
-                href={item.href}
-                aria-current={active ? "page" : undefined}
-                className={cn(
-                  "transition-colors duration-200",
-                  onDarkHero ? "hover:text-signal-soft" : "hover:text-signal",
-                  active && (onDarkHero ? "text-signal-soft" : "text-signal"),
-                )}
-              >
-                {t(`nav.${item.key}`)}
-              </Link>
-            );
-          })}
+        <nav className="hidden items-center gap-7 text-sm font-medium lg:flex" aria-label="Main">
+          {ITEMS.map((item) => (
+            <Link
+              key={item.key}
+              href={item.href}
+              aria-current={isActive(item.href) ? "page" : undefined}
+              className={cn("transition-colors duration-200 hover:text-signal", isActive(item.href) && "text-signal")}
+            >
+              {t(`nav.${item.key}`)}
+            </Link>
+          ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 md:gap-2">
           <button
             type="button"
             onClick={() => setLanguage(language === "en" ? "fr" : "en")}
-            className={cn(
-              "hidden items-center gap-1.5 px-2.5 py-2 text-xs font-medium transition-colors duration-300 sm:flex",
-              onDarkHero ? "text-hero-fg/80 hover:text-hero-fg" : "text-muted-foreground hover:text-foreground",
-            )}
-            aria-label="Switch language"
+            className="tnum flex h-9 items-center gap-1 px-2.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+            aria-label={language === "en" ? "Passer en français" : "Switch to English"}
           >
-            <Globe className="h-3.5 w-3.5" strokeWidth={2} aria-hidden="true" />
-            {language.toUpperCase()}
+            <span className={cn(language === "en" && "text-foreground")}>EN</span>
+            <span aria-hidden="true" className="text-border">
+              /
+            </span>
+            <span className={cn(language === "fr" && "text-foreground")}>FR</span>
           </button>
 
-          <BookCallButton variant={onDarkHero ? "inverted" : "default"} className="!h-9 !px-4 !text-xs sm:!text-sm">
-            {language === "en" ? "Book a call" : "Réserver un appel"}
-          </BookCallButton>
+          <BookCallButton className="!hidden !h-9 !px-4 !text-sm md:!inline-flex">{language === "en" ? "Book a call" : "Réserver un appel"}</BookCallButton>
 
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className={cn("flex items-center justify-center p-2 transition-colors duration-300 lg:hidden", onDarkHero ? "text-hero-fg" : "text-foreground")}
+            className="flex h-9 w-9 items-center justify-center rounded-full text-foreground transition-colors hover:bg-muted lg:hidden"
             aria-label="Menu"
             aria-expanded={open}
           >
@@ -109,31 +88,22 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-border bg-background lg:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col px-6 py-2" aria-label="Main">
-            {ITEMS.map((item) => {
-              const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
-              return (
-                <Link
-                  key={item.key}
-                  href={item.href}
-                  aria-current={active ? "page" : undefined}
-                  className={cn("border-b border-border py-3.5 text-base transition-colors last:border-b-0", active ? "text-signal" : "text-foreground hover:text-signal")}
-                >
-                  {t(`nav.${item.key}`)}
-                </Link>
-              );
-            })}
+        <div className="mx-auto mt-2 max-w-6xl border border-border bg-background lg:hidden">
+          <nav className="flex flex-col px-5 py-2" aria-label="Main">
+            {ITEMS.map((item) => (
+              <Link
+                key={item.key}
+                href={item.href}
+                aria-current={isActive(item.href) ? "page" : undefined}
+                className={cn("border-b border-border py-3.5 text-base font-medium transition-colors last:border-b-0", isActive(item.href) ? "text-signal" : "text-foreground hover:text-signal")}
+              >
+                {t(`nav.${item.key}`)}
+              </Link>
+            ))}
           </nav>
-          <div className="mx-auto flex max-w-7xl items-center border-t border-border px-6 py-3">
-            <button
-              type="button"
-              onClick={() => setLanguage(language === "en" ? "fr" : "en")}
-              className="flex items-center gap-1.5 px-2 py-2 text-xs font-medium text-muted-foreground hover:text-foreground"
-            >
-              <Globe className="h-3.5 w-3.5" strokeWidth={2} aria-hidden="true" />
-              {language.toUpperCase()}
-            </button>
+          <div className="flex items-center justify-between border-t border-border px-5 py-3">
+            <span className="text-xs text-muted-foreground">{language === "en" ? "30-minute call" : "Appel de 30 minutes"}</span>
+            <BookCallButton className="!h-9 !px-4 !text-sm">{language === "en" ? "Book a call" : "Réserver un appel"}</BookCallButton>
           </div>
         </div>
       )}
