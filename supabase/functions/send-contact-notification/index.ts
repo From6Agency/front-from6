@@ -11,7 +11,9 @@
 import { createClient } from "npm:@supabase/supabase-js@2";
 
 const NOTIFY_TO = "franck.berthelot@from6agency.com";
-const FROM_ADDRESS = "From 6 <franck.berthelot@from6agency.com>";
+// Adresse distincte de la boite de reception : un message "de soi a soi" qui
+// ne passe pas par Google est traite comme une usurpation par Gmail.
+const FROM_ADDRESS = "Site From 6 Agency <site@from6agency.com>";
 const BUCKET = "pitch-decks";
 const LINK_TTL_SECONDS = 60 * 60 * 24 * 7;
 
