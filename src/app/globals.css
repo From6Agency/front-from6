@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./sonho.css" layer(components);
 
 /* Tokens de marque From 6 Agency : un noir, un blanc, trois gris de service et
    une seule couleur vive, le bleu Signal, réservé au point du logo, aux liens,
@@ -143,111 +144,10 @@ a {
     animation-delay: var(--delay, 0ms);
   }
 
-  /* Les deux portes : la porte survolée ou focalisée gagne de la hauteur et
-     son titre passe en Signal (sa voie s'allume dans le schéma, voir .flow) ;
-     l'autre porte se resserre et s'efface à moitié. Le couple s'élargit /
-     se resserre se lit comme un seul mouvement. */
-  .door {
-    transition:
-      padding 0.4s var(--ease-out),
-      opacity 0.25s ease,
-      color 0.2s ease;
-  }
-  .doors[data-active] .door:not([data-state="active"]) {
-    opacity: 0.45;
-  }
-  @media (min-width: 1024px) {
-    .door[data-state="active"] {
-      padding-block: 2.25rem;
-    }
-    .doors[data-active] .door:not([data-state="active"]) {
-      padding-block: 0.75rem;
-    }
-  }
-
-  /* Illustration des deux voies : les filets se tracent, les points et les
-     étiquettes arrivent dans l'ordre, puis un point parcourt chaque voie en
-     continu. La voie de la porte survolée passe en Signal, l'autre s'efface. */
-  .flow-stub,
-  .flow-branch,
-  .flow-branch-h {
-    animation: fade 0.4s ease-out backwards;
-    animation-delay: 420ms;
-  }
-  .flow-rail {
-    transform-origin: left top;
-    animation: draw-y 1s cubic-bezier(0.65, 0, 0.35, 1) both;
-    animation-delay: calc(520ms + var(--lane, 0) * 260ms);
-  }
-  @media (min-width: 768px) {
-    .flow-rail {
-      animation-name: draw;
-    }
-  }
-  .flow-node {
-    animation: pop 0.35s var(--ease-out) backwards;
-    animation-delay: calc(700ms + var(--lane, 0) * 260ms + var(--i, 0) * 200ms);
-  }
-  .flow-label {
-    animation: fade 0.4s ease-out backwards;
-    animation-delay: calc(780ms + var(--lane, 0) * 260ms + var(--i, 0) * 200ms);
-  }
-  .flow-dot {
-    opacity: 0;
-    animation: travel 7s linear infinite;
-    animation-delay: calc(1.8s + var(--lane, 0) * 3.5s);
-  }
-  .flow-lane {
-    transition: opacity 0.25s ease;
-  }
-  .flow-rail,
-  .flow-node,
-  .flow-dot,
-  .flow-label {
-    transition:
-      background-color 0.2s ease,
-      color 0.2s ease;
-  }
-  .flow[data-active] .flow-lane:not([data-state="active"]) {
-    opacity: 0.35;
-  }
-  .flow-lane[data-state="active"] .flow-rail {
-    background: var(--f6-ink);
-  }
-  .flow-lane[data-state="active"] .flow-node,
-  .flow-lane[data-state="active"] .flow-dot {
-    background: var(--f6-signal);
-  }
-  .flow-lane[data-state="active"] .flow-label {
-    color: var(--f6-ink);
-  }
-  .flow-name {
-    transition: color 0.2s ease;
-  }
-  .flow-lane[data-state="active"] .flow-name {
-    color: var(--f6-signal);
-  }
-
-  /* Barre mobile des deux portes : cachée tant que les bandes du premier
-     écran sont visibles ou que le menu est ouvert, elle remonte dès qu'on
-     dépasse les bandes. */
-  .mobile-link-dot {
-    opacity: 0;
-    animation: link-travel 3.2s ease-in-out infinite;
-    animation-delay: 1.4s;
-  }
-  .door-bar {
-    transition: transform 0.35s var(--ease-out);
-  }
-  .door-bar[data-visible="false"],
-  html[data-menu-open="true"] .door-bar {
-    transform: translateY(100%);
-  }
-
-  /* Le bandeau cookies laisse la place à la barre mobile quand elle est là. */
-  @media (max-width: 1023px) {
-    body:has(.door-bar[data-visible="true"]) .cookie-sheet {
-      bottom: 4.5rem;
+  /* Le bandeau cookies laisse la place au dock mobile quand il est là. */
+  @media (max-width: 767px) {
+    body:has(.dock[data-visible="true"]) .cookie-sheet {
+      bottom: 4.75rem;
     }
   }
 }
@@ -262,73 +162,6 @@ a {
     transform: translateY(0);
   }
 }
-@keyframes draw {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
-}
-@keyframes pop {
-  from {
-    opacity: 0;
-    transform: scale(0.4);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-@keyframes fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes link-travel {
-  0% {
-    top: 0;
-    opacity: 0;
-  }
-  15% {
-    opacity: 1;
-  }
-  85% {
-    opacity: 1;
-  }
-  100% {
-    top: calc(100% - 7px);
-    opacity: 0;
-  }
-}
-@keyframes draw-y {
-  from {
-    transform: scaleY(0);
-  }
-  to {
-    transform: scaleY(1);
-  }
-}
-@keyframes travel {
-  0% {
-    left: 0;
-    opacity: 0;
-  }
-  6% {
-    opacity: 1;
-  }
-  94% {
-    opacity: 1;
-  }
-  100% {
-    left: calc(100% - 7px);
-    opacity: 0;
-  }
-}
-
 /* FAQ : la réponse s'ouvre en hauteur animée là où le navigateur le permet,
    et instantanément ailleurs. */
 @supports (interpolate-size: allow-keywords) {
@@ -350,24 +183,6 @@ a {
 @media (prefers-reduced-motion: reduce) {
   .anim-rise {
     animation: none;
-  }
-  .door {
-    transition: opacity 0.2s ease, color 0.2s ease;
-  }
-  .flow-rail,
-  .flow-node,
-  .flow-label,
-  .flow-stub,
-  .flow-branch,
-  .flow-branch-h {
-    animation: none;
-  }
-  .flow-dot,
-  .mobile-link-dot {
-    display: none;
-  }
-  .door-bar {
-    transition: none;
   }
   details::details-content {
     transition: none;

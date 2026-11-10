@@ -51,7 +51,7 @@ export default async function AboutPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_JSON_LD) }} />
       <div className="grid gap-10 md:grid-cols-[2fr_3fr] md:items-start md:gap-16">
         <div className="md:sticky md:top-32">
-          <div className="overflow-hidden">
+          <div className="overflow-hidden rounded-[28px] shadow-[var(--shadow-photo)]">
             <Image src={photoUrl} alt="Franck Berthelot" width={640} height={800} sizes="(min-width: 768px) 40vw, 100vw" className="aspect-[4/5] w-full object-cover" priority />
           </div>
           <div className="mt-4">

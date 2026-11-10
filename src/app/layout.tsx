@@ -128,7 +128,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CalEmbed />
         <LanguageProvider>
           <Header />
-          <main className="min-h-screen">{children}</main>
+          <main id="main" className="min-h-screen">{children}</main>
           <Footer />
           <CookieConsent />
         </LanguageProvider>

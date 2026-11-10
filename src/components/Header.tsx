@@ -7,7 +7,6 @@ import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { BookCallButton } from "@/components/BookCallButton";
 import { LogoHorizontal } from "@/components/brand/Logo";
-import { cn } from "@/lib/utils";
 
 const ITEMS = [
   { key: "advisory", href: "/advisory" },
@@ -17,17 +16,19 @@ const ITEMS = [
   { key: "about", href: "/about" },
 ] as const;
 
-/* En-tête en capsule flottante, détachée du bord : le logo, cinq entrées, la
-   langue et la prise de rendez-vous. Toujours sur fond Paper, quelle que soit
-   la page ; le menu mobile s'ouvre en panneau carré sous la capsule. */
+/* En-tête en capsule de verre, détachée du bord : le logo, cinq entrées, la
+   langue et la prise de rendez-vous. Elle prend le ton de la section sous
+   elle : sombre au-dessus de la bande noire et du pied de page (toute zone
+   marquée data-tone="dark"), claire ailleurs. */
 export function Header() {
   const { t, language, setLanguage } = useLanguage();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [tone, setTone] = useState<"light" | "dark">("light");
 
   useEffect(() => setOpen(false), [pathname]);
 
-  // Le menu ouvert est signalé sur <html> pour que la barre mobile des portes
+  // Le menu ouvert est signalé sur <html> pour que le dock mobile des portes
   // (home) se range pendant qu'il est affiché.
   useEffect(() => {
     document.documentElement.dataset.menuOpen = open ? "true" : "false";
@@ -36,77 +37,96 @@ export function Header() {
     };
   }, [open]);
 
+  useEffect(() => {
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const line = 80;
+      const dark = Array.from(document.querySelectorAll<HTMLElement>('main [data-tone="dark"], footer[data-tone="dark"]')).some((zone) => {
+        const box = zone.getBoundingClientRect();
+        return box.top <= line && box.bottom >= line;
+      });
+      setTone(dark ? "dark" : "light");
+    };
+    const request = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    };
+    update();
+    const late = window.setTimeout(update, 80);
+    window.addEventListener("scroll", request, { passive: true });
+    window.addEventListener("resize", request);
+    return () => {
+      window.clearTimeout(late);
+      window.removeEventListener("scroll", request);
+      window.removeEventListener("resize", request);
+    };
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const onClick = (e: MouseEvent) => {
+      if (!(e.target as HTMLElement).closest(".capsule, .mobile-panel")) setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("click", onClick);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("click", onClick);
+    };
+  }, [open]);
+
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+  const callLabel = language === "en" ? "Book a call" : "Réserver un appel";
+
+  const links = ITEMS.map((item) => (
+    <Link key={item.key} href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
+      {t(`nav.${item.key}`)}
+    </Link>
+  ));
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-4 md:pt-4">
-      <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-border bg-background/90 py-2 pl-4 pr-2 backdrop-blur-md md:pl-6 md:pr-3">
-        <Link href="/" aria-label="From 6 Agency, accueil" className="flex shrink-0 items-center text-foreground">
-          <LogoHorizontal width={120} className="md:hidden" />
-          <LogoHorizontal width={136} className="hidden md:block" />
-        </Link>
-
-        <nav className="hidden items-center gap-7 text-sm font-medium lg:flex" aria-label="Main">
-          {ITEMS.map((item) => (
-            <Link
-              key={item.key}
-              href={item.href}
-              aria-current={isActive(item.href) ? "page" : undefined}
-              className={cn("transition-colors duration-200 hover:text-signal", isActive(item.href) && "text-signal")}
-            >
-              {t(`nav.${item.key}`)}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-1 md:gap-2">
-          <button
-            type="button"
-            onClick={() => setLanguage(language === "en" ? "fr" : "en")}
-            className="tnum flex h-9 items-center gap-1 px-2.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
-            aria-label={language === "en" ? "Passer en français" : "Switch to English"}
-          >
-            <span className={cn(language === "en" && "text-foreground")}>EN</span>
-            <span aria-hidden="true" className="text-border">
-              /
-            </span>
-            <span className={cn(language === "fr" && "text-foreground")}>FR</span>
-          </button>
-
-          <BookCallButton className="!hidden !h-9 !px-4 !text-sm md:!inline-flex">{language === "en" ? "Book a call" : "Réserver un appel"}</BookCallButton>
-
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            className="flex h-9 w-9 items-center justify-center rounded-full text-foreground transition-colors hover:bg-muted lg:hidden"
-            aria-label="Menu"
-            aria-expanded={open}
-          >
-            {open ? <X className="h-5 w-5" strokeWidth={2} /> : <Menu className="h-5 w-5" strokeWidth={2} />}
-          </button>
-        </div>
-      </div>
-
-      {open && (
-        <div className="mx-auto mt-2 max-w-6xl border border-border bg-background lg:hidden">
-          <nav className="flex flex-col px-5 py-2" aria-label="Main">
-            {ITEMS.map((item) => (
-              <Link
-                key={item.key}
-                href={item.href}
-                aria-current={isActive(item.href) ? "page" : undefined}
-                className={cn("border-b border-border py-3.5 text-base font-medium transition-colors last:border-b-0", isActive(item.href) ? "text-signal" : "text-foreground hover:text-signal")}
-              >
-                {t(`nav.${item.key}`)}
-              </Link>
-            ))}
+    <>
+      <a className="skip" href="#main">
+        {language === "en" ? "Skip to content" : "Aller au contenu"}
+      </a>
+      <header className="site-header sonho" data-tone={tone}>
+        <div className="capsule">
+          <Link className="brand" href="/" aria-label="From 6 Agency, accueil">
+            <LogoHorizontal className="logo" />
+          </Link>
+          <nav className="nav" aria-label="Main">
+            {links}
           </nav>
-          <div className="flex items-center justify-between border-t border-border px-5 py-3">
-            <span className="text-xs text-muted-foreground">{language === "en" ? "30-minute call" : "Appel de 30 minutes"}</span>
-            <BookCallButton className="!h-9 !px-4 !text-sm">{language === "en" ? "Book a call" : "Réserver un appel"}</BookCallButton>
+          <div className="actions">
+            <div className="lang" role="group" aria-label="Language">
+              <button type="button" className="lang-btn" lang="en" aria-pressed={language === "en"} aria-label="Switch to English" onClick={() => setLanguage("en")}>
+                EN
+              </button>
+              <button type="button" className="lang-btn" lang="fr" aria-pressed={language === "fr"} aria-label="Passer en français" onClick={() => setLanguage("fr")}>
+                FR
+              </button>
+            </div>
+            <BookCallButton size="sm" icon={false} className="capsule-cta">
+              {callLabel}
+            </BookCallButton>
+            <button type="button" className="burger" aria-expanded={open} aria-controls="menu-mobile" aria-label="Menu" onClick={() => setOpen((v) => !v)}>
+              {open ? <X className="ic" width={22} height={22} strokeWidth={1.9} aria-hidden="true" /> : <Menu className="ic" width={22} height={22} strokeWidth={1.9} aria-hidden="true" />}
+            </button>
           </div>
         </div>
-      )}
-    </header>
+        <div className="mobile-panel" id="menu-mobile" hidden={!open}>
+          <nav aria-label="Main">{links}</nav>
+          <div className="panel-call">
+            <span className="panel-note tnum">{language === "en" ? "30-minute call" : "Appel de 30 minutes"}</span>
+            <BookCallButton size="sm" icon={false}>
+              {callLabel}
+            </BookCallButton>
+          </div>
+        </div>
+      </header>
+    </>
   );
 }

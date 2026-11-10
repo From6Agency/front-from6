@@ -46,20 +46,32 @@ Refonte du site vitrine (from6agency.com), migrée hors de Lovable. Next.js
   `signal-soft`, `signal-wash`, `hero-*`. **Pas de dark mode** (retiré :
   `next-themes` désinstallé, pas de classe `.dark`) ; les bandes noires
   (`.hero-section`) sont une inversion locale, pas un thème.
-- Rayons : **0 ou cercle complet, jamais d'intermédiaire** (pas de
-  `rounded-md/lg/xl/2xl`). Pilules `rounded-full` pour boutons, pastilles,
-  indicateurs. Pas d'ombres portées : hiérarchie par filets 1 px (`border`)
-  et fond fog. Étiquettes en petites capitales espacées via la classe `.label`.
-- `motion` (successeur de framer-motion) : sur la home, uniquement la rangée
-  des trois marques liée au scroll (`ProofStrip`, `useScroll` +
-  `useTransform`, immobile sous `prefers-reduced-motion`). Le contenu n'est
-  jamais masqué en attendant le scroll : les entrées (`.anim-rise`, le schéma
-  `.flow-*`) sont des animations CSS dont l'état final est l'état par défaut.
-  `Reveal`/`RevealGroup` ne sont plus utilisés par la home ; `FloatingOrbs`
-  n'existe plus.
-- Premier écran de la home : titre à gauche, schéma des deux voies à droite
-  (`FlowIllustration`, dessiné en code, masqué sous `md`), puis deux bandes
-  courtes (`DoorBands`) ; l'état de survol est partagé dans `HeroDoors`.
+- **Grammaire Sonho (10/11/2026, choix de Franck, portée depuis le prototype
+  `from6-sonho-proto`)** : elle remplace les règles « rayons 0 ou cercle, pas
+  d'ombre, pas de dégradé » du redesign d'octobre. Capsule de verre qui prend
+  le ton de la section sous elle (`data-tone="dark"`), pilules Ink qui se
+  remplissent de Signal depuis le pointeur et font rouler leur libellé
+  (`src/components/Cta.tsx`, utilisé par `Button`, `BookCallButton` et les
+  formulaires), surfaces blanches arrondies (28 px) à ombre douce et sans
+  bordure, sections en « feuilles » à coins arrondis sur Paper ou Fog, un halo
+  Signal très doux avec grain derrière le hero et la bande noire, pied de page
+  sur Ink. Palette, Archivo et logo inchangés ; Signal reste un détail.
+- Le CSS de cette grammaire est `src/app/sonho.css`, importé par `globals.css`
+  dans la couche `components` : les utilitaires Tailwind gardent la priorité.
+  Les sélecteurs d'éléments du prototype sont limités à la classe `.sonho`
+  (home, capsule, pied de page, appel de fin) pour ne pas toucher les pages
+  intérieures, qui restent en utilitaires Tailwind avec les mêmes primitives
+  (`ui.tsx`, `FormKit.tsx` : cartes arrondies, champs en puits Fog).
+- Home (`src/app/page.tsx`) : titre centré, puis la scène des deux portes
+  reliées à la marque F6 (`components/home/DoorStage.tsx`, connecteur mesuré
+  sur la mise en page, porte survolée allumée en Signal), trois fiches dont le
+  titre est la marque de la société, l'offre Darix, le parcours avec portrait
+  et puces de verre, la FAQ, la bande noire. Dock mobile des deux portes :
+  `components/home/Dock.tsx`. Mouvement : l'entrée du hero et le tracé du
+  connecteur, une fois ; rien ne boucle ; l'état final est l'état par défaut.
+- `T` (`Bilingual.tsx`) applique deux normalisations typographiques sans
+  toucher un mot : apostrophe courbe, espace insécable avant `: ; ? !` en
+  français.
 
 ## Données : Supabase réel, pas de duplication
 

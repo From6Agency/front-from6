@@ -34,8 +34,9 @@ const FAQS: Array<{ q_en: string; q_fr: string; a_en: string; a_fr: string }> = 
   },
 ];
 
-/* Questions et réponses natives (details/summary) : chaque réponse est dans
-   le HTML dès le chargement, lisible par les moteurs de recherche et de réponse. */
+/* Questions et réponses natives (details/summary), sur une surface blanche :
+   chaque réponse est dans le HTML dès le chargement, lisible par les moteurs
+   de recherche et de réponse. */
 export function FAQ() {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -48,14 +49,18 @@ export function FAQ() {
   };
 
   return (
-    <div className="divide-y divide-border border-y border-border">
+    <div className="faq-list">
       {FAQS.map((f) => (
-        <details key={f.q_en} className="group">
-          <summary className="flex cursor-pointer list-none items-start justify-between gap-6 py-5 text-[1.0625rem] font-medium leading-snug">
-            <T en={f.q_en} fr={f.q_fr} />
-            <Plus className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-45" strokeWidth={2} aria-hidden="true" />
+        <details key={f.q_en}>
+          <summary>
+            <span>
+              <T en={f.q_en} fr={f.q_fr} />
+            </span>
+            <i className="plus" aria-hidden="true">
+              <Plus className="ic" width={18} height={18} strokeWidth={1.9} aria-hidden="true" />
+            </i>
           </summary>
-          <p className="max-w-2xl pb-6 text-[0.9375rem] leading-relaxed text-muted-foreground">
+          <p>
             <T en={f.a_en} fr={f.a_fr} />
           </p>
         </details>

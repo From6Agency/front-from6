@@ -2,7 +2,8 @@
 
 import { useId, useRef, type ReactNode } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { ArrowLeft, ArrowRight, Calculator, CheckCircle2, CircleAlert, Loader2, Upload, X } from "lucide-react";
+import { ArrowLeft, Calculator, CheckCircle2, CircleAlert, Loader2, Upload, X } from "lucide-react";
+import { Cta } from "@/components/Cta";
 import { cn } from "@/lib/utils";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -10,7 +11,7 @@ const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 /* Le cadre du formulaire : une seule carte, jamais de carte dans la carte. */
 export function FormCard({ children, className, ref }: { children: ReactNode; className?: string; ref?: React.Ref<HTMLDivElement> }) {
   return (
-    <div ref={ref} className={cn("scroll-mt-24 border border-border bg-card p-6 sm:p-8", className)}>
+    <div ref={ref} className={cn("scroll-mt-28 rounded-[28px] bg-card p-6 shadow-[var(--shadow-card)] sm:p-9", className)}>
       {children}
     </div>
   );
@@ -81,10 +82,10 @@ export function StepPane({ step, direction, children }: { step: number; directio
 }
 
 export const inputClass =
-  "h-11 w-full border border-border bg-background px-3.5 text-[0.9375rem] text-foreground outline-none transition-[border-color,box-shadow] duration-150 placeholder:text-muted-foreground/70 focus:border-signal focus:ring-2 focus:ring-signal/15 disabled:cursor-not-allowed disabled:opacity-60 aria-[invalid=true]:border-destructive";
+  "h-12 w-full rounded-[14px] border border-transparent bg-muted px-4 text-[0.9375rem] text-foreground outline-none transition-[border-color,box-shadow] duration-150 placeholder:text-muted-foreground/70 hover:bg-border/70 focus:border-signal focus:bg-background focus:ring-2 focus:ring-signal/15 disabled:cursor-not-allowed disabled:opacity-60 aria-[invalid=true]:border-destructive";
 
 export const textareaClass =
-  "min-h-28 w-full resize-y border border-border bg-background px-3.5 py-2.5 text-[0.9375rem] leading-relaxed text-foreground outline-none transition-[border-color,box-shadow] duration-150 placeholder:text-muted-foreground/70 focus:border-signal focus:ring-2 focus:ring-signal/15 disabled:cursor-not-allowed disabled:opacity-60 aria-[invalid=true]:border-destructive";
+  "min-h-28 w-full resize-y rounded-[14px] border border-transparent bg-muted px-4 py-3 text-[0.9375rem] leading-relaxed text-foreground outline-none transition-[border-color,box-shadow] duration-150 placeholder:text-muted-foreground/70 hover:bg-border/70 focus:border-signal focus:bg-background focus:ring-2 focus:ring-signal/15 disabled:cursor-not-allowed disabled:opacity-60 aria-[invalid=true]:border-destructive";
 
 /* Étiquette, champ, erreur : le champ est passé en enfant avec l'id fourni. */
 export function Field({
@@ -157,9 +158,9 @@ export function ChoiceGroup<V extends string>({
             <label
               key={option.value}
               className={cn(
-                "flex cursor-pointer items-start gap-3 border px-4 py-3 text-[0.9375rem] leading-snug transition-colors duration-150",
+                "flex cursor-pointer items-start gap-3 rounded-2xl border px-4 py-3.5 text-[0.9375rem] leading-snug transition-colors duration-150",
                 "has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-signal/30",
-                checked ? "border-signal bg-signal-wash" : "border-border hover:border-foreground",
+                checked ? "border-signal bg-signal-wash" : "border-transparent bg-muted hover:bg-border",
                 disabled && "cursor-not-allowed opacity-60",
               )}
             >
@@ -222,7 +223,7 @@ export function FileDrop({
     <div>
       <p className="mb-1.5 text-sm font-medium">{label}</p>
       {file ? (
-        <div className="flex items-center justify-between gap-3 border border-signal bg-signal-wash px-4 py-3 text-sm">
+        <div className="flex items-center justify-between gap-3 rounded-2xl border border-signal bg-signal-wash px-4 py-3 text-sm">
           <span className="min-w-0 truncate">
             {file.name} <span className="text-muted-foreground">({size})</span>
           </span>
@@ -239,7 +240,7 @@ export function FileDrop({
         <label
           htmlFor={id}
           className={cn(
-            "flex cursor-pointer items-center gap-3 border border-dashed border-border px-4 py-3 text-sm text-muted-foreground transition-colors hover:border-foreground hover:text-foreground",
+            "flex cursor-pointer items-center gap-3 rounded-2xl border border-dashed border-border px-4 py-3.5 text-sm text-muted-foreground transition-colors hover:border-foreground hover:text-foreground",
             "has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-signal/30",
             disabled && "cursor-not-allowed opacity-60",
           )}
@@ -262,7 +263,7 @@ export function FileDrop({
 
 export function FormAlert({ children }: { children: ReactNode }) {
   return (
-    <div className="mb-6 flex items-start gap-2.5 border border-destructive/30 bg-destructive/5 p-4 text-sm text-destructive" role="alert">
+    <div className="mb-6 flex items-start gap-2.5 rounded-2xl border border-destructive/30 bg-destructive/5 p-4 text-sm text-destructive" role="alert">
       <CircleAlert className="mt-0.5 h-4 w-4 shrink-0" strokeWidth={2} aria-hidden="true" />
       <p>{children}</p>
     </div>
@@ -287,7 +288,7 @@ export function CaptchaBlock({
   isEn: boolean;
 }) {
   return (
-    <div className="bg-muted/60 p-4">
+    <div className="rounded-2xl bg-muted/60 p-4">
       <label htmlFor={id} className="flex items-center gap-2 text-sm font-medium">
         <Calculator className="h-4 w-4 text-muted-foreground" strokeWidth={2} aria-hidden="true" />
         {isEn ? "Quick check, are you human?" : "Vérification rapide, êtes-vous humain ?"}
@@ -296,7 +297,7 @@ export function CaptchaBlock({
         <span className="text-lg tabular-nums">
           {num1} + {num2} =
         </span>
-        <input id={id} type="number" inputMode="numeric" value={answer} onChange={(e) => onChange(e.target.value)} className={cn(inputClass, "w-24")} />
+        <input id={id} type="number" inputMode="numeric" value={answer} onChange={(e) => onChange(e.target.value)} className={cn(inputClass, "w-24 bg-background")} />
         {invalid && <span className="text-sm text-destructive">{isEn ? "Wrong answer, try again." : "Mauvaise réponse, réessayez."}</span>}
       </div>
     </div>
@@ -321,27 +322,10 @@ export function PrimaryButton({
   className?: string;
 }) {
   return (
-    <button
-      type={type}
-      onClick={onClick}
-      disabled={disabled || loading}
-      className={cn(
-        "inline-flex h-11 items-center justify-center gap-2 rounded-full bg-signal px-6 text-sm font-medium text-white transition-colors duration-150 hover:bg-foreground disabled:cursor-not-allowed disabled:opacity-50",
-        className,
-      )}
-    >
-      {loading ? (
-        <>
-          <Loader2 className="h-4 w-4 animate-spin" strokeWidth={2} aria-hidden="true" />
-          {loadingLabel ?? children}
-        </>
-      ) : (
-        <>
-          {children}
-          <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
-        </>
-      )}
-    </button>
+    <Cta type={type} onClick={onClick} disabled={disabled || loading} arrow={loading ? undefined : "right"} className={className}>
+      {loading && <Loader2 className="h-4 w-4 animate-spin" strokeWidth={2} aria-hidden="true" />}
+      {loading ? (loadingLabel ?? children) : children}
+    </Cta>
   );
 }
 
@@ -350,7 +334,7 @@ export function BackButton({ onClick, children }: { onClick: () => void; childre
     <button
       type="button"
       onClick={onClick}
-      className="inline-flex h-11 items-center gap-2 rounded-full px-4 text-sm font-medium text-muted-foreground transition-colors duration-150 hover:bg-accent hover:text-foreground"
+      className="inline-flex h-12 items-center gap-2 rounded-full px-4 text-[0.9375rem] font-semibold text-muted-foreground transition-colors duration-150 hover:bg-accent hover:text-foreground"
     >
       <ArrowLeft className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
       {children}

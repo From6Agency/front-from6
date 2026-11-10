@@ -66,9 +66,9 @@ export default async function MediaPage() {
 
       <Section>
         <SectionHeader title="Podcast" />
-        <a href={EPISODE_URL} target="_blank" rel="noopener noreferrer" className="group grid gap-6 border border-border bg-card p-5 transition-colors hover:border-foreground/40 sm:grid-cols-[180px_1fr] sm:p-6">
+        <a href={EPISODE_URL} target="_blank" rel="noopener noreferrer" className="group grid gap-6 rounded-[28px] bg-card p-5 shadow-[var(--shadow-card)] transition-shadow duration-500 hover:shadow-[var(--shadow-lift)] sm:grid-cols-[180px_1fr] sm:p-6">
           <div className="overflow-hidden">
-            <Image src="/brand/engrenages-ep29-cover.png" alt="Engrenages podcast, episode 29 with Franck Berthelot" width={360} height={360} className="aspect-square w-full object-cover" />
+            <Image src="/brand/engrenages-ep29-cover.png" alt="Engrenages podcast, episode 29 with Franck Berthelot" width={360} height={360} className="aspect-square w-full rounded-2xl object-cover" />
           </div>
           <div className="flex flex-col justify-center">
             <p className="label text-muted-foreground">Engrenages · Julien Maslard</p>
@@ -101,7 +101,7 @@ export default async function MediaPage() {
             return (
               <a key={video.id} href={href} target="_blank" rel="noopener noreferrer" className="group grid gap-5 py-6 sm:grid-cols-[220px_1fr] sm:gap-8">
                 {videoId && (
-                  <div className="overflow-hidden bg-muted">
+                  <div className="overflow-hidden rounded-2xl bg-muted">
                     <Image src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`} alt="" width={480} height={360} className="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
                   </div>
                 )}

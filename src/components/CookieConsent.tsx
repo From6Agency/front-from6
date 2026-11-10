@@ -25,7 +25,7 @@ export function CookieConsent() {
 
   return (
     <div className="cookie-sheet fixed inset-x-0 bottom-0 z-[60] p-4 transition-[bottom] duration-300 sm:p-6">
-      <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 border border-border bg-background/95 p-5 text-center backdrop-blur-md sm:flex-row sm:justify-between sm:text-left">
+      <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 rounded-[28px] bg-background/90 p-5 text-center shadow-[var(--shadow-lift)] backdrop-blur-md sm:pl-7 sm:flex-row sm:justify-between sm:text-left">
         <p className="text-sm text-muted-foreground">
           {isEn
             ? "We use cookies to improve your experience and measure site traffic. "
@@ -38,14 +38,14 @@ export function CookieConsent() {
           <button
             type="button"
             onClick={() => choose("declined")}
-            className="rounded-full border border-border px-4 py-2 text-sm font-medium transition-colors hover:border-foreground"
+            className="rounded-full bg-foreground/[0.06] px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-foreground/[0.12]"
           >
             {isEn ? "Decline" : "Refuser"}
           </button>
           <button
             type="button"
             onClick={() => choose("accepted")}
-            className="rounded-full bg-signal px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-foreground"
+            className="rounded-full bg-foreground px-5 py-2.5 text-sm font-semibold text-background transition-colors hover:bg-signal"
           >
             {isEn ? "Accept" : "Accepter"}
           </button>

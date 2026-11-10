@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { T } from "@/components/Bilingual";
+import { Cta } from "@/components/Cta";
 import { cn } from "@/lib/utils";
 
 /* Page : conteneur commun des pages intérieures, sous le header fixe. */
@@ -65,9 +66,11 @@ export function ArrowLink({ href, children, external, className }: { href: strin
   );
 }
 
-/* Bouton pilule : Signal plein pour l'action principale, filet pour la secondaire.
-   Le cercle complet est le seul rayon admis par la marque avec l'angle droit.
-   "ghost" est le contour sur bande noire. */
+/* Bouton pilule de la grammaire Sonho (voir Cta) : Ink qui se remplit de
+   Signal pour l'action principale, voile gris pour la secondaire. "inverted"
+   est la pilule blanche et "ghost" la pilule de verre, sur fond noir. */
+const BUTTON_VARIANT = { primary: "ink", outline: "soft", inverted: "paper", ghost: "glass" } as const;
+
 export function Button({
   href,
   children,
@@ -83,26 +86,10 @@ export function Button({
   external?: boolean;
   className?: string;
 }) {
-  const classes = cn(
-    "inline-flex items-center justify-center gap-2 rounded-full font-medium transition-colors duration-200",
-    size === "lg" ? "h-12 px-7 text-base" : "h-11 px-6 text-sm",
-    variant === "primary" && "bg-signal text-white hover:bg-foreground",
-    variant === "outline" && "border border-border bg-transparent hover:border-foreground",
-    variant === "inverted" && "bg-signal text-white hover:bg-hero-fg hover:text-hero-bg",
-    variant === "ghost" && "border border-hero-fg/30 bg-transparent text-hero-fg hover:border-hero-fg",
-    className,
-  );
-  if (external) {
-    return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
-        {children}
-      </a>
-    );
-  }
   return (
-    <Link href={href} className={classes}>
+    <Cta href={href} external={external} variant={BUTTON_VARIANT[variant]} size={size} className={className}>
       {children}
-    </Link>
+    </Cta>
   );
 }
 
@@ -166,7 +153,7 @@ export function Pill({ children, tone = "muted", className }: { children: ReactN
 }
 
 /* Carte-porte : un parcours entier, cliquable, avec son étiquette et sa flèche.
-   Angle droit, filet 1px, l'appel en Signal (Signal doux sur fond noir). */
+   Surface arrondie à ombre douce, l'appel en Signal (Signal doux sur fond noir). */
 export function DoorCard({
   href,
   label,
@@ -186,8 +173,8 @@ export function DoorCard({
     <Link
       href={href}
       className={cn(
-        "group flex h-full flex-col border p-6 transition-colors md:p-7",
-        dark ? "border-hero-line bg-hero-fog hover:border-hero-fg" : "border-border bg-card hover:border-foreground",
+        "group flex h-full flex-col rounded-[28px] p-6 transition-shadow duration-500 md:p-8",
+        dark ? "bg-hero-fog shadow-[inset_0_0_0_1px_var(--f6-dark-line)] hover:shadow-[inset_0_0_0_1px_var(--f6-paper)]" : "bg-card shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-lift)]",
       )}
     >
       <span className={cn("label", dark ? "text-hero-steel" : "text-muted-foreground")}>

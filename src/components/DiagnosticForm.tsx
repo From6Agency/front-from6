@@ -287,7 +287,7 @@ export function DiagnosticForm() {
         {step === 3 && (
           <form onSubmit={onSubmit} className="space-y-5" noValidate>
             {need && (
-              <p className="bg-muted/60 p-4 text-sm leading-relaxed">
+              <p className="rounded-2xl bg-muted/60 p-4 text-sm leading-relaxed">
                 <span className="font-medium">{isEn ? "First reading: " : "Première lecture : "}</span>
                 {isEn ? ORIENTATION[need].en : ORIENTATION[need].fr}
               </p>

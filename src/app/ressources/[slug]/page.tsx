@@ -99,7 +99,7 @@ export default async function ResourcePage({ params }: { params: Promise<{ slug:
           </p>
         </Section>
 
-        <div className="mt-12 flex flex-wrap items-center gap-6 bg-muted/60 p-6 md:p-8">
+        <div className="mt-12 flex flex-wrap items-center gap-6 rounded-[28px] bg-muted/60 p-6 md:p-8">
           <Button href={`/diagnostic?need=${resource.needParam}`}>
             <T en="Assess my need with Darix" fr="Évaluer mon besoin avec Darix" />
             <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden="true" />

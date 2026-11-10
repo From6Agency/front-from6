@@ -35,14 +35,14 @@ export function LinkedInVideo({ url, title }: { url: string; title: string }) {
   if (!src) return null;
 
   if (loaded) {
-    return <iframe src={src} title={title} loading="lazy" allowFullScreen className="h-[560px] w-full max-w-[504px] border border-border bg-background" />;
+    return <iframe src={src} title={title} loading="lazy" allowFullScreen className="h-[560px] w-full max-w-[504px] rounded-[28px] bg-background shadow-[var(--shadow-card)]" />;
   }
 
   return (
     <button
       type="button"
       onClick={() => setLoaded(true)}
-      className="group flex aspect-[4/3] w-full max-w-[504px] flex-col items-center justify-center gap-4 border border-border bg-background p-6 text-center transition-colors hover:border-foreground"
+      className="group flex aspect-[4/3] w-full max-w-[504px] flex-col items-center justify-center gap-4 rounded-[28px] bg-background p-6 text-center shadow-[var(--shadow-card)] transition-colors hover:border-foreground"
     >
       <span className="flex h-16 w-16 items-center justify-center rounded-full bg-signal text-white transition-colors group-hover:bg-foreground">
         <Play className="ml-1 h-6 w-6" strokeWidth={2} fill="currentColor" aria-hidden="true" />
