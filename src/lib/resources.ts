@@ -72,7 +72,7 @@ export const RESOURCES: Resource[] = [
     },
     limits: {
       en: "This is a starting checklist, not a substitute for a platform audit: it tells you what to bring to the first conversation, not how to fix what you find.",
-      fr: "C'est une liste de départ, pas un substitut à un audit plateforme : elle indique quoi apporter au premier échange, pas comment corriger ce que vous allez trouver.",
+      fr: "C'est une liste de départ, pas un substitut à un audit de plateforme : elle indique quoi apporter au premier échange, pas comment corriger ce que vous allez trouver.",
     },
     needParam: "audit",
     publishedAt: "2026-08-01",
@@ -163,7 +163,7 @@ export const RESOURCES: Resource[] = [
         heading: { en: "Define the business events", fr: "Définir les événements métier" },
         body: {
           en: "A signed contract, an upgrade, a cancellation: each event should trigger one clear action in the other system, not a manual re-entry. This is usually where an integration project actually starts.",
-          fr: "Un contrat signé, un upgrade, une résiliation : chaque événement doit déclencher une action claire dans l'autre système, pas une ressaisie manuelle. C'est généralement là que démarre réellement un projet d'intégration.",
+          fr: "Un contrat signé, un changement d'offre, une résiliation : chaque événement doit déclencher une action claire dans l'autre système, pas une ressaisie manuelle. C'est généralement là que démarre réellement un projet d'intégration.",
         },
       },
       {

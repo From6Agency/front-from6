@@ -41,7 +41,7 @@ export const DOORS: Array<{
       { en: "Advisory", fr: "Conseil" },
       { en: "Involvement", fr: "Implication" },
       { en: "Investment", fr: "Investissement" },
-      { en: "Co-founding", fr: "Co-fondation" },
+      { en: "Co-founding", fr: "Cofondation" },
     ],
     cta: { en: "Present my project", fr: "Présenter mon projet" },
   },

@@ -41,7 +41,7 @@ export default function DarixPage() {
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
           <T
             en="Once a problem is reasonably clear: a Salesforce setup that no longer matches how the sales team works, a CPQ project to frame, billing that needs to reconcile with the CRM, or data quality that is starting to cost real time. The From 6 diagnostic exists precisely to help reach that point."
-            fr="Dès qu'un problème est raisonnablement clair : un paramétrage Salesforce qui ne correspond plus à la façon dont l'équipe commerciale travaille, un projet CPQ à cadrer, une facturation à réconcilier avec le CRM, ou une qualité de données qui commence à coûter du temps réel. Le diagnostic From 6 sert justement à arriver à ce point."
+            fr="Dès qu'un problème est raisonnablement clair : un paramétrage Salesforce qui ne correspond plus à la façon dont l'équipe commerciale travaille, un projet CPQ à cadrer, une facturation à réconcilier avec le CRM, ou une qualité de données qui commence à coûter vraiment du temps. Le diagnostic From 6 sert justement à arriver à ce point."
           />
         </p>
       </Section>

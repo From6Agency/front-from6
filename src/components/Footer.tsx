@@ -12,7 +12,7 @@ const GROUPS = [
     title_en: "Your project",
     title_fr: "Votre projet",
     links: [
-      { en: "Assess your revenue needs", fr: "Évaluer vos enjeux revenus", href: "/diagnostic" },
+      { en: "Assess your revenue needs", fr: "Évaluer vos enjeux de revenus", href: "/diagnostic" },
       { en: "Present a company", fr: "Présenter une entreprise", href: "/proposer-un-projet" },
       { en: "Another request", fr: "Autre demande", href: "/contact" },
     ],
@@ -23,7 +23,7 @@ const GROUPS = [
     links: [
       { en: "Darix expertise", fr: "L'expertise Darix", href: "/darix" },
       { en: "Projects", fr: "Les projets", href: "/portfolio" },
-      { en: "Podcasts & talks", fr: "Podcasts & interventions", href: "/media" },
+      { en: "Podcasts & talks", fr: "Podcasts et interventions", href: "/media" },
     ],
   },
   {

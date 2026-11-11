@@ -25,12 +25,12 @@ const THESIS = [
 ];
 
 const PARTNERSHIP = [
-  { title: { en: "Go-to-market strategy and execution", fr: "Stratégie et exécution go-to-market" }, en: "Building efficient sales engines and scalable GTM motions.", fr: "Construire des moteurs commerciaux efficaces et des dispositifs GTM scalables." },
+  { title: { en: "Go-to-market strategy and execution", fr: "Stratégie et exécution go-to-market" }, en: "Building efficient sales engines and scalable GTM motions.", fr: "Construire une organisation commerciale efficace et une démarche go-to-market qui passe à l'échelle." },
   { title: { en: "Revenue platform architecture", fr: "Architecture des plateformes de revenus" }, en: "Designing revenue infrastructure right, from day one.", fr: "Concevoir la bonne infrastructure de revenus dès le premier jour." },
   { title: { en: "Product positioning and roadmap", fr: "Positionnement produit et roadmap" }, en: "Aligning product strategy with real market needs.", fr: "Aligner la stratégie produit sur les besoins réels du marché." },
-  { title: { en: "Revenue operations setup", fr: "Mise en place des Revenue Operations" }, en: "CRM foundations, quote-to-cash, finance systems and analytics.", fr: "Fondations CRM, quote-to-cash, systèmes financiers et analytics." },
-  { title: { en: "Strategic hiring", fr: "Recrutement stratégique" }, en: "Sales, RevOps, Product.", fr: "Sales, RevOps, Produit." },
-  { title: { en: "Introductions and governance", fr: "Mises en relation et gouvernance" }, en: "Investor and customer introductions, board advisory.", fr: "Mises en relation avec investisseurs et clients, advisory board." },
+  { title: { en: "Revenue operations setup", fr: "Mise en place du RevOps" }, en: "CRM foundations, quote-to-cash, finance systems and analytics.", fr: "Fondations CRM, quote-to-cash, systèmes financiers et reporting." },
+  { title: { en: "Strategic hiring", fr: "Recrutement stratégique" }, en: "Sales, RevOps, Product.", fr: "Ventes, RevOps, produit." },
+  { title: { en: "Introductions and governance", fr: "Mises en relation et gouvernance" }, en: "Investor and customer introductions, board advisory.", fr: "Mises en relation avec des investisseurs et des clients, comité consultatif." },
 ];
 
 const QUESTIONS = [
@@ -63,7 +63,7 @@ export default async function InvestmentsPage() {
   return (
     <Page>
       <PageHeader
-        title={<T en="An operator's experience by your side." fr="L'expérience d'un opérateur à vos côtés." />}
+        title={<T en="An operator's experience by your side." fr="L'expérience d'un entrepreneur de terrain à vos côtés." />}
         lead={thesis ? <T en={thesis.en} fr={thesis.fr} /> : undefined}
       />
 

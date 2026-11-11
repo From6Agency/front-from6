@@ -64,7 +64,7 @@ export default async function Home() {
             <p className="lead rise" style={delay(90)}>
               <T
                 en="From 6 connects companies to Darix's revenue expertise and supports founders through advisory and investment."
-                fr="From 6 relie les entreprises à l'expertise revenus de Darix et accompagne les fondateurs par le conseil et l'investissement."
+                fr="From 6 relie les entreprises à l'expertise de Darix sur les systèmes de revenus et accompagne les fondateurs par le conseil et l'investissement."
               />
             </p>
             <p className="byline tnum rise" style={delay(160)}>
@@ -113,7 +113,7 @@ export default async function Home() {
                     <p className="rec-meta tnum">
                       {role && <T en={role.en} fr={role.fr} />}
                       {role && company.stage_year && ", "}
-                      {company.stage_year}
+                      {company.stage_year && <T en={company.stage_year} fr={company.stage_year_fr || company.stage_year} />}
                     </p>
                   )}
                   <p className="rec-desc">
@@ -203,7 +203,7 @@ export default async function Home() {
             <p className="lead">
               <T
                 en="Finance first, then Salesforce architecture on revenue platforms (Lead-to-Cash, CPQ, billing, integrations), then entrepreneurship. That order is why I read a company through its flows and its systems before its pitch, and why the advice comes with hands that still build."
-                fr="La finance d'abord, puis l'architecture Salesforce des plateformes revenus (Lead-to-Cash, CPQ, facturation, intégrations), puis l'entrepreneuriat. Cet ordre explique pourquoi je lis une entreprise par ses flux et ses systèmes avant son pitch, et pourquoi le conseil vient avec des mains qui construisent encore."
+                fr="La finance d'abord, puis l'architecture Salesforce des plateformes de revenus (Lead-to-Cash, CPQ, facturation, intégrations), puis l'entrepreneuriat. Cet ordre explique pourquoi je lis une entreprise par ses flux et ses systèmes avant son pitch, et pourquoi mes conseils viennent de quelqu'un qui construit encore."
               />
             </p>
             <ul className="rows tnum">
@@ -222,7 +222,7 @@ export default async function Home() {
                     <T en="Masterclass, Lead-to-Cash on Salesforce" fr="Masterclass, Lead-to-Cash sur Salesforce" />
                   </span>
                   <span className="row-def">
-                    <T en="CPQ, billing and integrations, so revenue flows from first touch to cash." fr="CPQ, facturation et intégrations, pour que le revenu circule du premier contact au cash." />
+                    <T en="CPQ, billing and integrations, so revenue flows from first touch to cash." fr="CPQ, facturation et intégrations, pour que les revenus circulent du premier contact à l'encaissement." />
                   </span>
                   {arrowUpRight}
                 </a>

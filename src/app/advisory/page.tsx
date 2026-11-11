@@ -63,7 +63,7 @@ export default function AdvisoryPage() {
         <p className="mt-5 max-w-2xl text-sm leading-relaxed text-muted-foreground">
           <T
             en="If one of these lines is yours, the tool is rarely the first problem. The rules, the handoffs and who owns each piece of data come first."
-            fr="Si l'une de ces lignes est la vôtre, l'outil est rarement le premier problème. Les règles, les passages de relais et la propriété de chaque donnée viennent avant."
+            fr="Si l'une de ces lignes est la vôtre, l'outil est rarement le premier problème. Les règles, les passages de relais et la responsabilité de chaque donnée viennent avant."
           />
         </p>
       </Section>

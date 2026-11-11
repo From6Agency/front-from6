@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Archivo } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
+import { LocalizedHead } from "@/components/LocalizedHead";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CalEmbed } from "@/components/CalEmbed";
@@ -127,6 +128,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Analytics />
         <CalEmbed />
         <LanguageProvider>
+          <LocalizedHead />
           <Header />
           <main id="main" className="min-h-screen">{children}</main>
           <Footer />

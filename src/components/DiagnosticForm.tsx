@@ -26,9 +26,9 @@ import {
 
 const NEEDS = [
   { value: "cpq_revenue_cloud", en: "CPQ and Revenue Cloud", fr: "CPQ et Revenue Cloud", hint_en: "Catalog, pricing rules, quotes, contracts", hint_fr: "Catalogue, règles de prix, devis, contrats" },
-  { value: "billing", en: "Billing and subscriptions", fr: "Facturation et abonnements", hint_en: "Invoicing, renewals, revenue recognition", hint_fr: "Facturation, renouvellements, reconnaissance du revenu" },
-  { value: "integrations", en: "Salesforce, ERP and integrations", fr: "Salesforce, ERP et intégrations", hint_en: "Flows between CRM, ERP, billing and data", hint_fr: "Flux entre CRM, ERP, facturation et data" },
-  { value: "data_ai", en: "Data and AI", fr: "Data et IA", hint_en: "Data quality, automation, AI use cases", hint_fr: "Qualité des données, automatisations, cas d'usage IA" },
+  { value: "billing", en: "Billing and subscriptions", fr: "Facturation et abonnements", hint_en: "Invoicing, renewals, revenue recognition", hint_fr: "Facturation, renouvellements, reconnaissance des revenus" },
+  { value: "integrations", en: "Salesforce, ERP and integrations", fr: "Salesforce, ERP et intégrations", hint_en: "Flows between CRM, ERP, billing and data", hint_fr: "Flux entre CRM, ERP, facturation et données" },
+  { value: "data_ai", en: "Data and AI", fr: "Données et IA", hint_en: "Data quality, automation, AI use cases", hint_fr: "Qualité des données, automatisations, cas d'usage IA" },
   { value: "other", en: "Another issue", fr: "Autre enjeu", hint_en: "Describe it in the next step", hint_fr: "Décrivez-le à l'étape suivante" },
 ] as const;
 
@@ -53,7 +53,7 @@ const ORIENTATION: Record<Need, { en: string; fr: string }> = {
   },
   integrations: {
     en: "This usually starts with a platform audit of your Salesforce, ERP and integrations.",
-    fr: "Cela démarre en général par un audit plateforme de votre Salesforce, de votre ERP et de vos intégrations.",
+    fr: "Cela démarre en général par un audit de plateforme de votre Salesforce, de votre ERP et de vos intégrations.",
   },
   data_ai: {
     en: "This usually starts with a review of your data quality and of where AI can realistically help.",

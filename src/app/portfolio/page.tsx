@@ -69,15 +69,27 @@ export default async function PortfolioPage() {
                     </Pill>
                   )}
                 </div>
-                {company.stage_year && <p className="mt-3 text-sm text-muted-foreground">{company.stage_year}</p>}
+                {company.stage_year && (
+                  <p className="mt-3 text-sm text-muted-foreground">
+                    <T en={company.stage_year} fr={company.stage_year_fr || company.stage_year} />
+                  </p>
+                )}
               </div>
               <div>
                 <RowList>
                   <Row term={<T en="What it does" fr="Ce qu'elle fait" />}>
                     <T en={company.description} fr={company.description_fr || company.description} />
                   </Row>
-                  {company.my_role && <Row term={<T en="Franck's role" fr="Le rôle de Franck" />}>{company.my_role}</Row>}
-                  {company.tags && company.tags.length > 0 && <Row term={<T en="Keywords" fr="Mots-clés" />}>{company.tags.join(", ")}</Row>}
+                  {company.my_role && (
+                    <Row term={<T en="Franck's role" fr="Le rôle de Franck" />}>
+                      <T en={company.my_role} fr={company.my_role_fr || company.my_role} />
+                    </Row>
+                  )}
+                  {company.tags && company.tags.length > 0 && (
+                    <Row term={<T en="Keywords" fr="Mots-clés" />}>
+                      <T en={company.tags.join(", ")} fr={(company.tags_fr?.length ? company.tags_fr : company.tags).join(", ")} />
+                    </Row>
+                  )}
                 </RowList>
                 <div className="mt-6 flex flex-wrap gap-3">
                   {company.website_url && (

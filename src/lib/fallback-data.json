@@ -22,13 +22,21 @@
       "stage_year": "Pre-seed · 2025",
       "my_role": "FROM 6 acts as a hands-on operator-investor, shaping pricing and packaging, GTM strategy, and the revenue platform architecture as the team turns an internal tool into a scalable B2B SaaS.",
       "status": "Active",
-      "project_video_url": "https://www.linkedin.com/posts/franckberthelot_you-can-feel-when-a-company-is-getting-sharper-ugcPost-7457337123168272384-JDCZ/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAApBiaQBINHsJm7MmrCsUbyefh-ZZHX4RAo"
+      "project_video_url": "https://www.linkedin.com/posts/franckberthelot_you-can-feel-when-a-company-is-getting-sharper-ugcPost-7457337123168272384-JDCZ/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAApBiaQBINHsJm7MmrCsUbyefh-ZZHX4RAo",
+      "stage_year_fr": "Pré-seed · 2025",
+      "my_role_fr": "FROM 6 intervient comme investisseur impliqué dans l'opérationnel : prix et offres, stratégie go-to-market et architecture de la plateforme de revenus, pendant que l'équipe transforme un outil interne en SaaS B2B capable de passer à l'échelle.",
+      "tags_fr": [
+        "Hôtellerie",
+        "Secteur MICE",
+        "SaaS vertical",
+        "Workflows IA"
+      ]
     },
     {
       "id": "ec3be327-7b24-4e5e-b411-7b782aaaa267",
       "name": "6WAY",
-      "description": "One app for strength training, running, nutrition and stats, with VOLT, an AI coach that logs workouts, meals and sleep from a sentence and writes dated race programs. Coaches follow their athletes from a dedicated dashboard. Live on the web, iPhone beta open on request.",
-      "description_fr": "Une seule app pour la musculation, le running, la nutrition et les statistiques, avec VOLT, un coach IA qui note séances, repas et sommeil à partir d'une phrase et écrit des programmes de course datés. Les coachs suivent leurs athlètes depuis un tableau de bord dédié. En ligne sur le web, bêta iPhone ouverte sur demande.",
+      "description": "One app for strength training, running, nutrition and stats, with VOLT, an AI coach that logs workouts, meals and sleep from a sentence and writes dated race programs. Coaches follow their athletes from a dedicated dashboard.",
+      "description_fr": "Une seule app pour la musculation, le running, la nutrition et les statistiques, avec VOLT, un coach IA qui note séances, repas et sommeil à partir d'une phrase et écrit des programmes de course datés. Les coachs suivent leurs athlètes depuis un tableau de bord dédié.",
       "logo_url": null,
       "website_url": "https://6way.app",
       "display_order": 1,
@@ -41,10 +49,17 @@
         "AI Coach",
         "Mobile App"
       ],
-      "stage_year": "Beta · 2026",
-      "my_role": "FROM 6 is co-founder and operator-builder: product and features, the coach app, pricing and go-to-market, built with Sonho Agency. The app is live on the web and in beta on iPhone via TestFlight.",
+      "stage_year": "Launched · 2026",
+      "my_role": "FROM 6 is co-founder and operator-builder: product and features, the coach app, pricing and go-to-market, built with Sonho Agency.",
       "status": "Active",
-      "project_video_url": null
+      "project_video_url": null,
+      "stage_year_fr": "Lancement · 2026",
+      "my_role_fr": "FROM 6 est cofondateur et construit le produit : fonctionnalités, application des coachs, prix et mise sur le marché, avec Sonho Agency.",
+      "tags_fr": [
+        "Santé et fitness",
+        "Coach IA",
+        "Application mobile"
+      ]
     },
     {
       "id": "71cf1fde-5232-4179-b24f-596f0ce32834",
@@ -66,7 +81,14 @@
       "stage_year": "Founded · 2026",
       "my_role": "FROM 6 is co-founder and operating partner, leading Salesforce and revenue-platform architecture, with work underway on an in-house product suite built on top of Salesforce infrastructure.",
       "status": "Active",
-      "project_video_url": null
+      "project_video_url": null,
+      "stage_year_fr": "Création · 2026",
+      "my_role_fr": "FROM 6 est cofondateur et associé opérationnel : il pilote l'architecture Salesforce et celle des plateformes de revenus, avec une suite de produits maison en cours de développement sur l'infrastructure Salesforce.",
+      "tags_fr": [
+        "RevOps",
+        "Salesforce / Lead-to-Cash",
+        "Workflows IA"
+      ]
     }
   ],
   "media_opportunities": [
@@ -74,9 +96,9 @@
       "id": "6c7b5efd-c197-4b4b-9517-af2374a9b8d7",
       "type": "Podcast Interview",
       "title": "Available for Podcast Interviews",
-      "title_fr": "Disponible pour des interviews podcast",
+      "title_fr": "Disponible pour des interviews en podcast",
       "description": "Open to discussing Lead-to-Cash architecture, RevOps optimization, B2B SaaS scaling, and AI-powered revenue workflows.",
-      "description_fr": "Disponible pour échanger sur l'architecture Lead-to-Cash, l'optimisation RevOps, la croissance des SaaS B2B et les workflows de revenus augmentés par l'IA.",
+      "description_fr": "Disponible pour échanger sur l'architecture Lead-to-Cash, l'optimisation RevOps, la croissance des SaaS B2B et les processus de revenus augmentés par l'IA.",
       "organization": "",
       "organization_fr": "",
       "date": "2025-11-25T13:35:55.020369+00:00",
@@ -124,7 +146,7 @@
       "created_at": "2026-02-12T10:37:20.126707+00:00",
       "updated_at": "2026-06-26T09:32:44.552918+00:00",
       "description": "Franck's path from finance to revenue architect, and his perspective on RevOps, commercial performance, and business architecture in B2B SaaS.",
-      "description_fr": "Le parcours de Franck, de la finance à architecte des systèmes de revenus, et sa vision du RevOps, de la performance commerciale et de l'architecture business en B2B SaaS."
+      "description_fr": "Le parcours de Franck, de la finance à architecte des systèmes de revenus, et sa vision du RevOps, de la performance commerciale et de l'architecture d'entreprise dans le SaaS B2B."
     },
     {
       "id": "a0efa249-58a0-4cec-89ab-d3181d86283d",
@@ -137,7 +159,7 @@
       "created_at": "2026-02-12T10:37:20.126707+00:00",
       "updated_at": "2026-06-26T09:32:44.552918+00:00",
       "description": "A conversation on growth strategy, revenue operations, and the foundations of an effective B2B SaaS billing and quote-to-cash motion.",
-      "description_fr": "Une conversation sur la stratégie de croissance, les opérations de revenus et les fondations d'une démarche de facturation et de quote-to-cash B2B SaaS efficace."
+      "description_fr": "Une conversation sur la stratégie de croissance, les opérations de revenus et les fondations d'une démarche efficace de facturation et de quote-to-cash pour le SaaS B2B."
     }
   ],
   "site_content": [
@@ -181,8 +203,8 @@
       "id": "5e900120-b483-47f7-b08f-155b44bfbf36",
       "section": "about",
       "key": "bio",
-      "content_en": "From 6 is the company through which I operate and invest. Darix, co-founded in 2026, is the Salesforce team that executes revenue-system projects: Lead-to-Cash, CPQ, Revenue Cloud, billing, integrations. 6WAY, in beta since 2026, is a training and nutrition app with an AI coach, live on the web and on iPhone by request. MicePro, where I invest, automates group sales for hotels and venues. The role is the same each time: build the systems behind the revenue, not only advise on them.",
-      "content_fr": "From 6 est la société par laquelle j'opère et j'investis. Darix, cofondée en 2026, est l'équipe Salesforce qui exécute les projets de systèmes de revenus : Lead-to-Cash, CPQ, Revenue Cloud, facturation, intégrations. 6WAY, en bêta depuis 2026, est une app d'entraînement et de nutrition avec un coach IA, en ligne sur le web et sur iPhone sur demande. MicePro, où j'investis, automatise les ventes groupes des hôtels et lieux d'événements. Le rôle est le même à chaque fois : construire les systèmes derrière le revenu, pas seulement conseiller.",
+      "content_en": "From 6 is the company through which I operate and invest. Darix, co-founded in 2026, is the Salesforce team that executes revenue-system projects: Lead-to-Cash, CPQ, Revenue Cloud, billing, integrations. 6WAY, launched in 2026, is a training and nutrition app with an AI coach. MicePro, where I invest, automates group sales for hotels and venues. The role is the same each time: build the systems behind the revenue, not only advise on them.",
+      "content_fr": "From 6 est la société avec laquelle j'entreprends et j'investis. Darix, cofondée en 2026, est l'équipe Salesforce qui exécute les projets de systèmes de revenus : Lead-to-Cash, CPQ, Revenue Cloud, facturation, intégrations. 6WAY, lancée en 2026, est une app d'entraînement et de nutrition avec un coach IA. MicePro, où j'investis, automatise les ventes groupes des hôtels et lieux d'événements. Le rôle est le même à chaque fois : construire les systèmes derrière les revenus, pas seulement conseiller.",
       "published": true,
       "created_at": "2025-11-25T13:37:56.718939+00:00",
       "updated_at": "2026-10-04T10:04:47.040425+00:00",

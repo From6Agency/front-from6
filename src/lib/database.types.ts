@@ -224,13 +224,16 @@ export type Database = {
           id: string
           logo_url: string | null
           my_role: string | null
+          my_role_fr?: string | null
           name: string
           project_video_url: string | null
           published: boolean | null
           role: string | null
           stage_year: string | null
+          stage_year_fr?: string | null
           status: string | null
           tags: string[] | null
+          tags_fr?: string[] | null
           updated_at: string | null
           website_url: string | null
         }

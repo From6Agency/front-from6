@@ -36,7 +36,7 @@ const PATH = [
   {
     term: { en: "Entrepreneurship", fr: "Entrepreneuriat" },
     en: "Co-founder of Darix and 6WAY, investor in MicePro. The advice comes from someone who still ships and still carries risk.",
-    fr: "Cofondateur de Darix et de 6WAY, investisseur dans MicePro. Le conseil vient de quelqu'un qui livre encore et porte encore du risque.",
+    fr: "Cofondateur de Darix et de 6WAY, investisseur dans MicePro. Mes conseils viennent de quelqu'un qui livre encore des projets et prend encore des risques.",
   },
 ];
 

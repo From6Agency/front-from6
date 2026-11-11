@@ -24,7 +24,7 @@ const UI = {
     "nav.investments": "Fondateurs",
     "nav.portfolio": "Projets",
     "nav.resources": "Ressources",
-    "nav.media": "Media",
+    "nav.media": "Médias",
     "nav.about": "À propos",
     "nav.contact": "Contact",
     "footer.legal": "Mentions légales",
