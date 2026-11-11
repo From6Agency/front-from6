@@ -1,16 +1,22 @@
 // L'offre Darix telle que publiée sur darix.io (src/lib/siteNav.ts du repo
 // darix, six lignes). From 6 la résume et renvoie le détail vers darix.io :
 // une page = un sujet, pas deux catalogues qui se concurrencent.
+//
+// darix.io n'a pas de page par offre (11/11/2026) : les six offres renvoient
+// toutes à la section Expertises de l'accueil, les autres liens à l'accueil.
 export const DARIX_URL = "https://darix.io";
+export const DARIX_EXPERTISE = "/#expertises";
 
 export function darixLink(path: string, campaign: string) {
-  return `${DARIX_URL}${path}?utm_source=from6agency&utm_medium=referral&utm_campaign=${campaign}`;
+  const [route, hash] = path.split("#");
+  const query = `utm_source=from6agency&utm_medium=referral&utm_campaign=${campaign}`;
+  return `${DARIX_URL}${route || "/"}?${query}${hash ? `#${hash}` : ""}`;
 }
 
 export const DARIX_OFFERS: Array<{ key: string; path: string; label: { en: string; fr: string }; teaser: { en: string; fr: string } }> = [
   {
     key: "advisory",
-    path: "/advisory",
+    path: DARIX_EXPERTISE,
     label: { en: "Advisory", fr: "Advisory" },
     teaser: {
       en: "Salesforce audits, architecture and roadmap, so you decide before you invest.",
@@ -19,7 +25,7 @@ export const DARIX_OFFERS: Array<{ key: string; path: string; label: { en: strin
   },
   {
     key: "quote-to-cash",
-    path: "/quote-to-cash",
+    path: DARIX_EXPERTISE,
     label: { en: "Quote-to-Cash", fr: "Quote-to-Cash" },
     teaser: {
       en: "From catalog to cash: CPQ, Revenue Cloud Advanced and billing.",
@@ -28,7 +34,7 @@ export const DARIX_OFFERS: Array<{ key: string; path: string; label: { en: strin
   },
   {
     key: "delivery",
-    path: "/delivery",
+    path: DARIX_EXPERTISE,
     label: { en: "Delivery", fr: "Delivery" },
     teaser: {
       en: "Architect-led Salesforce implementation, from scoping to go-live.",
@@ -37,7 +43,7 @@ export const DARIX_OFFERS: Array<{ key: string; path: string; label: { en: strin
   },
   {
     key: "integrations",
-    path: "/integrations",
+    path: DARIX_EXPERTISE,
     label: { en: "Integrations", fr: "Intégrations" },
     teaser: {
       en: "Governed flows between Salesforce, your ERP, your billing and your data platforms.",
@@ -46,7 +52,7 @@ export const DARIX_OFFERS: Array<{ key: string; path: string; label: { en: strin
   },
   {
     key: "service-excellence",
-    path: "/service-excellence",
+    path: DARIX_EXPERTISE,
     label: { en: "Service Excellence", fr: "Service Excellence" },
     teaser: {
       en: "Service Cloud and Field Service, from inbound case to on-site work order.",
@@ -55,7 +61,7 @@ export const DARIX_OFFERS: Array<{ key: string; path: string; label: { en: strin
   },
   {
     key: "augmented-intelligence",
-    path: "/augmented-intelligence",
+    path: DARIX_EXPERTISE,
     label: { en: "Augmented Intelligence", fr: "Augmented Intelligence" },
     teaser: {
       en: "AI applied to Salesforce as an accelerator, with the guardrails that make it usable.",
